@@ -1,4 +1,6 @@
-# Diting
+# 谛听 · Diting
+
+**可解释的车载 CAN 总线入侵检测、跨域评估与本地分析工作台。**
 
 **Interpretable CAN bus intrusion detection with cross-domain evaluation and a local analysis workbench.**
 
@@ -7,6 +9,17 @@
 ![React 18](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-frontend-3178C6?logo=typescript&logoColor=white)
 ![Local-first](https://img.shields.io/badge/Runtime-local--first-444444)
+
+## 项目简介
+
+谛听将 CAN 帧转换为固定窗口，提取 33 维统计特征，训练二分类攻击检测与五分类攻击识别模型，并通过 FastAPI + React 工作台提供真实冻结模型推理、阈值分析、跨数据集评估和逐窗口误差归因。
+
+- **真实推理**：支持注册验证样本与 candump 文本输入，返回攻击概率、五分类概率及局部特征贡献。
+- **跨域评估**：冻结模型、阈值、归一化参数与 ID 频率，在 OTIDS 上进行零样本评估。
+- **评估治理**：采用按片段划分、训练集归一化、阈值冻结与测试集封存，明确区分验证结果和适配上限。
+- **本地运行**：无需数据库、账户系统或外部运行时服务，附带前端构建产物和演示所需派生数据。
+
+## English overview
 
 Diting processes CAN frames into fixed windows, extracts 33 statistical features, and trains binary attack detection and five-class attack recognition models. A FastAPI + React workbench provides real frozen-model inference, threshold analysis, cross-dataset evaluation, and per-window error attribution.
 
