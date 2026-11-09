@@ -2,6 +2,12 @@
 
 **Interpretable CAN bus intrusion detection with cross-domain evaluation and a local analysis workbench.**
 
+![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-backend-009688?logo=fastapi&logoColor=white)
+![React 18](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-frontend-3178C6?logo=typescript&logoColor=white)
+![Local-first](https://img.shields.io/badge/Runtime-local--first-444444)
+
 Diting processes CAN frames into fixed windows, extracts 33 statistical features, and trains binary attack detection and five-class attack recognition models. A FastAPI + React workbench provides real frozen-model inference, threshold analysis, cross-dataset evaluation, and per-window error attribution.
 
 ![Diting workbench](docs/images/workbench.png)
@@ -54,11 +60,16 @@ The workbench also compares against the L0 rule baseline, whose F1 is 0.936286 u
 - OTIDS does not provide the truth labels required for a comparable five-class macro-F1.
 - The HCRL test partition remains sealed and is not loaded by the workbench.
 
+![Evaluation governance and error attribution](docs/images/governance.png)
+
 ## Run locally
 
 Requirements: Python 3.11+ and [uv](https://docs.astral.sh/uv/). The frontend production build is included, so Node.js is not required for normal use.
 
 ```bash
+git clone https://github.com/Yu-Peng-Tu/diting.git
+cd diting
+
 uv venv .venv
 uv pip install --python .venv/bin/python -e ".[dev]"
 
