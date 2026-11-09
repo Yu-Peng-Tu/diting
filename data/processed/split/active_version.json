@@ -1,0 +1,7 @@
+{
+  "version": "split-v2",
+  "updated_at": "2026-11-08T12:13:48+08:00",
+  "note": "当前生效的划分清单版本；split-v1 平铺文件按任务单要求保留不动",
+  "windows_path": "data/processed/split/split-v2/windows.parquet",
+  "manifest_path": "data/processed/split/split-v2/split_manifest.json"
+}

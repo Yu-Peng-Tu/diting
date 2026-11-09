@@ -1,0 +1,4 @@
+node_modules/
+# Production build is tracked for zero-build local startup.
+*.local
+.DS_Store

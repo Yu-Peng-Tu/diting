@@ -1,0 +1,50 @@
+{
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
+  "split_version": "split-v3",
+  "level": "window",
+  "threshold_used": 0.54,
+  "default_threshold": 0.5,
+  "by_type": {
+    "Normal": {
+      "role": "负类（只评估 FPR / 误报）",
+      "support": 9812,
+      "fpr": 0.000306,
+      "false_alarms": 3,
+      "segment_prefix_breakdown": {
+        "DoS": 2879,
+        "Fuzzy": 2471,
+        "RPM": 2309,
+        "Gear": 2153
+      }
+    },
+    "DoS": {
+      "role": "正类（只评估 Recall / 检出）",
+      "support": 2002,
+      "recall": 1.0,
+      "missed": 0,
+      "average_precision_vs_normal": 0.9999985
+    },
+    "Fuzzy": {
+      "role": "正类（只评估 Recall / 检出）",
+      "support": 2349,
+      "recall": 0.999149,
+      "missed": 2,
+      "average_precision_vs_normal": 0.99999405
+    },
+    "Gear": {
+      "role": "正类（只评估 Recall / 检出）",
+      "support": 2635,
+      "recall": 1.0,
+      "missed": 0,
+      "average_precision_vs_normal": 0.99999957
+    },
+    "RPM": {
+      "role": "正类（只评估 Recall / 检出）",
+      "support": 2479,
+      "recall": 1.0,
+      "missed": 0,
+      "average_precision_vs_normal": 0.99999951
+    }
+  }
+}

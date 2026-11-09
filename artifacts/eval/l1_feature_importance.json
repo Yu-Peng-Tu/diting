@@ -1,0 +1,292 @@
+{
+  "method": "sklearn.inspection.permutation_importance",
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
+  "scoring": "f1",
+  "n_repeats": 5,
+  "random_state": 20261108,
+  "n_features": 33,
+  "ranked": [
+    {
+      "rank": 1,
+      "feature": "g4_top1_id_ratio",
+      "group": "G4",
+      "importance_mean": 0.41767899,
+      "importance_std": 0.00297461
+    },
+    {
+      "rank": 2,
+      "feature": "g1_id_freq_std",
+      "group": "G1",
+      "importance_mean": 0.40727944,
+      "importance_std": 0.00260112
+    },
+    {
+      "rank": 3,
+      "feature": "g3_payload_change_rate",
+      "group": "G3",
+      "importance_mean": 0.03817367,
+      "importance_std": 0.00054268
+    },
+    {
+      "rank": 4,
+      "feature": "g3_hamming_mean",
+      "group": "G3",
+      "importance_mean": 0.01708067,
+      "importance_std": 0.00045658
+    },
+    {
+      "rank": 5,
+      "feature": "g1_id_freq_mean",
+      "group": "G1",
+      "importance_mean": 0.01334803,
+      "importance_std": 0.00040086
+    },
+    {
+      "rank": 6,
+      "feature": "g2_dt_std",
+      "group": "G2",
+      "importance_mean": 0.0007226,
+      "importance_std": 0.00019491
+    },
+    {
+      "rank": 7,
+      "feature": "g3_byte_entropy_mean",
+      "group": "G3",
+      "importance_mean": 0.00029145,
+      "importance_std": 0.0001242
+    },
+    {
+      "rank": 8,
+      "feature": "g2_dt_min",
+      "group": "G2",
+      "importance_mean": 0.00010136,
+      "importance_std": 8.594e-05
+    },
+    {
+      "rank": 9,
+      "feature": "g6_unique_payload_ratio",
+      "group": "G6",
+      "importance_mean": 6.334e-05,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 10,
+      "feature": "g2_same_id_dt_std",
+      "group": "G2",
+      "importance_mean": 5.067e-05,
+      "importance_std": 4.74e-05
+    },
+    {
+      "rank": 11,
+      "feature": "g4_unique_ids",
+      "group": "G4",
+      "importance_mean": 5.067e-05,
+      "importance_std": 2.534e-05
+    },
+    {
+      "rank": 12,
+      "feature": "g4_id_entropy",
+      "group": "G4",
+      "importance_mean": 5.067e-05,
+      "importance_std": 2.534e-05
+    },
+    {
+      "rank": 13,
+      "feature": "g4_min_id_share",
+      "group": "G4",
+      "importance_mean": 5.067e-05,
+      "importance_std": 2.534e-05
+    },
+    {
+      "rank": 14,
+      "feature": "g5_same_id_dt_max",
+      "group": "G5",
+      "importance_mean": 5.067e-05,
+      "importance_std": 2.534e-05
+    },
+    {
+      "rank": 15,
+      "feature": "g1_dlc_std",
+      "group": "G1",
+      "importance_mean": 2.534e-05,
+      "importance_std": 3.103e-05
+    },
+    {
+      "rank": 16,
+      "feature": "g2_dt_mean",
+      "group": "G2",
+      "importance_mean": 2.534e-05,
+      "importance_std": 5.068e-05
+    },
+    {
+      "rank": 17,
+      "feature": "g1_dlc_mean",
+      "group": "G1",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 18,
+      "feature": "g1_dlc_max",
+      "group": "G1",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 19,
+      "feature": "g1_id_freq_min",
+      "group": "G1",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 20,
+      "feature": "g3_byte_std",
+      "group": "G3",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 21,
+      "feature": "g4_frame_count",
+      "group": "G4",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 22,
+      "feature": "g5_same_id_dt_mean",
+      "group": "G5",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 23,
+      "feature": "g5_same_id_dt_std",
+      "group": "G5",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 24,
+      "feature": "g5_dt_p50",
+      "group": "G5",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 25,
+      "feature": "g6_payload_change_rate",
+      "group": "G6",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 26,
+      "feature": "g6_byte_entropy_mean",
+      "group": "G6",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 27,
+      "feature": "g6_dlc_entropy",
+      "group": "G6",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 28,
+      "feature": "g6_hamming_p95",
+      "group": "G6",
+      "importance_mean": 0.0,
+      "importance_std": 0.0
+    },
+    {
+      "rank": 29,
+      "feature": "g2_same_id_dt_cv",
+      "group": "G2",
+      "importance_mean": -1.266e-05,
+      "importance_std": 0.00010133
+    },
+    {
+      "rank": 30,
+      "feature": "g5_dt_p95",
+      "group": "G5",
+      "importance_mean": -1.266e-05,
+      "importance_std": 7.386e-05
+    },
+    {
+      "rank": 31,
+      "feature": "g2_dt_max",
+      "group": "G2",
+      "importance_mean": -2.533e-05,
+      "importance_std": 5.067e-05
+    },
+    {
+      "rank": 32,
+      "feature": "g2_same_id_dt_mean",
+      "group": "G2",
+      "importance_mean": -2.533e-05,
+      "importance_std": 3.103e-05
+    },
+    {
+      "rank": 33,
+      "feature": "g3_byte_mean",
+      "group": "G3",
+      "importance_mean": -6.333e-05,
+      "importance_std": 5.664e-05
+    }
+  ],
+  "by_group": [
+    {
+      "group": "G1",
+      "n_features": 6,
+      "sum_importance": 0.42065281,
+      "mean_importance": 0.0701088
+    },
+    {
+      "group": "G4",
+      "n_features": 5,
+      "sum_importance": 0.417831,
+      "mean_importance": 0.0835662
+    },
+    {
+      "group": "G3",
+      "n_features": 5,
+      "sum_importance": 0.05548246,
+      "mean_importance": 0.01109649
+    },
+    {
+      "group": "G2",
+      "n_features": 7,
+      "sum_importance": 0.00083665,
+      "mean_importance": 0.00011952
+    },
+    {
+      "group": "G6",
+      "n_features": 5,
+      "sum_importance": 6.334e-05,
+      "mean_importance": 1.267e-05
+    },
+    {
+      "group": "G5",
+      "n_features": 5,
+      "sum_importance": 3.801e-05,
+      "mean_importance": 7.6e-06
+    }
+  ],
+  "top10": [
+    "g4_top1_id_ratio",
+    "g1_id_freq_std",
+    "g3_payload_change_rate",
+    "g3_hamming_mean",
+    "g1_id_freq_mean",
+    "g2_dt_std",
+    "g3_byte_entropy_mean",
+    "g2_dt_min",
+    "g6_unique_payload_ratio",
+    "g2_same_id_dt_std"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "split_manifest_path": "data/processed/split/split-v3/split_manifest.json",
+  "split_manifest_sha256": "a1dfd8aae179d81ed626f1ff9cd70510b6630f0b46d3881f76db57c520477dc9",
+  "split_manifest_version": "split-v3",
+  "content_sha256": "2e8b6e6739475d6b5554d362145a255e7d1c5fa7f2e3939f7eebfed45378453f",
+  "split_windows": {
+    "train": 60256,
+    "val": 19277,
+    "test": 19952
+  },
+  "class_support_by_split": {
+    "train": {
+      "Normal": 30146,
+      "DoS": 6090,
+      "Fuzzy": 7681,
+      "Gear": 8209,
+      "RPM": 8130
+    },
+    "val": {
+      "Normal": 9812,
+      "DoS": 2002,
+      "Fuzzy": 2349,
+      "Gear": 2635,
+      "RPM": 2479
+    }
+  },
+  "test_set_status": "sealed — 原样沿用 split-v2 的 test 窗口集合，不读取特征/标签、不评估、不引用",
+  "note": "L1-v3 只读该清单用于版本绑定；test 集合原样沿用 split-v2，未读取任何 test 窗口"
+}

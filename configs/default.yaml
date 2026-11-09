@@ -1,0 +1,89 @@
+# 谛听 W1/W2 · 全局配置（YAML 驱动 + 固定随机种子）
+# 所有口径均为计划值/实测可替换；修改后需重跑 make reproduce 并更新 manifest。
+
+project:
+  name: diting
+  version: "0.2.0-w2-realdata"
+  seed: 20261108
+
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  artifacts: artifacts
+
+dataset:
+  name: "HCRL Car-Hacking Dataset"
+  official_page: "https://ocslab.hksecurity.net/Datasets/car-hacking-dataset"
+  paper_page: "https://arxiv.org/abs/1907.07377"
+  citation_primary: "Song, H. M., Woo, J., Kim, H. K., In-vehicle network intrusion detection using deep convolutional neural network, Vehicular Communications 21 (2020) 100198"
+  citation_secondary: "Seo, E., Song, H. M., Kim, H. K., GIDS: GAN based Intrusion Detection System for In-Vehicle Network, PST 2018"
+  license_note: "官方数据集用于学术用途须引用论文；本次副本经 Kaggle 镜像（MIT 许可）获取。原始数据不提交 git、不重新分发。"
+  # 官方页面 §1.1 数据属性：Timestamp / CAN ID(HEX) / DLC / DATA[0..7] / Flag(T|R)
+  schema_fields: [timestamp, can_id, dlc, data_0, data_1, data_2, data_3, data_4, data_5, data_6, data_7, flag]
+  flag_attack: "T"
+  flag_normal: "R"
+  # 官方页面 §1.2 各子集帧数（用于「行数与原始文件对得上」的核对基准）
+  official_counts:
+    DoS: 3665771
+    Fuzzy: 3838860
+    Gear: 4443142
+    RPM: 4621702
+    Attack-free: 988987
+
+# W2（TASK-20261108-1126）：真实数据本地化接入。
+# 本机 8GB 内存，全量约 1755 万帧不可一次性载入，按任务单第 6 条用配置化子集 + 流式分批。
+local_data:
+  enabled: true
+  dir: data/raw/car-hacking
+  zip:
+    # 相对项目根（diting）解析；只读校验，不改写
+    path: "data/raw/car-hacking-dataset.zip"
+    size_bytes: 137852368
+    sha256: "8d79a4d33fc9251541abd65a03b551076ae895f3df12b5aa24206b8db25f6cc5"
+  kaggle:
+    url: "https://www.kaggle.com/datasets/pranavjha24/car-hacking-dataset"
+    license: "MIT"
+  # 每个攻击集最多取前 N 行（默认不少于 100 万行/文件）；不足 N 行的文件全量使用
+  max_rows_per_file: 1000000
+  # 顺序扫描 Parquet 的批大小；归一化写 Parquet 的 row_group_size
+  chunk_size: 200000
+  # segment 切分：时间间隙 > 阈值，或单段帧数达上限（保证单段可放入内存）
+  gap_threshold: 0.02
+  segment_max_frames: 20000
+  whitelist:
+    - "https://ocslab.hksecurity.net/Datasets/car-hacking-dataset"
+    - "https://arxiv.org/abs/1907.07377"
+    - "https://www.kaggle.com/datasets/pranavjha24/car-hacking-dataset"
+
+window:
+  # 固定帧数窗口 N + 步长 N/2（重叠窗口），均为 C 类计划值
+  size_frames: 100
+  stride_frames: 50
+  # 窗口级标签：窗口内注入帧占比 >= theta 则标为攻击
+  attack_ratio_theta: 0.20
+
+split:
+  # 按连续片段分组 + 时间顺序 6:2:2（不逐帧随机打散）
+  ratios: {train: 0.6, val: 0.2, test: 0.2}
+  # W2 新版本号；split-v1 文件保留不动，v2 产物写入 data/processed/split/split-v2/
+  version: "split-v2"
+
+features:
+  version: "feat-v2"
+  # 只在训练折 fit 归一化参数（均值/方差）；golden vector 用固定样本
+  golden_sample_frames: 100
+  numeric_clip: 6.0
+
+baseline:
+  version: "l0-v2"
+  # L0 规则：窗口内帧密度（ID 频率）+ 周期间隔方差 的固定阈值（不训练）
+  # 仅在 val 上评估；阈值来源为训练折正常窗口的统计量（不接触测试集标签）
+  id_frequency_percentile: 95
+  interval_cv_percentile: 95
+  min_vote: 1
+
+eval:
+  version: "eval-v2"
+  # L0 是弱基线，真实数据上不保证 Recall 非零；如实记录指标，不因该自检阻断流水线
+  allow_zero_recall_on_real_data: true

@@ -1,0 +1,81 @@
+# 谛听 W4 · OTIDS（Kia Soul）跨域零样本验证配置
+# 新增文件，不改动 configs/default.yaml / l1.yaml / l1_v3.yaml（既有输入保持只读）。
+# 铁律：模型与阈值在 HCRL Car-Hacking（Hyundai）上训练完毕后完全冻结，
+#       OTIDS 侧只做零样本推理；特征管线的归一化参数与 ID 频次表同样冻结复用。
+
+xdomain:
+  version: "xdomain-otids-v1"
+  seed: 20261108
+  task: "TASK-20261109-0827-谛听W4跨域验证OTIDS"
+
+  # 数据边界声明（写进每一份 metrics 产物，防止被误引用为同分布 / 实车指标）
+  data_scope: "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估"
+  data_scope_short: "otids-full / window-level / zero-shot"
+  dataset: "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）"
+  evaluated_on: "otids_full_zeroshot"
+  level: "window"
+  source_tag: "public:otids:kia-soul"
+  test_set_status: "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口"
+
+  input_zip:
+    path: "data/raw/otids-dataset.zip"
+    sha256: "4605238308e1090b5d4e5fdd53fc1ba85e55a1caca2fb932d1e037ee7ca02d17"
+    size_bytes: 209643319
+    expected_members:
+      - dataset.csv
+      - dataset1.csv
+      - dataset2.csv
+      - dataset3.csv
+      - CAN_HCRL_OTIDS_B.csv
+      - CAN_HCRL_OTIDS_UB.csv
+
+  # 主口径只用 4 个逐帧带标签文件；B / UB 仅作规模参考，禁止作为评估口径
+  files:
+    - {name: dataset.csv,  session_id: OTIDS_AttackFree,    file_label: 0, attack_kind: Normal}
+    - {name: dataset1.csv, session_id: OTIDS_DoS,           file_label: 1, attack_kind: DoS}
+    - {name: dataset2.csv, session_id: OTIDS_Fuzzy,         file_label: 2, attack_kind: Fuzzy}
+    - {name: dataset3.csv, session_id: OTIDS_Impersonation, file_label: 3, attack_kind: Impersonation}
+  excluded_files:
+    - CAN_HCRL_OTIDS_B.csv
+    - CAN_HCRL_OTIDS_UB.csv
+
+  # 冻结资产（只读），任何一项校验和不符即停工
+  frozen:
+    model_dir: artifacts/models/l1_v3
+    model_joblib: artifacts/models/l1_v3/model.joblib
+    threshold_json: artifacts/models/l1_v3/threshold.json
+    features_json: artifacts/models/l1_v3/features.json
+    manifest_json: artifacts/models/l1_v3/manifest.json
+    feature_params: artifacts/features/feature_params.json
+    id_frequency: artifacts/features/id_frequency_train.json
+    hcrl_features_norm: data/processed/features/window_features.parquet
+    hcrl_split_v3_windows: data/processed/split/split-v3/windows.parquet
+    frozen_threshold: 0.54
+    default_threshold: 0.5
+
+  # 窗口参数与 HCRL 侧（configs/default.yaml + local_data）完全一致
+  window:
+    size_frames: 100
+    stride_frames: 50
+    attack_ratio_theta: 0.20
+    gap_threshold: 0.02
+    segment_max_frames: 20000
+    chunk_size: 200000
+
+  # 标签口径
+  label_policy:
+    primary: "帧 label = 文件级 target>0；窗口 label = attack_ratio>=0.20（复用 HCRL 同一 build_windows）"
+    official_sensitivity: "DoS: can_id==0x000；Fuzzy/Impersonation: ts - t_start >= 250s；Attack-free: 0；再按 θ=0.20 窗口化"
+    official_attack_start_s: 250.0
+    official_dos_injected_can_id: 0
+
+  # 「仅调阈值」适配上限对照
+  adaptation:
+    eval_ratio: 0.5
+    threshold_grid: {start: 0.05, stop: 0.95, step: 0.01}
+    criterion: "max_youden_j"
+
+  outputs:
+    processed_dir: data/processed/otids
+    eval_dir: artifacts/eval
+    report_dir: "artifacts/reports/xdomain"

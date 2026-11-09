@@ -1,0 +1,1152 @@
+{
+  "evaluated_on": "otids_adapted_vs_zeroshot_comparison",
+  "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+  "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",
+  "level": "window",
+  "source_tag": "public:otids:kia-soul",
+  "label_policy": "primary_file_level_theta_0_20",
+  "threshold": 0.05,
+  "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+  "model_version": "l1-gbdt-v3",
+  "threshold_version": "l1-v3-thr-v1",
+  "policy": "并列报出，严禁混报：适配上限明确标注为非零样本",
+  "stratification": {
+    "sampling_unit": "segment_id",
+    "stratification_key": "session_id 前缀（攻击类型）",
+    "seed": 20261108,
+    "per_stratum_plan": {
+      "OTIDS_AttackFree": {
+        "n_segments": 119,
+        "n_windows": 47268,
+        "n_segments_adapt": 60,
+        "n_segments_eval": 59,
+        "target_adapt_windows": 23634,
+        "selected_adapt_windows": 23727
+      },
+      "OTIDS_DoS": {
+        "n_segments": 38,
+        "n_windows": 13089,
+        "n_segments_adapt": 19,
+        "n_segments_eval": 19,
+        "target_adapt_windows": 6544,
+        "selected_adapt_windows": 6419
+      },
+      "OTIDS_Fuzzy": {
+        "n_segments": 33,
+        "n_windows": 11802,
+        "n_segments_adapt": 17,
+        "n_segments_eval": 16,
+        "target_adapt_windows": 5901,
+        "selected_adapt_windows": 5960
+      },
+      "OTIDS_Impersonation": {
+        "n_segments": 53,
+        "n_windows": 19854,
+        "n_segments_adapt": 27,
+        "n_segments_eval": 26,
+        "target_adapt_windows": 9927,
+        "selected_adapt_windows": 9902
+      }
+    }
+  },
+  "fold_sizes": {
+    "adapt": 46008,
+    "eval": 46005,
+    "total": 92013,
+    "adapt_positive": 22281,
+    "eval_positive": 22464
+  },
+  "threshold_calibration": {
+    "criterion": "max_youden_j",
+    "calibrated_on": "otids_adapt_fold",
+    "model_weights_modified": false,
+    "adapt_fold_used_for": "threshold calibration only",
+    "grid_range": [
+      0.05,
+      0.95,
+      0.01
+    ],
+    "n_grid_points": 91,
+    "selected_threshold": 0.05,
+    "selected_youden_j": 0.994659,
+    "tie_breaker": "prefer_higher_threshold",
+    "curve": [
+      {
+        "threshold": 0.05,
+        "recall": 0.994659,
+        "fpr": 0.0,
+        "youden_j": 0.994659,
+        "tp": 22162,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 119
+      },
+      {
+        "threshold": 0.06,
+        "recall": 0.994165,
+        "fpr": 0.0,
+        "youden_j": 0.994165,
+        "tp": 22151,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 130
+      },
+      {
+        "threshold": 0.07,
+        "recall": 0.993402,
+        "fpr": 0.0,
+        "youden_j": 0.993402,
+        "tp": 22134,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 147
+      },
+      {
+        "threshold": 0.08,
+        "recall": 0.99246,
+        "fpr": 0.0,
+        "youden_j": 0.99246,
+        "tp": 22113,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 168
+      },
+      {
+        "threshold": 0.09,
+        "recall": 0.991114,
+        "fpr": 0.0,
+        "youden_j": 0.991114,
+        "tp": 22083,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 198
+      },
+      {
+        "threshold": 0.1,
+        "recall": 0.990081,
+        "fpr": 0.0,
+        "youden_j": 0.990081,
+        "tp": 22060,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 221
+      },
+      {
+        "threshold": 0.11,
+        "recall": 0.988106,
+        "fpr": 0.0,
+        "youden_j": 0.988106,
+        "tp": 22016,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 265
+      },
+      {
+        "threshold": 0.12,
+        "recall": 0.986356,
+        "fpr": 0.0,
+        "youden_j": 0.986356,
+        "tp": 21977,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 304
+      },
+      {
+        "threshold": 0.13,
+        "recall": 0.983753,
+        "fpr": 0.0,
+        "youden_j": 0.983753,
+        "tp": 21919,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 362
+      },
+      {
+        "threshold": 0.14,
+        "recall": 0.981374,
+        "fpr": 0.0,
+        "youden_j": 0.981374,
+        "tp": 21866,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 415
+      },
+      {
+        "threshold": 0.15,
+        "recall": 0.97922,
+        "fpr": 0.0,
+        "youden_j": 0.97922,
+        "tp": 21818,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 463
+      },
+      {
+        "threshold": 0.16,
+        "recall": 0.977784,
+        "fpr": 0.0,
+        "youden_j": 0.977784,
+        "tp": 21786,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 495
+      },
+      {
+        "threshold": 0.17,
+        "recall": 0.97545,
+        "fpr": 0.0,
+        "youden_j": 0.97545,
+        "tp": 21734,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 547
+      },
+      {
+        "threshold": 0.18,
+        "recall": 0.974014,
+        "fpr": 0.0,
+        "youden_j": 0.974014,
+        "tp": 21702,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 579
+      },
+      {
+        "threshold": 0.19,
+        "recall": 0.972218,
+        "fpr": 0.0,
+        "youden_j": 0.972218,
+        "tp": 21662,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 619
+      },
+      {
+        "threshold": 0.2,
+        "recall": 0.970782,
+        "fpr": 0.0,
+        "youden_j": 0.970782,
+        "tp": 21630,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 651
+      },
+      {
+        "threshold": 0.21,
+        "recall": 0.96966,
+        "fpr": 0.0,
+        "youden_j": 0.96966,
+        "tp": 21605,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 676
+      },
+      {
+        "threshold": 0.22,
+        "recall": 0.967641,
+        "fpr": 0.0,
+        "youden_j": 0.967641,
+        "tp": 21560,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 721
+      },
+      {
+        "threshold": 0.23,
+        "recall": 0.96616,
+        "fpr": 0.0,
+        "youden_j": 0.96616,
+        "tp": 21527,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 754
+      },
+      {
+        "threshold": 0.24,
+        "recall": 0.964634,
+        "fpr": 0.0,
+        "youden_j": 0.964634,
+        "tp": 21493,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 788
+      },
+      {
+        "threshold": 0.25,
+        "recall": 0.962345,
+        "fpr": 0.0,
+        "youden_j": 0.962345,
+        "tp": 21442,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 839
+      },
+      {
+        "threshold": 0.26,
+        "recall": 0.960953,
+        "fpr": 0.0,
+        "youden_j": 0.960953,
+        "tp": 21411,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 870
+      },
+      {
+        "threshold": 0.27,
+        "recall": 0.958709,
+        "fpr": 0.0,
+        "youden_j": 0.958709,
+        "tp": 21361,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 920
+      },
+      {
+        "threshold": 0.28,
+        "recall": 0.95651,
+        "fpr": 0.0,
+        "youden_j": 0.95651,
+        "tp": 21312,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 969
+      },
+      {
+        "threshold": 0.29,
+        "recall": 0.953638,
+        "fpr": 0.0,
+        "youden_j": 0.953638,
+        "tp": 21248,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1033
+      },
+      {
+        "threshold": 0.3,
+        "recall": 0.950182,
+        "fpr": 0.0,
+        "youden_j": 0.950182,
+        "tp": 21171,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1110
+      },
+      {
+        "threshold": 0.31,
+        "recall": 0.94713,
+        "fpr": 0.0,
+        "youden_j": 0.94713,
+        "tp": 21103,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1178
+      },
+      {
+        "threshold": 0.32,
+        "recall": 0.944437,
+        "fpr": 0.0,
+        "youden_j": 0.944437,
+        "tp": 21043,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1238
+      },
+      {
+        "threshold": 0.33,
+        "recall": 0.940981,
+        "fpr": 0.0,
+        "youden_j": 0.940981,
+        "tp": 20966,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1315
+      },
+      {
+        "threshold": 0.34,
+        "recall": 0.937929,
+        "fpr": 0.0,
+        "youden_j": 0.937929,
+        "tp": 20898,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1383
+      },
+      {
+        "threshold": 0.35,
+        "recall": 0.934339,
+        "fpr": 0.0,
+        "youden_j": 0.934339,
+        "tp": 20818,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1463
+      },
+      {
+        "threshold": 0.36,
+        "recall": 0.930883,
+        "fpr": 0.0,
+        "youden_j": 0.930883,
+        "tp": 20741,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1540
+      },
+      {
+        "threshold": 0.37,
+        "recall": 0.927382,
+        "fpr": 0.0,
+        "youden_j": 0.927382,
+        "tp": 20663,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1618
+      },
+      {
+        "threshold": 0.38,
+        "recall": 0.923388,
+        "fpr": 0.0,
+        "youden_j": 0.923388,
+        "tp": 20574,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1707
+      },
+      {
+        "threshold": 0.39,
+        "recall": 0.919528,
+        "fpr": 0.0,
+        "youden_j": 0.919528,
+        "tp": 20488,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1793
+      },
+      {
+        "threshold": 0.4,
+        "recall": 0.915085,
+        "fpr": 0.0,
+        "youden_j": 0.915085,
+        "tp": 20389,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1892
+      },
+      {
+        "threshold": 0.41,
+        "recall": 0.910417,
+        "fpr": 0.0,
+        "youden_j": 0.910417,
+        "tp": 20285,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 1996
+      },
+      {
+        "threshold": 0.42,
+        "recall": 0.904448,
+        "fpr": 0.0,
+        "youden_j": 0.904448,
+        "tp": 20152,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 2129
+      },
+      {
+        "threshold": 0.43,
+        "recall": 0.899062,
+        "fpr": 0.0,
+        "youden_j": 0.899062,
+        "tp": 20032,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 2249
+      },
+      {
+        "threshold": 0.44,
+        "recall": 0.893811,
+        "fpr": 0.0,
+        "youden_j": 0.893811,
+        "tp": 19915,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 2366
+      },
+      {
+        "threshold": 0.45,
+        "recall": 0.88847,
+        "fpr": 0.0,
+        "youden_j": 0.88847,
+        "tp": 19796,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 2485
+      },
+      {
+        "threshold": 0.46,
+        "recall": 0.882815,
+        "fpr": 0.0,
+        "youden_j": 0.882815,
+        "tp": 19670,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 2611
+      },
+      {
+        "threshold": 0.47,
+        "recall": 0.877878,
+        "fpr": 0.0,
+        "youden_j": 0.877878,
+        "tp": 19560,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 2721
+      },
+      {
+        "threshold": 0.48,
+        "recall": 0.87137,
+        "fpr": 0.0,
+        "youden_j": 0.87137,
+        "tp": 19415,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 2866
+      },
+      {
+        "threshold": 0.49,
+        "recall": 0.865536,
+        "fpr": 0.0,
+        "youden_j": 0.865536,
+        "tp": 19285,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 2996
+      },
+      {
+        "threshold": 0.5,
+        "recall": 0.85822,
+        "fpr": 0.0,
+        "youden_j": 0.85822,
+        "tp": 19122,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 3159
+      },
+      {
+        "threshold": 0.51,
+        "recall": 0.850815,
+        "fpr": 0.0,
+        "youden_j": 0.850815,
+        "tp": 18957,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 3324
+      },
+      {
+        "threshold": 0.52,
+        "recall": 0.84296,
+        "fpr": 0.0,
+        "youden_j": 0.84296,
+        "tp": 18782,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 3499
+      },
+      {
+        "threshold": 0.53,
+        "recall": 0.834972,
+        "fpr": 0.0,
+        "youden_j": 0.834972,
+        "tp": 18604,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 3677
+      },
+      {
+        "threshold": 0.54,
+        "recall": 0.827431,
+        "fpr": 0.0,
+        "youden_j": 0.827431,
+        "tp": 18436,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 3845
+      },
+      {
+        "threshold": 0.55,
+        "recall": 0.820295,
+        "fpr": 0.0,
+        "youden_j": 0.820295,
+        "tp": 18277,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 4004
+      },
+      {
+        "threshold": 0.56,
+        "recall": 0.812845,
+        "fpr": 0.0,
+        "youden_j": 0.812845,
+        "tp": 18111,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 4170
+      },
+      {
+        "threshold": 0.57,
+        "recall": 0.804632,
+        "fpr": 0.0,
+        "youden_j": 0.804632,
+        "tp": 17928,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 4353
+      },
+      {
+        "threshold": 0.58,
+        "recall": 0.793681,
+        "fpr": 0.0,
+        "youden_j": 0.793681,
+        "tp": 17684,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 4597
+      },
+      {
+        "threshold": 0.59,
+        "recall": 0.781608,
+        "fpr": 0.0,
+        "youden_j": 0.781608,
+        "tp": 17415,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 4866
+      },
+      {
+        "threshold": 0.6,
+        "recall": 0.768772,
+        "fpr": 0.0,
+        "youden_j": 0.768772,
+        "tp": 17129,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 5152
+      },
+      {
+        "threshold": 0.61,
+        "recall": 0.75441,
+        "fpr": 0.0,
+        "youden_j": 0.75441,
+        "tp": 16809,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 5472
+      },
+      {
+        "threshold": 0.62,
+        "recall": 0.741798,
+        "fpr": 0.0,
+        "youden_j": 0.741798,
+        "tp": 16528,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 5753
+      },
+      {
+        "threshold": 0.63,
+        "recall": 0.728244,
+        "fpr": 0.0,
+        "youden_j": 0.728244,
+        "tp": 16226,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 6055
+      },
+      {
+        "threshold": 0.64,
+        "recall": 0.716081,
+        "fpr": 0.0,
+        "youden_j": 0.716081,
+        "tp": 15955,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 6326
+      },
+      {
+        "threshold": 0.65,
+        "recall": 0.703963,
+        "fpr": 0.0,
+        "youden_j": 0.703963,
+        "tp": 15685,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 6596
+      },
+      {
+        "threshold": 0.66,
+        "recall": 0.692204,
+        "fpr": 0.0,
+        "youden_j": 0.692204,
+        "tp": 15423,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 6858
+      },
+      {
+        "threshold": 0.67,
+        "recall": 0.680355,
+        "fpr": 0.0,
+        "youden_j": 0.680355,
+        "tp": 15159,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 7122
+      },
+      {
+        "threshold": 0.68,
+        "recall": 0.668193,
+        "fpr": 0.0,
+        "youden_j": 0.668193,
+        "tp": 14888,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 7393
+      },
+      {
+        "threshold": 0.69,
+        "recall": 0.658678,
+        "fpr": 0.0,
+        "youden_j": 0.658678,
+        "tp": 14676,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 7605
+      },
+      {
+        "threshold": 0.7,
+        "recall": 0.65235,
+        "fpr": 0.0,
+        "youden_j": 0.65235,
+        "tp": 14535,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 7746
+      },
+      {
+        "threshold": 0.71,
+        "recall": 0.645932,
+        "fpr": 0.0,
+        "youden_j": 0.645932,
+        "tp": 14392,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 7889
+      },
+      {
+        "threshold": 0.72,
+        "recall": 0.639783,
+        "fpr": 0.0,
+        "youden_j": 0.639783,
+        "tp": 14255,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 8026
+      },
+      {
+        "threshold": 0.73,
+        "recall": 0.632871,
+        "fpr": 0.0,
+        "youden_j": 0.632871,
+        "tp": 14101,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 8180
+      },
+      {
+        "threshold": 0.74,
+        "recall": 0.626588,
+        "fpr": 0.0,
+        "youden_j": 0.626588,
+        "tp": 13961,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 8320
+      },
+      {
+        "threshold": 0.75,
+        "recall": 0.620394,
+        "fpr": 0.0,
+        "youden_j": 0.620394,
+        "tp": 13823,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 8458
+      },
+      {
+        "threshold": 0.76,
+        "recall": 0.613931,
+        "fpr": 0.0,
+        "youden_j": 0.613931,
+        "tp": 13679,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 8602
+      },
+      {
+        "threshold": 0.77,
+        "recall": 0.606167,
+        "fpr": 0.0,
+        "youden_j": 0.606167,
+        "tp": 13506,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 8775
+      },
+      {
+        "threshold": 0.78,
+        "recall": 0.598088,
+        "fpr": 0.0,
+        "youden_j": 0.598088,
+        "tp": 13326,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 8955
+      },
+      {
+        "threshold": 0.79,
+        "recall": 0.591535,
+        "fpr": 0.0,
+        "youden_j": 0.591535,
+        "tp": 13180,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 9101
+      },
+      {
+        "threshold": 0.8,
+        "recall": 0.584534,
+        "fpr": 0.0,
+        "youden_j": 0.584534,
+        "tp": 13024,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 9257
+      },
+      {
+        "threshold": 0.81,
+        "recall": 0.578744,
+        "fpr": 0.0,
+        "youden_j": 0.578744,
+        "tp": 12895,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 9386
+      },
+      {
+        "threshold": 0.82,
+        "recall": 0.572416,
+        "fpr": 0.0,
+        "youden_j": 0.572416,
+        "tp": 12754,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 9527
+      },
+      {
+        "threshold": 0.83,
+        "recall": 0.566177,
+        "fpr": 0.0,
+        "youden_j": 0.566177,
+        "tp": 12615,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 9666
+      },
+      {
+        "threshold": 0.84,
+        "recall": 0.560253,
+        "fpr": 0.0,
+        "youden_j": 0.560253,
+        "tp": 12483,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 9798
+      },
+      {
+        "threshold": 0.85,
+        "recall": 0.554329,
+        "fpr": 0.0,
+        "youden_j": 0.554329,
+        "tp": 12351,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 9930
+      },
+      {
+        "threshold": 0.86,
+        "recall": 0.548808,
+        "fpr": 0.0,
+        "youden_j": 0.548808,
+        "tp": 12228,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 10053
+      },
+      {
+        "threshold": 0.87,
+        "recall": 0.544455,
+        "fpr": 0.0,
+        "youden_j": 0.544455,
+        "tp": 12131,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 10150
+      },
+      {
+        "threshold": 0.88,
+        "recall": 0.540326,
+        "fpr": 0.0,
+        "youden_j": 0.540326,
+        "tp": 12039,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 10242
+      },
+      {
+        "threshold": 0.89,
+        "recall": 0.536601,
+        "fpr": 0.0,
+        "youden_j": 0.536601,
+        "tp": 11956,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 10325
+      },
+      {
+        "threshold": 0.9,
+        "recall": 0.533594,
+        "fpr": 0.0,
+        "youden_j": 0.533594,
+        "tp": 11889,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 10392
+      },
+      {
+        "threshold": 0.91,
+        "recall": 0.530407,
+        "fpr": 0.0,
+        "youden_j": 0.530407,
+        "tp": 11818,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 10463
+      },
+      {
+        "threshold": 0.92,
+        "recall": 0.526233,
+        "fpr": 0.0,
+        "youden_j": 0.526233,
+        "tp": 11725,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 10556
+      },
+      {
+        "threshold": 0.93,
+        "recall": 0.52179,
+        "fpr": 0.0,
+        "youden_j": 0.52179,
+        "tp": 11626,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 10655
+      },
+      {
+        "threshold": 0.94,
+        "recall": 0.517616,
+        "fpr": 0.0,
+        "youden_j": 0.517616,
+        "tp": 11533,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 10748
+      },
+      {
+        "threshold": 0.95,
+        "recall": 0.511557,
+        "fpr": 0.0,
+        "youden_j": 0.511557,
+        "tp": 11398,
+        "fp": 0,
+        "tn": 23727,
+        "fn": 10883
+      }
+    ]
+  },
+  "rows": [
+    {
+      "policy": "otids_zeroshot",
+      "evaluated_on": "otids_zeroshot",
+      "fold": "adapt+eval 全量 OTIDS 窗口",
+      "threshold": 0.54,
+      "threshold_source": "HCRL split-v3 val 冻结阈值 0.54",
+      "model_weights_modified": false,
+      "metrics": {
+        "n_samples": 92013,
+        "n_positive": 44745,
+        "n_negative": 47268,
+        "tp": 37666,
+        "fp": 0,
+        "tn": 47268,
+        "fn": 7079,
+        "recall": 0.841792,
+        "precision": 1.0,
+        "fpr": 0.0,
+        "f1": 0.914101,
+        "false_alarms_per_10k_normal": 0.0,
+        "confusion_matrix": {
+          "labels": [
+            "Normal",
+            "Attack"
+          ],
+          "matrix": [
+            [
+              47268,
+              0
+            ],
+            [
+              7079,
+              37666
+            ]
+          ]
+        },
+        "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+        "average_precision": 0.99983824,
+        "roc_auc": 0.99980539,
+        "evaluated_on": "otids_zeroshot",
+        "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+        "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",
+        "level": "window",
+        "source_tag": "public:otids:kia-soul",
+        "label_policy": "primary_file_level_theta_0_20",
+        "threshold": 0.54,
+        "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+        "model_version": "l1-gbdt-v3",
+        "threshold_version": "l1-v3-thr-v1",
+        "confusion_matrix_note": "行=真实，列=预测；labels=[Normal, Attack]"
+      }
+    },
+    {
+      "policy": "otids_adapted",
+      "evaluated_on": "otids_adapted",
+      "fold": "eval 折（另一半 OTIDS 窗口）",
+      "threshold": 0.05,
+      "threshold_source": "OTIDS adapt 折上重新标定（仅阈值，模型权重不动）",
+      "model_weights_modified": false,
+      "metrics": {
+        "n_samples": 46005,
+        "n_positive": 22464,
+        "n_negative": 23541,
+        "tp": 22382,
+        "fp": 0,
+        "tn": 23541,
+        "fn": 82,
+        "recall": 0.99635,
+        "precision": 1.0,
+        "fpr": 0.0,
+        "f1": 0.998172,
+        "false_alarms_per_10k_normal": 0.0,
+        "confusion_matrix": {
+          "labels": [
+            "Normal",
+            "Attack"
+          ],
+          "matrix": [
+            [
+              23541,
+              0
+            ],
+            [
+              82,
+              22382
+            ]
+          ]
+        },
+        "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+        "average_precision": 0.99986133,
+        "roc_auc": 0.9998333,
+        "evaluated_on": "otids_adapted",
+        "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+        "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",
+        "level": "window",
+        "source_tag": "public:otids:kia-soul",
+        "label_policy": "primary_file_level_theta_0_20",
+        "threshold": 0.05,
+        "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+        "model_version": "l1-gbdt-v3",
+        "threshold_version": "otids-adapted-thr-v1",
+        "confusion_matrix_note": "行=真实，列=预测；labels=[Normal, Attack]"
+      }
+    },
+    {
+      "policy": "otids_zeroshot_on_eval_fold",
+      "evaluated_on": "otids_zeroshot",
+      "fold": "eval 折（同一半窗口，用于隔离阈值贡献）",
+      "threshold": 0.54,
+      "threshold_source": "HCRL split-v3 val 冻结阈值 0.54",
+      "model_weights_modified": false,
+      "metrics": {
+        "n_samples": 46005,
+        "n_positive": 22464,
+        "n_negative": 23541,
+        "tp": 19230,
+        "fp": 0,
+        "tn": 23541,
+        "fn": 3234,
+        "recall": 0.856036,
+        "precision": 1.0,
+        "fpr": 0.0,
+        "f1": 0.922435,
+        "false_alarms_per_10k_normal": 0.0,
+        "confusion_matrix": {
+          "labels": [
+            "Normal",
+            "Attack"
+          ],
+          "matrix": [
+            [
+              23541,
+              0
+            ],
+            [
+              3234,
+              19230
+            ]
+          ]
+        },
+        "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+        "average_precision": 0.99986133,
+        "roc_auc": 0.9998333,
+        "evaluated_on": "otids_zeroshot",
+        "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+        "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",
+        "level": "window",
+        "source_tag": "public:otids:kia-soul",
+        "label_policy": "primary_file_level_theta_0_20",
+        "threshold": 0.54,
+        "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+        "model_version": "l1-gbdt-v3",
+        "threshold_version": "l1-v3-thr-v1",
+        "confusion_matrix_note": "行=真实，列=预测；labels=[Normal, Attack]"
+      }
+    }
+  ],
+  "same_eval_fold_delta_vs_frozen": {
+    "threshold_frozen": 0.54,
+    "threshold_adapted": 0.05,
+    "f1_delta": 0.075737,
+    "recall_delta": 0.140314,
+    "fpr_delta": 0.0,
+    "note": "仅在完全相同的 eval 折上对比两个阈值，隔离『换阈值』的净贡献；该差值不含评估集变化，是适配上限最干净的证据"
+  }
+}

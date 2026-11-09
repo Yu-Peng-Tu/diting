@@ -1,0 +1,100 @@
+{
+  "macro_precision": 0.999628,
+  "macro_recall": 0.999757,
+  "macro_f1": 0.999693,
+  "per_class": {
+    "Normal": {
+      "precision": 0.999796,
+      "recall": 0.999592,
+      "f1": 0.999694,
+      "support": 9812
+    },
+    "DoS": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 2002
+    },
+    "Fuzzy": {
+      "precision": 0.998724,
+      "recall": 0.999574,
+      "f1": 0.999149,
+      "support": 2349
+    },
+    "Gear": {
+      "precision": 0.99962,
+      "recall": 0.99962,
+      "f1": 0.99962,
+      "support": 2635
+    },
+    "RPM": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 2479
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "Normal",
+      "DoS",
+      "Fuzzy",
+      "Gear",
+      "RPM"
+    ],
+    "matrix": [
+      [
+        9808,
+        0,
+        3,
+        1,
+        0
+      ],
+      [
+        0,
+        2002,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        2348,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        2634,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        2479
+      ]
+    ],
+    "note": "行=真实类别，列=预测类别；固定 5 类顺序"
+  },
+  "gear_rpm_confusion": {
+    "Gear_predicted_as_RPM": 0,
+    "RPM_predicted_as_Gear": 0,
+    "total_bidirectional": 0,
+    "observable_on_val": true
+  },
+  "model_classes_seen_in_train": [
+    "DoS",
+    "Fuzzy",
+    "Gear",
+    "Normal",
+    "RPM"
+  ],
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
+  "level": "window"
+}

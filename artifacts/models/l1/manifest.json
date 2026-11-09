@@ -1,0 +1,93 @@
+{
+  "manifest_version": "1.0",
+  "stage": "l1_model",
+  "project": "diting",
+  "project_version": "l1-gbdt-v1",
+  "code_version": "0.2.0",
+  "git_revision": "dfc452a17950523ef7e495c8a2cd5b25a5f61bdc",
+  "config_path": "./configs/l1.yaml",
+  "config_sha256": "21dd03481449ba162920bc8887a65e345f4242f153ea174ff861c7189a7ddf0c",
+  "random_seed": 20261108,
+  "created_at": "2026-11-08T14:01:11+08:00",
+  "inputs": [
+    {
+      "path": "data/processed/features/window_features.parquet",
+      "exists": true,
+      "size_bytes": 16725119,
+      "sha256": "fbccb346f817e17a90fcda813ea3276e0236105a6cf4b8ccd3a5aeec27352418"
+    },
+    {
+      "path": "data/processed/labels/window_labels.parquet",
+      "exists": true,
+      "size_bytes": 3421847,
+      "sha256": "385068169b127b833065115bce721f487312c718b3b56c39032b9a8236708614"
+    },
+    {
+      "path": "data/processed/split/split-v2/split_manifest.json",
+      "exists": true,
+      "size_bytes": 8361,
+      "sha256": "b514e5d2a39bcca98ff984daf8f31eb22afd8ee01804ab739e514485f0e7ccdc"
+    }
+  ],
+  "versions": {
+    "model_version": "l1-gbdt-v1",
+    "feature_version": "l1-features-v1",
+    "threshold_version": "l1-thr-v1",
+    "split_manifest_version": "split-v2",
+    "code_version": "dfc452a17950523ef7e495c8a2cd5b25a5f61bdc",
+    "random_seed": 20261108,
+    "l1_config_sha256": "21dd03481449ba162920bc8887a65e345f4242f153ea174ff861c7189a7ddf0c",
+    "default_config_sha256": "a0ea9bad194744cd0091ace4220f8aa2a2a8df4fd470b72b46104edaa12f4cd3",
+    "model_joblib_sha256": "6cbc37175a80fc128d26711f11870908fbb6a683b6dea556c6cad669ec0ea12b"
+  },
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
+  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test",
+  "test_rows_loaded": 0,
+  "split_filter": "pyarrow filters [('split','in',['train','val'])] — test 行未载入内存",
+  "class_coverage": {
+    "train": {
+      "n_windows": 59831,
+      "n_attack": 31483,
+      "n_normal": 28348,
+      "class_counts": {
+        "Normal": 28348,
+        "DoS": 0,
+        "Fuzzy": 10030,
+        "Gear": 10844,
+        "RPM": 10609
+      }
+    },
+    "val": {
+      "n_windows": 19702,
+      "n_attack": 8092,
+      "n_normal": 11610,
+      "class_counts": {
+        "Normal": 11610,
+        "DoS": 8092,
+        "Fuzzy": 0,
+        "Gear": 0,
+        "RPM": 0
+      }
+    },
+    "train_only_classes": [
+      "Fuzzy",
+      "Gear",
+      "RPM"
+    ],
+    "val_only_classes": [
+      "DoS"
+    ],
+    "shared_classes": [
+      "Normal"
+    ]
+  },
+  "outputs": [
+    "model.joblib",
+    "features.json",
+    "threshold.json",
+    "metrics.json",
+    "split_manifest_ref.json",
+    "manifest.json"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "elapsed_seconds": 51.78,
+  "model_version": "l1-gbdt-v3",
+  "feature_version": "l1-features-v1",
+  "threshold_version": "l1-v3-thr-v1",
+  "split_manifest_version": "split-v3",
+  "code_version": "a26ef554a6f96916b0502aef237abc3732c37766",
+  "random_seed": 20261108,
+  "l1_v3_config_sha256": "5b7ecc0e02d32929987d6bf98e4f741e38fe800d1b9756fa940e35b586eaa70f",
+  "default_config_sha256": "a0ea9bad194744cd0091ace4220f8aa2a2a8df4fd470b72b46104edaa12f4cd3",
+  "model_joblib_sha256": "465a26db953b911c4fcf7011c28904c06a13d81403dc643b4a8320a0e99cc19d",
+  "split_manifest_sha256": "a1dfd8aae179d81ed626f1ff9cd70510b6630f0b46d3881f76db57c520477dc9",
+  "split_v3_windows": {
+    "train": 60256,
+    "val": 19277,
+    "test": 19952
+  },
+  "class_support_train": {
+    "Normal": 30146,
+    "DoS": 6090,
+    "Fuzzy": 7681,
+    "Gear": 8209,
+    "RPM": 8130
+  },
+  "class_support_val": {
+    "Normal": 9812,
+    "DoS": 2002,
+    "Fuzzy": 2349,
+    "Gear": 2635,
+    "RPM": 2479
+  },
+  "binary_calibrated": {
+    "recall": 0.999789,
+    "fpr": 0.000306,
+    "precision": 0.999683,
+    "f1": 0.999736,
+    "threshold": 0.54
+  },
+  "binary_default": {
+    "recall": 0.999789,
+    "fpr": 0.000306,
+    "precision": 0.999683,
+    "f1": 0.999736,
+    "threshold": 0.5
+  },
+  "l0_fpr": 0.112413,
+  "fpr_dropped_significantly": true,
+  "macro_f1": 0.999693,
+  "gear_rpm_bidirectional": 0,
+  "gear_rpm_observable": true,
+  "id_group_collapsed": false,
+  "n_false_positives": 3,
+  "n_false_negatives": 2,
+  "pr_curve_points": 6917,
+  "test_rows_loaded": 0,
+  "report_dir": "artifacts/reports/l1_v3"
+}

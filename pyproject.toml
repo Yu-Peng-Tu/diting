@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diting"
+version = "0.1.0"
+description = "Diting: interpretable CAN bus intrusion detection and evaluation workbench"
+readme = "README.md"
+requires-python = ">=3.11"
+# core：W1 数据管线与 L0 baseline 所需依赖。本任务不安装 torch（W2 才引入）。
+dependencies = [
+    "pandas>=2.2",
+    "numpy>=2.0",
+    "scikit-learn>=1.5",
+    "pyarrow>=17.0",
+    "duckdb>=1.1",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "pyyaml>=6.0",
+    "pydantic>=2.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+diting = "diting.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+diting = ["*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

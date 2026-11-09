@@ -1,0 +1,153 @@
+{
+  "version": "l1-v3-abl-v1",
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
+  "threshold_policy": "统一报 0.5 与全特征模型标定阈值两套，并以阈值无关 AP 作为崩塌主判据",
+  "baseline_calibrated_threshold": 0.54,
+  "collapse_rule": "AP 相对下降 ≥ 10% 判为崩塌（对应规格说明书 §5.4「去掉 ID 特征后 PR-AUC 下降 ≤ 0.10」）",
+  "variants": [
+    {
+      "variant": "full_33_features",
+      "label": "全特征基线（33 维）",
+      "dropped_group": null,
+      "n_features": 33,
+      "metrics_at_0_5": {
+        "recall": 0.999789,
+        "fpr": 0.000306,
+        "precision": 0.999683,
+        "f1": 0.999736,
+        "false_alarms_per_10k_normal": 3.0575
+      },
+      "average_precision": 0.999999
+    },
+    {
+      "variant": "drop_id_frequency",
+      "label": "剔除 ①ID 频率组（7 维）",
+      "dropped_group": "id_frequency",
+      "n_features": 26,
+      "dropped_columns": [
+        "g1_id_freq_mean",
+        "g1_id_freq_std",
+        "g1_id_freq_min",
+        "g4_unique_ids",
+        "g4_id_entropy",
+        "g4_top1_id_ratio",
+        "g4_min_id_share"
+      ],
+      "metrics_at_0_5": {
+        "recall": 0.998943,
+        "fpr": 0.002038,
+        "precision": 0.997889,
+        "f1": 0.998416,
+        "false_alarms_per_10k_normal": 20.3832
+      },
+      "metrics_at_full_calibrated_threshold": {
+        "recall": 0.998838,
+        "fpr": 0.001834,
+        "precision": 0.9981,
+        "f1": 0.998469,
+        "false_alarms_per_10k_normal": 18.3449
+      },
+      "average_precision": 0.999991,
+      "roc_auc": 0.999991,
+      "delta_vs_full": {
+        "ap_change": -8e-06,
+        "ap_relative_change_pct": -0.0008,
+        "f1_at_0_5_change": -0.00132,
+        "fpr_at_0_5_change": 0.001732,
+        "recall_at_0_5_change": -0.000846
+      }
+    },
+    {
+      "variant": "drop_interval",
+      "label": "剔除 ②周期间隔组（12 维）",
+      "dropped_group": "interval",
+      "n_features": 21,
+      "dropped_columns": [
+        "g2_dt_mean",
+        "g2_dt_std",
+        "g2_dt_min",
+        "g2_dt_max",
+        "g2_same_id_dt_mean",
+        "g2_same_id_dt_std",
+        "g2_same_id_dt_cv",
+        "g5_same_id_dt_mean",
+        "g5_same_id_dt_std",
+        "g5_same_id_dt_max",
+        "g5_dt_p50",
+        "g5_dt_p95"
+      ],
+      "metrics_at_0_5": {
+        "recall": 0.999577,
+        "fpr": 0.000408,
+        "precision": 0.999577,
+        "f1": 0.999577,
+        "false_alarms_per_10k_normal": 4.0766
+      },
+      "metrics_at_full_calibrated_threshold": {
+        "recall": 0.999577,
+        "fpr": 0.000306,
+        "precision": 0.999683,
+        "f1": 0.99963,
+        "false_alarms_per_10k_normal": 3.0575
+      },
+      "average_precision": 0.999999,
+      "roc_auc": 0.999999,
+      "delta_vs_full": {
+        "ap_change": 0.0,
+        "ap_relative_change_pct": 0.0,
+        "f1_at_0_5_change": -0.000159,
+        "fpr_at_0_5_change": 0.000102,
+        "recall_at_0_5_change": -0.000212
+      }
+    },
+    {
+      "variant": "drop_payload",
+      "label": "剔除 ③payload 字节组（10 维）",
+      "dropped_group": "payload",
+      "n_features": 23,
+      "dropped_columns": [
+        "g3_byte_mean",
+        "g3_byte_std",
+        "g3_byte_entropy_mean",
+        "g3_hamming_mean",
+        "g3_payload_change_rate",
+        "g6_payload_change_rate",
+        "g6_byte_entropy_mean",
+        "g6_dlc_entropy",
+        "g6_hamming_p95",
+        "g6_unique_payload_ratio"
+      ],
+      "metrics_at_0_5": {
+        "recall": 0.999683,
+        "fpr": 0.000408,
+        "precision": 0.999577,
+        "f1": 0.99963,
+        "false_alarms_per_10k_normal": 4.0766
+      },
+      "metrics_at_full_calibrated_threshold": {
+        "recall": 0.999683,
+        "fpr": 0.000306,
+        "precision": 0.999683,
+        "f1": 0.999683,
+        "false_alarms_per_10k_normal": 3.0575
+      },
+      "average_precision": 1.0,
+      "roc_auc": 1.0,
+      "delta_vs_full": {
+        "ap_change": 1e-06,
+        "ap_relative_change_pct": 0.0001,
+        "f1_at_0_5_change": -0.000106,
+        "fpr_at_0_5_change": 0.000102,
+        "recall_at_0_5_change": -0.000106
+      }
+    }
+  ],
+  "id_group_conclusion": {
+    "collapsed": false,
+    "ap_full": 0.999999,
+    "ap_without_id": 0.999991,
+    "ap_relative_drop_pct": 0.0008,
+    "conclusion": "去掉 ID 频率组后 AP 从 0.999999 到 0.999991（相对变化 -0.00%，未达 10% 崩塌线），指标未崩塌：模型主要依赖行为类（周期/payload）特征，而非单纯记忆具体 ID。"
+  }
+}

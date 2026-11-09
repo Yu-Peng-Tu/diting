@@ -1,0 +1,414 @@
+{
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
+  "split_version": "split-v3",
+  "level": "window",
+  "threshold_used": 0.54,
+  "n_val_windows": 19277,
+  "n_false_positives": 3,
+  "n_false_negatives": 2,
+  "label_boundary_analysis": {
+    "window_label_theta": 0.2,
+    "near_boundary_band": [
+      0.18000000000000002,
+      0.22
+    ],
+    "error_attack_ratios": [
+      0.19,
+      0.19,
+      0.2,
+      0.28,
+      0.19
+    ],
+    "n_errors": 5,
+    "n_errors_near_boundary": 4,
+    "fp_attack_ratios": [
+      0.19,
+      0.19,
+      0.19
+    ],
+    "fn_attack_ratios": [
+      0.2,
+      0.28
+    ],
+    "finding": "全部错误集中在窗口标签硬阈值 θ=0.20 附近：误报是 attack_ratio=0.19 的 Normal 窗口（已被注入扰动但按规则标为正常），漏报是 0.20/0.28 的 Fuzzy 弱注入窗口。说明误报主因是标签口径的边界模糊，而非模型缺陷；治理首要抓手是标签口径。"
+  },
+  "false_positive_by_segment_prefix": {
+    "Fuzzy": 3
+  },
+  "false_negative_by_attack_type": {
+    "Fuzzy": 2
+  },
+  "false_positive_by_attack_type": {
+    "Normal": 3
+  },
+  "top_deviated_features_in_false_positives": [
+    {
+      "feature": "g5_dt_p95",
+      "n_error_windows": 3
+    },
+    {
+      "feature": "g6_unique_payload_ratio",
+      "n_error_windows": 3
+    },
+    {
+      "feature": "g4_id_entropy",
+      "n_error_windows": 3
+    },
+    {
+      "feature": "g2_dt_mean",
+      "n_error_windows": 2
+    },
+    {
+      "feature": "g2_dt_std",
+      "n_error_windows": 2
+    },
+    {
+      "feature": "g1_dlc_std",
+      "n_error_windows": 2
+    },
+    {
+      "feature": "g5_same_id_dt_std",
+      "n_error_windows": 1
+    },
+    {
+      "feature": "g2_same_id_dt_std",
+      "n_error_windows": 1
+    },
+    {
+      "feature": "g1_id_freq_min",
+      "n_error_windows": 1
+    }
+  ],
+  "top_deviated_features_in_false_negatives": [
+    {
+      "feature": "g2_dt_min",
+      "n_error_windows": 2
+    },
+    {
+      "feature": "g3_hamming_mean",
+      "n_error_windows": 2
+    },
+    {
+      "feature": "g3_byte_std",
+      "n_error_windows": 2
+    },
+    {
+      "feature": "g1_dlc_mean",
+      "n_error_windows": 2
+    },
+    {
+      "feature": "g2_dt_mean",
+      "n_error_windows": 1
+    },
+    {
+      "feature": "g2_dt_max",
+      "n_error_windows": 1
+    },
+    {
+      "feature": "g1_id_freq_std",
+      "n_error_windows": 1
+    },
+    {
+      "feature": "g4_min_id_share",
+      "n_error_windows": 1
+    }
+  ],
+  "governance_recommendations": [
+    "【首要】标签口径治理：窗口级硬阈值 θ=0.20 造成边界带样本标签模糊，建议对 attack_ratio∈[0.18,0.22] 的边界窗口采用软标签、单独分层评估或剔除，并把 θ 作为可标定参数；本轮 5 个错误全部落在该带。",
+    "双阈值：高阈值直接告警，低阈值区间进入二次判别/人工复核队列，压低每万误报数而不牺牲 Recall。",
+    "攻击类型白名单：对低注入占比（attack_ratio 接近 theta）的窗口，结合五分类预测类型做条件放行或加权。",
+    "segment 级投票平滑：同一注入片段内连续窗口联合判定，抑制孤立的正常窗口误报。",
+    "按攻击类型分层阈值：Fuzzy / Gear / RPM 的分数分布与 DoS 差异大，可对难检类型单独标定阈值。",
+    "特征补强：针对误报归因中反复出现的偏离维度，补充跨 ID 周期一致性与 payload 变化率的长窗口统计。",
+    "以上均为建议，本任务不实现、不调阈值刷分、不重新训练。"
+  ],
+  "records": [
+    {
+      "index": 5446,
+      "window_id": "Fuzzy__seg0008__w008300",
+      "segment_id": "Fuzzy__seg0008",
+      "attack_type": "Normal",
+      "label": 0,
+      "binary_pred": 1,
+      "multiclass_pred": "Fuzzy",
+      "score": 0.92547881,
+      "attack_ratio": 0.19,
+      "error_kind": "false_positive",
+      "top_deviating_features": [
+        {
+          "feature": "g5_dt_p95",
+          "window_value": 2.488244,
+          "class_median_on_val": -0.119957,
+          "relative_deviation": 21.7428,
+          "direction": "higher"
+        },
+        {
+          "feature": "g2_dt_mean",
+          "window_value": 2.847853,
+          "class_median_on_val": -0.170617,
+          "relative_deviation": 17.6915,
+          "direction": "higher"
+        },
+        {
+          "feature": "g6_unique_payload_ratio",
+          "window_value": 1.892945,
+          "class_median_on_val": 0.119655,
+          "relative_deviation": 14.82,
+          "direction": "higher"
+        },
+        {
+          "feature": "g2_dt_std",
+          "window_value": 3.295737,
+          "class_median_on_val": -0.242215,
+          "relative_deviation": 14.6066,
+          "direction": "higher"
+        },
+        {
+          "feature": "g4_id_entropy",
+          "window_value": 1.135932,
+          "class_median_on_val": 0.08228,
+          "relative_deviation": 12.8057,
+          "direction": "higher"
+        },
+        {
+          "feature": "g1_dlc_std",
+          "window_value": 0.530498,
+          "class_median_on_val": 0.04101,
+          "relative_deviation": 11.936,
+          "direction": "higher"
+        }
+      ],
+      "possible_cause": "正常窗口被判为攻击：该窗口的帧密度/周期/payload 统计偏离同类正常窗口中位数，可能被模型误当作注入扰动；建议结合同 segment 连续窗口投票与双阈值复核。"
+    },
+    {
+      "index": 5447,
+      "window_id": "Fuzzy__seg0008__w008350",
+      "segment_id": "Fuzzy__seg0008",
+      "attack_type": "Normal",
+      "label": 0,
+      "binary_pred": 1,
+      "multiclass_pred": "Fuzzy",
+      "score": 0.968789,
+      "attack_ratio": 0.19,
+      "error_kind": "false_positive",
+      "top_deviating_features": [
+        {
+          "feature": "g5_dt_p95",
+          "window_value": 2.481594,
+          "class_median_on_val": -0.119957,
+          "relative_deviation": 21.6873,
+          "direction": "higher"
+        },
+        {
+          "feature": "g2_dt_std",
+          "window_value": 3.083058,
+          "class_median_on_val": -0.242215,
+          "relative_deviation": 13.7286,
+          "direction": "higher"
+        },
+        {
+          "feature": "g4_id_entropy",
+          "window_value": 1.097695,
+          "class_median_on_val": 0.08228,
+          "relative_deviation": 12.341,
+          "direction": "higher"
+        },
+        {
+          "feature": "g6_unique_payload_ratio",
+          "window_value": 1.570529,
+          "class_median_on_val": 0.119655,
+          "relative_deviation": 12.1254,
+          "direction": "higher"
+        },
+        {
+          "feature": "g2_dt_mean",
+          "window_value": 1.88515,
+          "class_median_on_val": -0.170617,
+          "relative_deviation": 12.049,
+          "direction": "higher"
+        },
+        {
+          "feature": "g1_dlc_std",
+          "window_value": 0.530498,
+          "class_median_on_val": 0.04101,
+          "relative_deviation": 11.936,
+          "direction": "higher"
+        }
+      ],
+      "possible_cause": "正常窗口被判为攻击：该窗口的帧密度/周期/payload 统计偏离同类正常窗口中位数，可能被模型误当作注入扰动；建议结合同 segment 连续窗口投票与双阈值复核。"
+    },
+    {
+      "index": 6059,
+      "window_id": "Fuzzy__seg0010__w019000",
+      "segment_id": "Fuzzy__seg0010",
+      "attack_type": "Fuzzy",
+      "label": 1,
+      "binary_pred": 0,
+      "multiclass_pred": "Normal",
+      "score": 0.01140419,
+      "attack_ratio": 0.2,
+      "error_kind": "false_negative",
+      "top_deviating_features": [
+        {
+          "feature": "g2_dt_min",
+          "window_value": -1.339853,
+          "class_median_on_val": 0.028271,
+          "relative_deviation": 48.3926,
+          "direction": "lower"
+        },
+        {
+          "feature": "g3_hamming_mean",
+          "window_value": 1.053496,
+          "class_median_on_val": 0.022039,
+          "relative_deviation": 46.8008,
+          "direction": "higher"
+        },
+        {
+          "feature": "g3_byte_std",
+          "window_value": -0.169323,
+          "class_median_on_val": -0.017762,
+          "relative_deviation": 8.5331,
+          "direction": "lower"
+        },
+        {
+          "feature": "g2_dt_mean",
+          "window_value": -0.483205,
+          "class_median_on_val": 0.322146,
+          "relative_deviation": 2.5,
+          "direction": "lower"
+        },
+        {
+          "feature": "g1_dlc_mean",
+          "window_value": -1.273395,
+          "class_median_on_val": -0.409595,
+          "relative_deviation": 2.1089,
+          "direction": "lower"
+        },
+        {
+          "feature": "g2_dt_max",
+          "window_value": -0.570299,
+          "class_median_on_val": 0.625972,
+          "relative_deviation": 1.9111,
+          "direction": "lower"
+        }
+      ],
+      "possible_cause": "攻击窗口未被检出：该窗口的统计量相对同类攻击窗口中位数偏弱，可能注入占比低（弱攻击窗口）或该攻击类型的行为特征与正常流量接近；建议按攻击类型分别标定阈值或引入类型白名单二次判别。"
+    },
+    {
+      "index": 6508,
+      "window_id": "Fuzzy__seg0018__w001550",
+      "segment_id": "Fuzzy__seg0018",
+      "attack_type": "Fuzzy",
+      "label": 1,
+      "binary_pred": 0,
+      "multiclass_pred": "Fuzzy",
+      "score": 0.27800476,
+      "attack_ratio": 0.28,
+      "error_kind": "false_negative",
+      "top_deviating_features": [
+        {
+          "feature": "g3_hamming_mean",
+          "window_value": -1.177328,
+          "class_median_on_val": 0.022039,
+          "relative_deviation": 54.4195,
+          "direction": "lower"
+        },
+        {
+          "feature": "g2_dt_min",
+          "window_value": -0.913098,
+          "class_median_on_val": 0.028271,
+          "relative_deviation": 33.2977,
+          "direction": "lower"
+        },
+        {
+          "feature": "g3_byte_std",
+          "window_value": -0.260436,
+          "class_median_on_val": -0.017762,
+          "relative_deviation": 13.6629,
+          "direction": "lower"
+        },
+        {
+          "feature": "g1_dlc_mean",
+          "window_value": -1.705296,
+          "class_median_on_val": -0.409595,
+          "relative_deviation": 3.1634,
+          "direction": "lower"
+        },
+        {
+          "feature": "g1_id_freq_std",
+          "window_value": -0.613207,
+          "class_median_on_val": 0.432577,
+          "relative_deviation": 2.4176,
+          "direction": "lower"
+        },
+        {
+          "feature": "g4_min_id_share",
+          "window_value": -2.93931,
+          "class_median_on_val": -1.22232,
+          "relative_deviation": 1.4047,
+          "direction": "lower"
+        }
+      ],
+      "possible_cause": "攻击窗口未被检出：该窗口的统计量相对同类攻击窗口中位数偏弱，可能注入占比低（弱攻击窗口）或该攻击类型的行为特征与正常流量接近；建议按攻击类型分别标定阈值或引入类型白名单二次判别。"
+    },
+    {
+      "index": 9121,
+      "window_id": "Fuzzy__seg0049__w010900",
+      "segment_id": "Fuzzy__seg0049",
+      "attack_type": "Normal",
+      "label": 0,
+      "binary_pred": 1,
+      "multiclass_pred": "Fuzzy",
+      "score": 0.90309704,
+      "attack_ratio": 0.19,
+      "error_kind": "false_positive",
+      "top_deviating_features": [
+        {
+          "feature": "g4_id_entropy",
+          "window_value": 1.194235,
+          "class_median_on_val": 0.08228,
+          "relative_deviation": 13.5143,
+          "direction": "higher"
+        },
+        {
+          "feature": "g6_unique_payload_ratio",
+          "window_value": 1.248113,
+          "class_median_on_val": 0.119655,
+          "relative_deviation": 9.4309,
+          "direction": "higher"
+        },
+        {
+          "feature": "g5_same_id_dt_std",
+          "window_value": 1.700607,
+          "class_median_on_val": -0.348449,
+          "relative_deviation": 5.8805,
+          "direction": "higher"
+        },
+        {
+          "feature": "g2_same_id_dt_std",
+          "window_value": 1.700607,
+          "class_median_on_val": -0.348449,
+          "relative_deviation": 5.8805,
+          "direction": "higher"
+        },
+        {
+          "feature": "g5_dt_p95",
+          "window_value": -0.793248,
+          "class_median_on_val": -0.119957,
+          "relative_deviation": 5.6128,
+          "direction": "lower"
+        },
+        {
+          "feature": "g1_id_freq_min",
+          "window_value": -1.070345,
+          "class_median_on_val": -0.17256,
+          "relative_deviation": 5.2027,
+          "direction": "lower"
+        }
+      ],
+      "possible_cause": "正常窗口被判为攻击：该窗口的帧密度/周期/payload 统计偏离同类正常窗口中位数，可能被模型误当作注入扰动；建议结合同 segment 连续窗口投票与双阈值复核。"
+    }
+  ],
+  "note": "逐窗口全量归因（每个 FP/FN 一条）；特征值画像为相对同类 val 中位数的偏离 top-k"
+}

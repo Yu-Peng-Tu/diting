@@ -1,0 +1,56 @@
+{
+  "evaluated_on": "otids_zeroshot",
+  "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+  "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",
+  "level": "window",
+  "source_tag": "public:otids:kia-soul",
+  "label_policy": "primary_file_level_theta_0_20",
+  "threshold": 0.54,
+  "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+  "model_version": "l1-gbdt-v3",
+  "threshold_version": "l1-v3-thr-v1",
+  "thresholds": {
+    "t0_5": 0.5,
+    "frozen": 0.54
+  },
+  "by_type": {
+    "Normal": {
+      "fpr_at_t0_5": 0.0,
+      "false_alarms_at_t0_5": 0,
+      "fpr_at_frozen": 0.0,
+      "false_alarms_at_frozen": 0,
+      "support": 47268,
+      "role": "负类（只评估 FPR / 误报）"
+    },
+    "DoS": {
+      "role": "正类（只评估 Recall / 检出）",
+      "support": 13089,
+      "average_precision_vs_normal": 1.0,
+      "positive_windows_under_label_policy": 13089,
+      "recall_at_t0_5": 1.0,
+      "missed_at_t0_5": 0,
+      "recall_at_frozen": 1.0,
+      "missed_at_frozen": 0
+    },
+    "Fuzzy": {
+      "role": "正类（只评估 Recall / 检出）",
+      "support": 11802,
+      "average_precision_vs_normal": 0.99999981,
+      "positive_windows_under_label_policy": 11802,
+      "recall_at_t0_5": 0.922555,
+      "missed_at_t0_5": 914,
+      "recall_at_frozen": 0.883664,
+      "missed_at_frozen": 1373
+    },
+    "Impersonation": {
+      "role": "正类（只评估 Recall / 检出）",
+      "support": 19854,
+      "average_precision_vs_normal": 0.99933215,
+      "positive_windows_under_label_policy": 19854,
+      "recall_at_t0_5": 0.754055,
+      "missed_at_t0_5": 4883,
+      "recall_at_frozen": 0.712602,
+      "missed_at_frozen": 5706
+    }
+  }
+}

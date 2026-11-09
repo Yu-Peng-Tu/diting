@@ -1,0 +1,187 @@
+{
+  "version": "feat-v2",
+  "fit_on": "train",
+  "clip": 6.0,
+  "columns": {
+    "g1_dlc_mean": {
+      "mean": 7.908450635957949,
+      "std": 0.06946046329997793
+    },
+    "g1_dlc_std": {
+      "mean": 0.5862693724464951,
+      "std": 0.2614776788955076
+    },
+    "g1_dlc_max": {
+      "mean": 8.0,
+      "std": 1.0
+    },
+    "g1_id_freq_mean": {
+      "mean": 0.04943472351183611,
+      "std": 0.012545179765582249
+    },
+    "g1_id_freq_std": {
+      "mean": 0.025795786835927797,
+      "std": 0.00448344073336961
+    },
+    "g1_id_freq_min": {
+      "mean": 0.005142153850010864,
+      "std": 0.0047799110077179855
+    },
+    "g2_dt_mean": {
+      "mean": 0.0005962812936207773,
+      "std": 0.0003762825264316264
+    },
+    "g2_dt_std": {
+      "mean": 0.0008466326968959182,
+      "std": 0.000446784165651548
+    },
+    "g2_dt_min": {
+      "mean": 0.0001827466912472103,
+      "std": 3.7990161791921556e-05
+    },
+    "g2_dt_max": {
+      "mean": 0.004497937497349713,
+      "std": 0.002302131656071246
+    },
+    "g2_same_id_dt_mean": {
+      "mean": 0.12197884582752291,
+      "std": 0.3342370214975412
+    },
+    "g2_same_id_dt_std": {
+      "mean": 0.24531375473194847,
+      "std": 0.6657487249023172
+    },
+    "g2_same_id_dt_cv": {
+      "mean": 1.3758623514951411,
+      "std": 0.8604876756537682
+    },
+    "g3_byte_mean": {
+      "mean": 57.135546505991876,
+      "std": 11.206642361890664
+    },
+    "g3_byte_std": {
+      "mean": 63.36492043660371,
+      "std": 4.6137796281074595
+    },
+    "g3_byte_entropy_mean": {
+      "mean": 2.001426284609426,
+      "std": 0.15794245760548806
+    },
+    "g3_hamming_mean": {
+      "mean": 5.78081212080694,
+      "std": 0.4168863286458911
+    },
+    "g3_payload_change_rate": {
+      "mean": 0.9248672093062126,
+      "std": 0.07575956457134643
+    },
+    "g4_frame_count": {
+      "mean": 100.0,
+      "std": 1.0
+    },
+    "g4_unique_ids": {
+      "mean": 28.54028847921646,
+      "std": 13.671882446031532
+    },
+    "g4_id_entropy": {
+      "mean": 4.343041174146084,
+      "std": 0.6573051433160741
+    },
+    "g4_top1_id_ratio": {
+      "mean": 0.16404756731460282,
+      "std": 0.14314055905202352
+    },
+    "g4_min_id_share": {
+      "mean": 0.04423793685547626,
+      "std": 0.011648289644875225
+    },
+    "g5_same_id_dt_mean": {
+      "mean": 0.12197884582752291,
+      "std": 0.3342370214975412
+    },
+    "g5_same_id_dt_std": {
+      "mean": 0.24531375473194847,
+      "std": 0.6657487249023172
+    },
+    "g5_same_id_dt_max": {
+      "mean": 1.0594641627713237,
+      "std": 2.646225229688934
+    },
+    "g5_dt_p50": {
+      "mean": 0.0002833073809166367,
+      "std": 0.0004186911199112822
+    },
+    "g5_dt_p95": {
+      "mean": 0.002296899725095716,
+      "std": 0.0014251494246088831
+    },
+    "g6_payload_change_rate": {
+      "mean": 0.9248672093062126,
+      "std": 0.07575956457134643
+    },
+    "g6_byte_entropy_mean": {
+      "mean": 2.001426284609426,
+      "std": 0.15794245760548806
+    },
+    "g6_dlc_entropy": {
+      "mean": 0.14810617636963597,
+      "std": 0.12626091388549238
+    },
+    "g6_hamming_p95": {
+      "mean": 8.0,
+      "std": 1.0
+    },
+    "g6_unique_payload_ratio": {
+      "mean": 0.6051551871103609,
+      "std": 0.1240631779023951
+    }
+  },
+  "random_seed": 20261108,
+  "feature_groups": {
+    "G1": [
+      "g1_dlc_mean",
+      "g1_dlc_std",
+      "g1_dlc_max",
+      "g1_id_freq_mean",
+      "g1_id_freq_std",
+      "g1_id_freq_min"
+    ],
+    "G2": [
+      "g2_dt_mean",
+      "g2_dt_std",
+      "g2_dt_min",
+      "g2_dt_max",
+      "g2_same_id_dt_mean",
+      "g2_same_id_dt_std",
+      "g2_same_id_dt_cv"
+    ],
+    "G3": [
+      "g3_byte_mean",
+      "g3_byte_std",
+      "g3_byte_entropy_mean",
+      "g3_hamming_mean",
+      "g3_payload_change_rate"
+    ],
+    "G4": [
+      "g4_frame_count",
+      "g4_unique_ids",
+      "g4_id_entropy",
+      "g4_top1_id_ratio",
+      "g4_min_id_share"
+    ],
+    "G5": [
+      "g5_same_id_dt_mean",
+      "g5_same_id_dt_std",
+      "g5_same_id_dt_max",
+      "g5_dt_p50",
+      "g5_dt_p95"
+    ],
+    "G6": [
+      "g6_payload_change_rate",
+      "g6_byte_entropy_mean",
+      "g6_dlc_entropy",
+      "g6_hamming_p95",
+      "g6_unique_payload_ratio"
+    ]
+  }
+}

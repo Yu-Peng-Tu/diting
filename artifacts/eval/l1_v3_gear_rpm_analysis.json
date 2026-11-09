@@ -1,0 +1,31 @@
+{
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
+  "split_version": "split-v3",
+  "level": "window",
+  "observable_on_val": true,
+  "gear_support": 2635,
+  "rpm_support": 2479,
+  "Gear_predicted_as_RPM": 0,
+  "RPM_predicted_as_Gear": 0,
+  "total_bidirectional": 0,
+  "bidirectional_rate_pct": 0.0,
+  "gear_row_full": {
+    "Normal": 1,
+    "DoS": 0,
+    "Fuzzy": 0,
+    "Gear": 2634,
+    "RPM": 0
+  },
+  "rpm_row_full": {
+    "Normal": 0,
+    "DoS": 0,
+    "Fuzzy": 0,
+    "Gear": 0,
+    "RPM": 2479
+  },
+  "gear_f1": 0.99962,
+  "rpm_f1": 1.0,
+  "verdict": "val 上双向互混 0 次：与规格书『Gear↔RPM 易互混』的预期相反，在该窗口口径与子集中两类几乎完全可分。反预期结果照实保留，不调数据凑预期。",
+  "note": "这是 split-v3 val 上的真实观测数字，不是 train 折内诊断，可作为验收结论"
+}

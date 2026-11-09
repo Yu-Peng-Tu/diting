@@ -1,0 +1,242 @@
+{
+  "version": "l1-gbdt-v1",
+  "task_binary": {
+    "at_default_threshold": {
+      "n_samples": 19702,
+      "n_positive": 8092,
+      "n_negative": 11610,
+      "tp": 7893,
+      "fp": 0,
+      "tn": 11610,
+      "fn": 199,
+      "recall": 0.975408,
+      "precision": 1.0,
+      "fpr": 0.0,
+      "f1": 0.987551,
+      "false_alarms_per_10k_normal": 0.0,
+      "confusion_matrix": {
+        "labels": [
+          "Normal",
+          "Attack"
+        ],
+        "matrix": [
+          [
+            11610,
+            0
+          ],
+          [
+            199,
+            7893
+          ]
+        ]
+      },
+      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+      "threshold": 0.5,
+      "average_precision": 0.999992,
+      "roc_auc": 0.999995,
+      "evaluated_on": "val",
+      "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
+      "level": "window"
+    },
+    "at_calibrated_threshold": {
+      "n_samples": 19702,
+      "n_positive": 8092,
+      "n_negative": 11610,
+      "tp": 8061,
+      "fp": 1,
+      "tn": 11609,
+      "fn": 31,
+      "recall": 0.996169,
+      "precision": 0.999876,
+      "fpr": 8.6e-05,
+      "f1": 0.998019,
+      "false_alarms_per_10k_normal": 0.8613,
+      "confusion_matrix": {
+        "labels": [
+          "Normal",
+          "Attack"
+        ],
+        "matrix": [
+          [
+            11609,
+            1
+          ],
+          [
+            31,
+            8061
+          ]
+        ]
+      },
+      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+      "threshold": 0.05,
+      "average_precision": 0.999992,
+      "roc_auc": 0.999995,
+      "evaluated_on": "val",
+      "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
+      "level": "window"
+    }
+  },
+  "task_multiclass": {
+    "macro_precision": 0.198275,
+    "macro_recall": 0.2,
+    "macro_f1": 0.199134,
+    "per_class": {
+      "Normal": {
+        "precision": 0.991376,
+        "recall": 1.0,
+        "f1": 0.995669,
+        "support": 11610
+      },
+      "DoS": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 8092
+      },
+      "Fuzzy": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Gear": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "RPM": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Normal",
+        "DoS",
+        "Fuzzy",
+        "Gear",
+        "RPM"
+      ],
+      "matrix": [
+        [
+          11610,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          101,
+          0,
+          0,
+          7991,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "note": "行=真实类别，列=预测类别；固定 5 类顺序"
+    },
+    "gear_rpm_confusion": {
+      "Gear_predicted_as_RPM": 0,
+      "RPM_predicted_as_Gear": 0,
+      "total_bidirectional": 0,
+      "observable_on_val": false
+    },
+    "model_classes_seen_in_train": [
+      "Fuzzy",
+      "Gear",
+      "Normal",
+      "RPM"
+    ],
+    "evaluated_on": "val",
+    "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
+    "level": "window"
+  },
+  "l0_comparison": {
+    "evaluated_on": "val",
+    "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
+    "level": "window",
+    "l0_source": "artifacts/baseline/l0_metrics.json（只读既有产物）",
+    "l0_split_manifest_version": "split-v2",
+    "l0_n_samples": 19702,
+    "l1_n_samples": 19702,
+    "same_val_note": "L0 与 L1 均在同一 split-v2 val 集上按窗口级口径评估；若 n_samples 不一致则对照无效，需停工核查",
+    "rows": [
+      {
+        "model": "L0 统计规则基线",
+        "recall": 1.0,
+        "fpr": 0.143066,
+        "precision": 0.829693,
+        "f1": 0.906921,
+        "false_alarms_per_10k_normal": 1430.6632,
+        "threshold": "规则投票 >= 1"
+      },
+      {
+        "model": "L1 @0.5",
+        "recall": 0.975408,
+        "fpr": 0.0,
+        "precision": 1.0,
+        "f1": 0.987551,
+        "false_alarms_per_10k_normal": 0.0,
+        "threshold": 0.5
+      },
+      {
+        "model": "L1 @标定阈值",
+        "recall": 0.996169,
+        "fpr": 8.6e-05,
+        "precision": 0.999876,
+        "f1": 0.998019,
+        "false_alarms_per_10k_normal": 0.8613,
+        "threshold": 0.05
+      }
+    ],
+    "deltas_vs_l0": [
+      {
+        "model": "L1 @0.5",
+        "fpr_absolute_change": -0.143066,
+        "fpr_relative_change_pct": -100.0,
+        "recall_absolute_change": -0.024592,
+        "f1_absolute_change": 0.08063,
+        "false_alarms_per_10k_change": -1430.6632
+      },
+      {
+        "model": "L1 @标定阈值",
+        "fpr_absolute_change": -0.14298,
+        "fpr_relative_change_pct": -99.9399,
+        "recall_absolute_change": -0.003831,
+        "f1_absolute_change": 0.091098,
+        "false_alarms_per_10k_change": -1429.8019
+      }
+    ]
+  },
+  "class_coverage_note": "split-v2 类别覆盖：train 独有类 ['Fuzzy', 'Gear', 'RPM']，val 独有类 ['DoS']，共有类 ['Normal']。val 上任何 train 未见类别（DoS）无法被五分类模型正确识别；Gear/RPM/Fuzzy 在 val 无样本，五分类 macro 指标与互混观察受此结构性限制，不得当作模型真实识别能力对外引用。该问题是划分层面的，需 W3 重新设计分层划分处理。",
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
+  "data_scope_short": "subset-1e6-per-file / val / window-level",
+  "dataset": "HCRL Car-Hacking Dataset（Kaggle 镜像，MIT）",
+  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test",
+  "level": "window"
+}

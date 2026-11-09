@@ -1,0 +1,90 @@
+{
+  "at_0_5": {
+    "n_samples": 92013,
+    "n_positive": 44745,
+    "n_negative": 47268,
+    "tp": 38948,
+    "fp": 0,
+    "tn": 47268,
+    "fn": 5797,
+    "recall": 0.870444,
+    "precision": 1.0,
+    "fpr": 0.0,
+    "f1": 0.930735,
+    "false_alarms_per_10k_normal": 0.0,
+    "confusion_matrix": {
+      "labels": [
+        "Normal",
+        "Attack"
+      ],
+      "matrix": [
+        [
+          47268,
+          0
+        ],
+        [
+          5797,
+          38948
+        ]
+      ]
+    },
+    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+    "average_precision": 0.99983824,
+    "roc_auc": 0.99980539,
+    "evaluated_on": "otids_zeroshot",
+    "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+    "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",
+    "level": "window",
+    "source_tag": "public:otids:kia-soul",
+    "label_policy": "primary_file_level_theta_0_20",
+    "threshold": 0.5,
+    "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+    "model_version": "l1-gbdt-v3",
+    "threshold_version": "l1-v3-thr-v1",
+    "confusion_matrix_note": "行=真实，列=预测；labels=[Normal, Attack]"
+  },
+  "at_frozen_0_54": {
+    "n_samples": 92013,
+    "n_positive": 44745,
+    "n_negative": 47268,
+    "tp": 37666,
+    "fp": 0,
+    "tn": 47268,
+    "fn": 7079,
+    "recall": 0.841792,
+    "precision": 1.0,
+    "fpr": 0.0,
+    "f1": 0.914101,
+    "false_alarms_per_10k_normal": 0.0,
+    "confusion_matrix": {
+      "labels": [
+        "Normal",
+        "Attack"
+      ],
+      "matrix": [
+        [
+          47268,
+          0
+        ],
+        [
+          7079,
+          37666
+        ]
+      ]
+    },
+    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+    "average_precision": 0.99983824,
+    "roc_auc": 0.99980539,
+    "evaluated_on": "otids_zeroshot",
+    "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+    "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",
+    "level": "window",
+    "source_tag": "public:otids:kia-soul",
+    "label_policy": "primary_file_level_theta_0_20",
+    "threshold": 0.54,
+    "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+    "model_version": "l1-gbdt-v3",
+    "threshold_version": "l1-v3-thr-v1",
+    "confusion_matrix_note": "行=真实，列=预测；labels=[Normal, Attack]"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "evaluated_on": "otids_zeroshot_official_label_sensitivity",
+  "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+  "level": "window",
+  "label_policy": "official_description_sensitivity",
+  "role": "敏感性对照，不参与主结论",
+  "description": "DoS: can_id==0x000；Fuzzy/Impersonation: ts - t_start >= 250s；Attack-free: 0；再按 θ=0.20 窗口化",
+  "rows": [
+    {
+      "tag": "0_5",
+      "threshold": 0.5,
+      "n_positive": 25524,
+      "n_negative": 66489,
+      "recall": 0.908439,
+      "fpr": 0.237047,
+      "f1": 0.719289,
+      "average_precision": 0.8506291,
+      "evaluated_on": "otids_zeroshot_official_label_sensitivity",
+      "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+      "label_policy": "official_description_sensitivity"
+    },
+    {
+      "tag": "0_54",
+      "threshold": 0.54,
+      "n_positive": 25524,
+      "n_negative": 66489,
+      "recall": 0.888144,
+      "fpr": 0.225556,
+      "f1": 0.717487,
+      "average_precision": 0.8506291,
+      "evaluated_on": "otids_zeroshot_official_label_sensitivity",
+      "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+      "label_policy": "official_description_sensitivity"
+    }
+  ],
+  "delta_vs_primary_at_0_54": {
+    "recall_delta_vs_primary": 0.046352,
+    "f1_delta_vs_primary": -0.196614,
+    "fpr_delta_vs_primary": 0.225556
+  },
+  "interpretation": "标签口径从「文件级」换成「官方描述」（DoS 按 ID=0x000、Fuzzy/Impersonation 按 250 秒攻击段）后，正/负窗口集合发生变化，Recall / FPR / F1 随之改变——这说明跨域数字对标签口径敏感。两套口径的差异是 OTIDS 镜像缺乏逐帧真值带来的固有不确定性，不得择优选一套对外报数；主结论一律以第 2 节 primary 口径为准。"
+}

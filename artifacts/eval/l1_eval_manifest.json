@@ -1,0 +1,35 @@
+{
+  "stage": "l1_eval",
+  "model_version": "l1-gbdt-v1",
+  "feature_version": "l1-features-v1",
+  "threshold_version": "l1-thr-v1",
+  "split_manifest_version": "split-v2",
+  "code_version": "dfc452a17950523ef7e495c8a2cd5b25a5f61bdc",
+  "random_seed": 20261108,
+  "l1_config_sha256": "21dd03481449ba162920bc8887a65e345f4242f153ea174ff861c7189a7ddf0c",
+  "default_config_sha256": "a0ea9bad194744cd0091ace4220f8aa2a2a8df4fd470b72b46104edaa12f4cd3",
+  "model_joblib_sha256": "6cbc37175a80fc128d26711f11870908fbb6a683b6dea556c6cad669ec0ea12b",
+  "created_at": "2026-11-08T14:01:11+08:00",
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
+  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test",
+  "test_rows_loaded": 0,
+  "inputs": [
+    "./data/processed/features/window_features.parquet",
+    "./artifacts/baseline/l0_metrics.json"
+  ],
+  "outputs": [
+    "l1_binary_metrics.json",
+    "l1_multiclass_metrics.json",
+    "l1_threshold_curve.json",
+    "l1_vs_l0.json",
+    "l1_vs_l0.md",
+    "l1_feature_importance.json",
+    "l1_feature_importance.csv",
+    "l1_feature_importance.md",
+    "l1_feature_importance.svg",
+    "l1_train_diagnostic.json",
+    "l1_report.md",
+    "l1_eval_manifest.json"
+  ]
+}

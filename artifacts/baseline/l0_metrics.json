@@ -1,0 +1,83 @@
+{
+  "version": "eval-v2",
+  "model": "L0 统计规则 baseline",
+  "model_version": "l0-v2",
+  "evaluated_on": "val（留出验证集）",
+  "test_set_status": "sealed — 本任务不评估 test",
+  "level": "window",
+  "split_manifest_version": "split-v2",
+  "evaluated_at": "2026-11-08T12:17:28+08:00",
+  "is_real_data": true,
+  "data_warning": null,
+  "metrics": {
+    "n_samples": 19702,
+    "n_positive": 8092,
+    "n_negative": 11610,
+    "tp": 8092,
+    "fp": 1661,
+    "tn": 9949,
+    "fn": 0,
+    "recall": 1.0,
+    "precision": 0.829693,
+    "fpr": 0.143066,
+    "f1": 0.906921,
+    "false_alarms_per_10k_normal": 1430.6632,
+    "confusion_matrix": {
+      "labels": [
+        "Normal",
+        "Attack"
+      ],
+      "matrix": [
+        [
+          9949,
+          1661
+        ],
+        [
+          0,
+          8092
+        ]
+      ]
+    },
+    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）"
+  },
+  "metrics_by_source_tag": {
+    "public:car-hacking": {
+      "n_samples": 19702,
+      "n_positive": 8092,
+      "n_negative": 11610,
+      "tp": 8092,
+      "fp": 1661,
+      "tn": 9949,
+      "fn": 0,
+      "recall": 1.0,
+      "precision": 0.829693,
+      "fpr": 0.143066,
+      "f1": 0.906921,
+      "false_alarms_per_10k_normal": 1430.6632,
+      "confusion_matrix": {
+        "labels": [
+          "Normal",
+          "Attack"
+        ],
+        "matrix": [
+          [
+            9949,
+            1661
+          ],
+          [
+            0,
+            8092
+          ]
+        ]
+      },
+      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）"
+    }
+  },
+  "rule_vote_distribution": {
+    "0": 9949,
+    "1": 6938,
+    "2": 2398,
+    "3": 268,
+    "4": 149
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "evaluated_on": "otids_zeroshot",
+  "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+  "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",
+  "level": "window",
+  "source_tag": "public:otids:kia-soul",
+  "label_policy": "secondary_multiclass_mapping",
+  "threshold": 0.54,
+  "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+  "model_version": "l1-gbdt-v3",
+  "threshold_version": "l1-v3-thr-v1",
+  "model_classes": [
+    "Normal",
+    "DoS",
+    "Fuzzy",
+    "Gear",
+    "RPM"
+  ],
+  "direct_mapping": {
+    "Normal": "Normal",
+    "DoS": "DoS",
+    "Fuzzy": "Fuzzy"
+  },
+  "per_true_type": {
+    "Normal": {
+      "support": 47268,
+      "predicted_distribution": {
+        "Normal": 47268,
+        "DoS": 0,
+        "Fuzzy": 0,
+        "Gear": 0,
+        "RPM": 0
+      },
+      "predicted_distribution_pct": {
+        "Normal": 100.0,
+        "DoS": 0.0,
+        "Fuzzy": 0.0,
+        "Gear": 0.0,
+        "RPM": 0.0
+      },
+      "mapped_class": "Normal",
+      "mapping_accuracy": 1.0
+    },
+    "DoS": {
+      "support": 13089,
+      "predicted_distribution": {
+        "Normal": 0,
+        "DoS": 13089,
+        "Fuzzy": 0,
+        "Gear": 0,
+        "RPM": 0
+      },
+      "predicted_distribution_pct": {
+        "Normal": 0.0,
+        "DoS": 100.0,
+        "Fuzzy": 0.0,
+        "Gear": 0.0,
+        "RPM": 0.0
+      },
+      "mapped_class": "DoS",
+      "mapping_accuracy": 1.0
+    },
+    "Fuzzy": {
+      "support": 11802,
+      "predicted_distribution": {
+        "Normal": 5086,
+        "DoS": 0,
+        "Fuzzy": 6716,
+        "Gear": 0,
+        "RPM": 0
+      },
+      "predicted_distribution_pct": {
+        "Normal": 43.0944,
+        "DoS": 0.0,
+        "Fuzzy": 56.9056,
+        "Gear": 0.0,
+        "RPM": 0.0
+      },
+      "mapped_class": "Fuzzy",
+      "mapping_accuracy": 0.56905609
+    },
+    "Impersonation": {
+      "support": 19854,
+      "predicted_distribution": {
+        "Normal": 17065,
+        "DoS": 0,
+        "Fuzzy": 2210,
+        "Gear": 0,
+        "RPM": 579
+      },
+      "predicted_distribution_pct": {
+        "Normal": 85.9525,
+        "DoS": 0.0,
+        "Fuzzy": 11.1313,
+        "Gear": 0.0,
+        "RPM": 2.9163
+      }
+    }
+  },
+  "impersonation_analysis": {
+    "judged_as_Gear": 0,
+    "judged_as_RPM": 579,
+    "judged_as_Normal": 17065,
+    "judged_as_DoS": 0,
+    "judged_as_Fuzzy": 2210,
+    "note": "Impersonation 为伪装注入，HCRL 五分类标签空间无对应类别；按任务单要求单独报告其被判为 Gear/RPM/Normal 的分布，不强行并入 macro-F1。被判为 Normal 的比例即伪装类漏检的定性参考。"
+  },
+  "macro_f1_reported": false,
+  "macro_f1_reason": "OTIDS 无 Gear/RPM 真值类、Impersonation 无对应类别，五分类 macro-F1 在该跨域集上不可定义；强行计算会造成口径误导"
+}

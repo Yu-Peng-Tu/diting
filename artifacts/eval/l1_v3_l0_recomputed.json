@@ -1,0 +1,107 @@
+{
+  "model": "L0 统计规则基线（split-v3 重算）",
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
+  "split_version": "split-v3",
+  "level": "window",
+  "n_val_windows": 19277,
+  "primary_policy": "同口径主行：用 split-v3 train 正常窗口重新 fit 规则阈值（分位数统计，非模型训练），在 split-v3 val 上评估；与 L1-v3 的训练/评估划分完全一致。L0 不是可训练模型，故仍称『重算』",
+  "primary_threshold_source": "split-v3 train 正常窗口（本任务重新 fit，见 reference_rule 之外的 primary_rule）",
+  "primary_rule": {
+    "version": "l0-thresholds-v1",
+    "fit_on": "train_normal_windows",
+    "n_train_normal_windows": 30146,
+    "id_frequency_percentile": 95.0,
+    "interval_cv_percentile": 95.0,
+    "thresholds": {
+      "g2_dt_mean_max": -0.25100376698413207,
+      "g4_top1_id_ratio_min": -0.6570294816329579,
+      "g2_same_id_dt_cv_min": 3.130462425632936,
+      "g5_same_id_dt_std_min": -0.16071775374814046
+    },
+    "rule_features": [
+      "g2_dt_mean",
+      "g4_top1_id_ratio",
+      "g2_same_id_dt_cv",
+      "g5_same_id_dt_std"
+    ],
+    "excluded_from_rules": [
+      "g4_min_id_share"
+    ],
+    "exclusion_reason": "与 0x000 注入 ID 相关，避免规则退化为标签代理；列入 W2 消融"
+  },
+  "primary_metrics": {
+    "n_samples": 19277,
+    "n_positive": 9465,
+    "n_negative": 9812,
+    "tp": 9302,
+    "fp": 1103,
+    "tn": 8709,
+    "fn": 163,
+    "recall": 0.982779,
+    "precision": 0.893993,
+    "fpr": 0.112413,
+    "f1": 0.936286,
+    "false_alarms_per_10k_normal": 1124.1337,
+    "confusion_matrix": {
+      "labels": [
+        "Normal",
+        "Attack"
+      ],
+      "matrix": [
+        [
+          8709,
+          1103
+        ],
+        [
+          163,
+          9302
+        ]
+      ]
+    },
+    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）"
+  },
+  "reference_policy": "敏感性分析：沿用 W2 在 split-v2 train 正常窗口 fit 的固定阈值，仅把评估集换成 split-v3 val。该阈值来自旧划分，与 L1-v3 训练口径不一致，故不作为对照表主行；两者差距用于说明固定规则阈值对划分/分布漂移的敏感性",
+  "reference_threshold_source": "artifacts/baseline/l0_rule_thresholds.json（只读，W2 产物）",
+  "reference_metrics": {
+    "n_samples": 19277,
+    "n_positive": 9465,
+    "n_negative": 9812,
+    "tp": 9170,
+    "fp": 9253,
+    "tn": 559,
+    "fn": 295,
+    "recall": 0.968833,
+    "precision": 0.497747,
+    "fpr": 0.943029,
+    "f1": 0.657631,
+    "false_alarms_per_10k_normal": 9430.2894,
+    "confusion_matrix": {
+      "labels": [
+        "Normal",
+        "Attack"
+      ],
+      "matrix": [
+        [
+          559,
+          9253
+        ],
+        [
+          295,
+          9170
+        ]
+      ]
+    },
+    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）"
+  },
+  "threshold_source_delta_fpr": 0.830616,
+  "threshold_source_delta_note": "参考口径 FPR - 主口径 FPR；正值表示沿用旧划分阈值会显著恶化误报，说明 L0 固定阈值对划分敏感，也说明主口径必须重新 fit 才公平",
+  "l0_false_positive_windows": 1103,
+  "l0_false_positive_by_segment_prefix": {
+    "Fuzzy": 561,
+    "DoS": 239,
+    "RPM": 159,
+    "Gear": 144
+  },
+  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2"
+}

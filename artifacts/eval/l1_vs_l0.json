@@ -1,0 +1,57 @@
+{
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
+  "level": "window",
+  "l0_source": "artifacts/baseline/l0_metrics.json（只读既有产物）",
+  "l0_split_manifest_version": "split-v2",
+  "l0_n_samples": 19702,
+  "l1_n_samples": 19702,
+  "same_val_note": "L0 与 L1 均在同一 split-v2 val 集上按窗口级口径评估；若 n_samples 不一致则对照无效，需停工核查",
+  "rows": [
+    {
+      "model": "L0 统计规则基线",
+      "recall": 1.0,
+      "fpr": 0.143066,
+      "precision": 0.829693,
+      "f1": 0.906921,
+      "false_alarms_per_10k_normal": 1430.6632,
+      "threshold": "规则投票 >= 1"
+    },
+    {
+      "model": "L1 @0.5",
+      "recall": 0.975408,
+      "fpr": 0.0,
+      "precision": 1.0,
+      "f1": 0.987551,
+      "false_alarms_per_10k_normal": 0.0,
+      "threshold": 0.5
+    },
+    {
+      "model": "L1 @标定阈值",
+      "recall": 0.996169,
+      "fpr": 8.6e-05,
+      "precision": 0.999876,
+      "f1": 0.998019,
+      "false_alarms_per_10k_normal": 0.8613,
+      "threshold": 0.05
+    }
+  ],
+  "deltas_vs_l0": [
+    {
+      "model": "L1 @0.5",
+      "fpr_absolute_change": -0.143066,
+      "fpr_relative_change_pct": -100.0,
+      "recall_absolute_change": -0.024592,
+      "f1_absolute_change": 0.08063,
+      "false_alarms_per_10k_change": -1430.6632
+    },
+    {
+      "model": "L1 @标定阈值",
+      "fpr_absolute_change": -0.14298,
+      "fpr_relative_change_pct": -99.9399,
+      "recall_absolute_change": -0.003831,
+      "f1_absolute_change": 0.091098,
+      "false_alarms_per_10k_change": -1429.8019
+    }
+  ]
+}

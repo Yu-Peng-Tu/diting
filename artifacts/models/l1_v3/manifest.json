@@ -1,0 +1,99 @@
+{
+  "manifest_version": "1.0",
+  "stage": "l1_v3_model",
+  "project": "diting",
+  "project_version": "l1-gbdt-v3",
+  "code_version": "0.2.0",
+  "git_revision": "a26ef554a6f96916b0502aef237abc3732c37766",
+  "config_path": "./configs/l1_v3.yaml",
+  "config_sha256": "5b7ecc0e02d32929987d6bf98e4f741e38fe800d1b9756fa940e35b586eaa70f",
+  "random_seed": 20261108,
+  "created_at": "2026-11-08T15:09:58+08:00",
+  "inputs": [
+    {
+      "path": "data/processed/features/window_features.parquet",
+      "exists": true,
+      "size_bytes": 16725119,
+      "sha256": "fbccb346f817e17a90fcda813ea3276e0236105a6cf4b8ccd3a5aeec27352418"
+    },
+    {
+      "path": "data/processed/labels/window_labels.parquet",
+      "exists": true,
+      "size_bytes": 3421847,
+      "sha256": "385068169b127b833065115bce721f487312c718b3b56c39032b9a8236708614"
+    },
+    {
+      "path": "data/processed/split/split-v3/split_manifest.json",
+      "exists": true,
+      "size_bytes": 13505,
+      "sha256": "a1dfd8aae179d81ed626f1ff9cd70510b6630f0b46d3881f76db57c520477dc9"
+    },
+    {
+      "path": "data/processed/split/split-v3/windows.parquet",
+      "exists": true,
+      "size_bytes": 2761229,
+      "sha256": "2a79c6d2b66883534e04dd2146155a0c892f9ddad639543d9a9e298e5975aa87"
+    }
+  ],
+  "versions": {
+    "model_version": "l1-gbdt-v3",
+    "feature_version": "l1-features-v1",
+    "threshold_version": "l1-v3-thr-v1",
+    "split_manifest_version": "split-v3",
+    "code_version": "a26ef554a6f96916b0502aef237abc3732c37766",
+    "random_seed": 20261108,
+    "l1_v3_config_sha256": "5b7ecc0e02d32929987d6bf98e4f741e38fe800d1b9756fa940e35b586eaa70f",
+    "default_config_sha256": "a0ea9bad194744cd0091ace4220f8aa2a2a8df4fd470b72b46104edaa12f4cd3",
+    "model_joblib_sha256": "465a26db953b911c4fcf7011c28904c06a13d81403dc643b4a8320a0e99cc19d",
+    "split_manifest_sha256": "a1dfd8aae179d81ed626f1ff9cd70510b6630f0b46d3881f76db57c520477dc9"
+  },
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
+  "split_version": "split-v3",
+  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2",
+  "test_rows_loaded": 0,
+  "split_filter": "pyarrow filters [('window_id','in', split-v3 train/val window_ids)] — test 窗口不在 in-list 中，特征/标签行均未载入内存",
+  "class_coverage": {
+    "train": {
+      "n_windows": 60256,
+      "n_attack": 30110,
+      "n_normal": 30146,
+      "class_counts": {
+        "Normal": 30146,
+        "DoS": 6090,
+        "Fuzzy": 7681,
+        "Gear": 8209,
+        "RPM": 8130
+      }
+    },
+    "val": {
+      "n_windows": 19277,
+      "n_attack": 9465,
+      "n_normal": 9812,
+      "class_counts": {
+        "Normal": 9812,
+        "DoS": 2002,
+        "Fuzzy": 2349,
+        "Gear": 2635,
+        "RPM": 2479
+      }
+    },
+    "train_only_classes": [],
+    "val_only_classes": [],
+    "shared_classes": [
+      "DoS",
+      "Fuzzy",
+      "Gear",
+      "Normal",
+      "RPM"
+    ]
+  },
+  "outputs": [
+    "model.joblib",
+    "features.json",
+    "threshold.json",
+    "metrics.json",
+    "split_manifest_ref.json",
+    "manifest.json"
+  ]
+}

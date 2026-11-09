@@ -1,0 +1,347 @@
+{
+  "evaluated_on": "hcrl_val_vs_otids_feature_drift",
+  "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+  "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",
+  "level": "window",
+  "source_tag": "public:otids:kia-soul",
+  "label_policy": "n/a (无标签参与)",
+  "threshold": 0.54,
+  "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+  "model_version": "l1-gbdt-v3",
+  "threshold_version": "l1-v3-thr-v1",
+  "unit": "归一化空间（HCRL train 均值/标准差），|Δmean| 单位≈1 个 train std",
+  "hcrl_val_n_windows": 19277,
+  "otids_n_windows": 92013,
+  "by_group": {
+    "id_space": {
+      "n_features": 8,
+      "mean_abs_delta": 0.652716,
+      "max_abs_delta": 1.572928,
+      "sum_abs_delta": 5.221727
+    },
+    "interval": {
+      "n_features": 12,
+      "mean_abs_delta": 0.559467,
+      "max_abs_delta": 1.904374,
+      "sum_abs_delta": 6.713603
+    },
+    "payload": {
+      "n_features": 10,
+      "mean_abs_delta": 0.601819,
+      "max_abs_delta": 2.907651,
+      "sum_abs_delta": 6.01819
+    },
+    "dlc": {
+      "n_features": 4,
+      "mean_abs_delta": 1.830684,
+      "max_abs_delta": 4.095374,
+      "sum_abs_delta": 7.322736
+    }
+  },
+  "per_feature": {
+    "g1_id_freq_mean": {
+      "group": "id_space",
+      "hcrl_val_mean": -0.270411,
+      "otids_mean": -1.843339,
+      "abs_mean_delta": 1.572928,
+      "hcrl_val_std": 1.094309,
+      "otids_std": 0.417149,
+      "std_ratio": 0.381198
+    },
+    "g1_id_freq_std": {
+      "group": "id_space",
+      "hcrl_val_mean": -0.140155,
+      "otids_mean": 0.687002,
+      "abs_mean_delta": 0.827157,
+      "hcrl_val_std": 0.963763,
+      "otids_std": 0.413364,
+      "std_ratio": 0.428906
+    },
+    "g1_id_freq_min": {
+      "group": "id_space",
+      "hcrl_val_mean": -0.128241,
+      "otids_mean": -1.070702,
+      "abs_mean_delta": 0.942462,
+      "hcrl_val_std": 0.905587,
+      "otids_std": 0.000106,
+      "std_ratio": 0.000117
+    },
+    "g4_frame_count": {
+      "group": "dlc",
+      "hcrl_val_mean": 0.0,
+      "otids_mean": 0.0,
+      "abs_mean_delta": 0.0,
+      "hcrl_val_std": 0.0,
+      "otids_std": 0.0,
+      "std_ratio": null
+    },
+    "g4_unique_ids": {
+      "group": "id_space",
+      "hcrl_val_mean": -0.13084,
+      "otids_mean": 0.036285,
+      "abs_mean_delta": 0.167125,
+      "hcrl_val_std": 0.882922,
+      "otids_std": 0.213175,
+      "std_ratio": 0.241443
+    },
+    "g4_id_entropy": {
+      "group": "id_space",
+      "hcrl_val_mean": -0.226069,
+      "otids_mean": 0.19188,
+      "abs_mean_delta": 0.417949,
+      "hcrl_val_std": 1.099686,
+      "otids_std": 0.846537,
+      "std_ratio": 0.769799
+    },
+    "g4_top1_id_ratio": {
+      "group": "id_space",
+      "hcrl_val_mean": 0.161712,
+      "otids_mean": -0.232086,
+      "abs_mean_delta": 0.393798,
+      "hcrl_val_std": 1.237081,
+      "otids_std": 1.092067,
+      "std_ratio": 0.882777
+    },
+    "g4_min_id_share": {
+      "group": "id_space",
+      "hcrl_val_mean": 0.77438,
+      "otids_mean": -0.125927,
+      "abs_mean_delta": 0.900308,
+      "hcrl_val_std": 2.020219,
+      "otids_std": 2.846464,
+      "std_ratio": 1.408988
+    },
+    "g2_dt_mean": {
+      "group": "interval",
+      "hcrl_val_mean": 0.160649,
+      "otids_mean": -0.334046,
+      "abs_mean_delta": 0.494696,
+      "hcrl_val_std": 1.127994,
+      "otids_std": 0.377947,
+      "std_ratio": 0.335061
+    },
+    "g2_dt_std": {
+      "group": "interval",
+      "hcrl_val_mean": 0.241224,
+      "otids_mean": -0.706051,
+      "abs_mean_delta": 0.947274,
+      "hcrl_val_std": 1.263365,
+      "otids_std": 0.437653,
+      "std_ratio": 0.346418
+    },
+    "g2_dt_min": {
+      "group": "interval",
+      "hcrl_val_mean": 0.129976,
+      "otids_mean": -1.774399,
+      "abs_mean_delta": 1.904374,
+      "hcrl_val_std": 1.045373,
+      "otids_std": 1.198563,
+      "std_ratio": 1.146542
+    },
+    "g2_dt_max": {
+      "group": "interval",
+      "hcrl_val_mean": 0.153356,
+      "otids_mean": -0.702068,
+      "abs_mean_delta": 0.855424,
+      "hcrl_val_std": 1.141846,
+      "otids_std": 0.525308,
+      "std_ratio": 0.460051
+    },
+    "g2_same_id_dt_mean": {
+      "group": "interval",
+      "hcrl_val_mean": -0.053392,
+      "otids_mean": -0.303181,
+      "abs_mean_delta": 0.249789,
+      "hcrl_val_std": 0.927208,
+      "otids_std": 0.030202,
+      "std_ratio": 0.032573
+    },
+    "g2_same_id_dt_std": {
+      "group": "interval",
+      "hcrl_val_mean": -0.0489,
+      "otids_mean": -0.301508,
+      "abs_mean_delta": 0.252607,
+      "hcrl_val_std": 0.959311,
+      "otids_std": 0.0763,
+      "std_ratio": 0.079536
+    },
+    "g2_same_id_dt_cv": {
+      "group": "interval",
+      "hcrl_val_mean": 0.027751,
+      "otids_mean": 0.604924,
+      "abs_mean_delta": 0.577174,
+      "hcrl_val_std": 1.063957,
+      "otids_std": 0.990078,
+      "std_ratio": 0.930563
+    },
+    "g5_same_id_dt_mean": {
+      "group": "interval",
+      "hcrl_val_mean": -0.053392,
+      "otids_mean": -0.303181,
+      "abs_mean_delta": 0.249789,
+      "hcrl_val_std": 0.927208,
+      "otids_std": 0.030202,
+      "std_ratio": 0.032573
+    },
+    "g5_same_id_dt_std": {
+      "group": "interval",
+      "hcrl_val_mean": -0.0489,
+      "otids_mean": -0.301508,
+      "abs_mean_delta": 0.252607,
+      "hcrl_val_std": 0.959311,
+      "otids_std": 0.0763,
+      "std_ratio": 0.079536
+    },
+    "g5_same_id_dt_max": {
+      "group": "interval",
+      "hcrl_val_mean": -0.043361,
+      "otids_mean": -0.279526,
+      "abs_mean_delta": 0.236165,
+      "hcrl_val_std": 0.970882,
+      "otids_std": 0.165197,
+      "std_ratio": 0.170152
+    },
+    "g5_dt_p50": {
+      "group": "interval",
+      "hcrl_val_mean": 0.001736,
+      "otids_mean": 0.003094,
+      "abs_mean_delta": 0.001358,
+      "hcrl_val_std": 0.694513,
+      "otids_std": 0.326991,
+      "std_ratio": 0.470821
+    },
+    "g5_dt_p95": {
+      "group": "interval",
+      "hcrl_val_mean": 0.202998,
+      "otids_mean": -0.489346,
+      "abs_mean_delta": 0.692344,
+      "hcrl_val_std": 1.166366,
+      "otids_std": 0.386337,
+      "std_ratio": 0.331231
+    },
+    "g3_byte_mean": {
+      "group": "payload",
+      "hcrl_val_mean": -0.436322,
+      "otids_mean": -0.290953,
+      "abs_mean_delta": 0.145369,
+      "hcrl_val_std": 1.281385,
+      "otids_std": 1.359002,
+      "std_ratio": 1.060572
+    },
+    "g3_byte_std": {
+      "group": "payload",
+      "hcrl_val_mean": -0.75696,
+      "otids_mean": -0.992169,
+      "abs_mean_delta": 0.235209,
+      "hcrl_val_std": 2.003285,
+      "otids_std": 2.104232,
+      "std_ratio": 1.050391
+    },
+    "g3_byte_entropy_mean": {
+      "group": "payload",
+      "hcrl_val_mean": -0.70348,
+      "otids_mean": -0.34811,
+      "abs_mean_delta": 0.355371,
+      "hcrl_val_std": 2.000885,
+      "otids_std": 2.486045,
+      "std_ratio": 1.242473
+    },
+    "g3_hamming_mean": {
+      "group": "payload",
+      "hcrl_val_mean": -0.356764,
+      "otids_mean": 0.112266,
+      "abs_mean_delta": 0.46903,
+      "hcrl_val_std": 1.739057,
+      "otids_std": 1.988567,
+      "std_ratio": 1.143474
+    },
+    "g3_payload_change_rate": {
+      "group": "payload",
+      "hcrl_val_mean": 0.019027,
+      "otids_mean": -0.082141,
+      "abs_mean_delta": 0.101167,
+      "hcrl_val_std": 1.115461,
+      "otids_std": 0.935837,
+      "std_ratio": 0.838968
+    },
+    "g6_payload_change_rate": {
+      "group": "payload",
+      "hcrl_val_mean": 0.019027,
+      "otids_mean": -0.082141,
+      "abs_mean_delta": 0.101167,
+      "hcrl_val_std": 1.115461,
+      "otids_std": 0.935837,
+      "std_ratio": 0.838968
+    },
+    "g6_byte_entropy_mean": {
+      "group": "payload",
+      "hcrl_val_mean": -0.70348,
+      "otids_mean": -0.34811,
+      "abs_mean_delta": 0.355371,
+      "hcrl_val_std": 2.000885,
+      "otids_std": 2.486045,
+      "std_ratio": 1.242473
+    },
+    "g6_dlc_entropy": {
+      "group": "payload",
+      "hcrl_val_mean": -0.169833,
+      "otids_mean": 2.737818,
+      "abs_mean_delta": 2.907651,
+      "hcrl_val_std": 0.933306,
+      "otids_std": 1.356047,
+      "std_ratio": 1.452949
+    },
+    "g6_hamming_p95": {
+      "group": "payload",
+      "hcrl_val_mean": -0.046527,
+      "otids_mean": -0.129919,
+      "abs_mean_delta": 0.083392,
+      "hcrl_val_std": 0.210044,
+      "otids_std": 0.335652,
+      "std_ratio": 1.598009
+    },
+    "g6_unique_payload_ratio": {
+      "group": "payload",
+      "hcrl_val_mean": -0.204308,
+      "otids_mean": 1.060155,
+      "abs_mean_delta": 1.264464,
+      "hcrl_val_std": 1.078738,
+      "otids_std": 1.17133,
+      "std_ratio": 1.085834
+    },
+    "g1_dlc_mean": {
+      "group": "dlc",
+      "hcrl_val_mean": 0.158259,
+      "otids_mean": -3.937115,
+      "abs_mean_delta": 4.095374,
+      "hcrl_val_std": 0.944717,
+      "otids_std": 2.203859,
+      "std_ratio": 2.332825
+    },
+    "g1_dlc_std": {
+      "group": "dlc",
+      "hcrl_val_mean": -0.137078,
+      "otids_mean": 3.090283,
+      "abs_mean_delta": 3.227361,
+      "hcrl_val_std": 1.056862,
+      "otids_std": 1.761804,
+      "std_ratio": 1.667014
+    },
+    "g1_dlc_max": {
+      "group": "dlc",
+      "hcrl_val_mean": 0.0,
+      "otids_mean": 0.0,
+      "abs_mean_delta": 0.0,
+      "hcrl_val_std": 0.0,
+      "otids_std": 0.0,
+      "std_ratio": null
+    }
+  },
+  "dominant_drift_group": "dlc",
+  "by_group_note": {
+    "id_space": "G1 ID 频次 + G4 ID 分布（跨车型 ID 空间 / 频次表错配）",
+    "interval": "G2/G5 帧间隔与同 ID 周期（采集环境、总线负载差异）",
+    "payload": "G3/G6 payload 字节统计（车型信号编码差异）",
+    "dlc": "G1 DLC 与窗口帧数（对照组）"
+  }
+}

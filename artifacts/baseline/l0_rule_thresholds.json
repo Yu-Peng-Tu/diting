@@ -1,0 +1,23 @@
+{
+  "version": "l0-v2",
+  "fit_on": "train_normal_windows",
+  "n_train_normal_windows": 28348,
+  "id_frequency_percentile": 95.0,
+  "interval_cv_percentile": 95.0,
+  "thresholds": {
+    "g2_dt_mean_max": 0.0005001497268676758,
+    "g4_top1_id_ratio_min": 0.06,
+    "g2_same_id_dt_cv_min": 3.9241930107471745,
+    "g5_same_id_dt_std_min": 0.1382432113217249
+  },
+  "rule_features": [
+    "g2_dt_mean",
+    "g4_top1_id_ratio",
+    "g2_same_id_dt_cv",
+    "g5_same_id_dt_std"
+  ],
+  "excluded_from_rules": [
+    "g4_min_id_share"
+  ],
+  "exclusion_reason": "与 0x000 注入 ID 相关，避免规则退化为标签代理；列入 W2 消融"
+}

@@ -1,0 +1,127 @@
+# 谛听 W2-L1 · L1 手工特征 + GBDT 模型训练/评估/消融配置
+# 本文件为新增配置文件，不改动 configs/default.yaml（既有输入保持只读）。
+# 所有指标口径：真实数据子集（每个原始文件前 100 万行）上的 val 结果；test 全程封存。
+
+l1:
+  version: "l1-gbdt-v1"
+  seed: 20261108
+
+  # 数据边界声明（写进每一份 metrics 产物，防止被误引用为全量/实车指标）
+  data_scope: "真实数据子集（每文件前 100 万行）上的 val 结果"
+  data_scope_short: "subset-1e6-per-file / val / window-level"
+  dataset: "HCRL Car-Hacking Dataset（Kaggle 镜像，MIT）"
+  evaluated_on: "val"
+  test_set_status: "sealed — 本任务不读取、不评估、不引用 test"
+
+  # 输入（只读）
+  inputs:
+    features: data/processed/features/window_features.parquet
+    labels: data/processed/labels/window_labels.parquet
+    split_manifest: data/processed/split/split-v2/split_manifest.json
+    l0_metrics: artifacts/baseline/l0_metrics.json
+    feature_params: artifacts/features/feature_params.json
+
+  # 输出（一律新建文件）
+  outputs:
+    model_dir: artifacts/models/l1
+    eval_dir: artifacts/eval
+    ablation_dir: artifacts/ablation
+
+  # 五分类固定类别顺序与原始 dominant_class 的映射
+  classes:
+    order: [Normal, DoS, Fuzzy, Gear, RPM]
+    mapping:
+      Normal: Normal
+      DoS: DoS
+      Fuzzy: Fuzzy
+      Spoofing_the_drive_gear: Gear
+      Spoofing_the_RPM_gauge: RPM
+    positive_label: Attack   # 二分类正类 = 任一攻击
+
+  # HistGradientBoostingClassifier 超参（scikit-learn core，不新增重型依赖）
+  # early_stopping=False：避免内部随机切分验证折，保证训练完全确定、可复现。
+  model:
+    estimator: sklearn.ensemble.HistGradientBoostingClassifier
+    params:
+      learning_rate: 0.1
+      max_iter: 200
+      max_leaf_nodes: 31
+      min_samples_leaf: 20
+      l2_regularization: 1.0
+      max_bins: 255
+      early_stopping: false
+      random_state: 20261108
+    # 二分类与五分类共用同一组超参，便于同口径对照
+    binary_params: {}
+    multiclass_params: {}
+
+  # 阈值标定：只在 val 上按 FPR/Recall 折中（Youden's J = Recall - FPR 最大）选定
+  threshold:
+    version: "l1-thr-v1"
+    default: 0.5
+    criterion: "max_youden_j_on_val"
+    grid: {start: 0.05, stop: 0.95, step: 0.01}
+    tie_breaker: "prefer_higher_threshold"
+
+  # permutation importance（val 上，固定种子）
+  importance:
+    n_repeats: 5
+    scoring: f1
+    random_state: 20261108
+    top_k_plot: 20
+
+  # 三组特征消融（互斥；未列入任何组的 4 维为「保留基础组」，任何消融都不剔除）
+  ablation:
+    version: "l1-abl-v1"
+    groups:
+      id_frequency:
+        label: "①ID 频率组"
+        columns:
+          - g1_id_freq_mean
+          - g1_id_freq_std
+          - g1_id_freq_min
+          - g4_unique_ids
+          - g4_id_entropy
+          - g4_top1_id_ratio
+          - g4_min_id_share
+      interval:
+        label: "②周期间隔组"
+        columns:
+          - g2_dt_mean
+          - g2_dt_std
+          - g2_dt_min
+          - g2_dt_max
+          - g2_same_id_dt_mean
+          - g2_same_id_dt_std
+          - g2_same_id_dt_cv
+          - g5_same_id_dt_mean
+          - g5_same_id_dt_std
+          - g5_same_id_dt_max
+          - g5_dt_p50
+          - g5_dt_p95
+      payload:
+        label: "③payload 字节组"
+        columns:
+          - g3_byte_mean
+          - g3_byte_std
+          - g3_byte_entropy_mean
+          - g3_hamming_mean
+          - g3_payload_change_rate
+          - g6_payload_change_rate
+          - g6_byte_entropy_mean
+          - g6_dlc_entropy
+          - g6_hamming_p95
+          - g6_unique_payload_ratio
+    retained_base_columns:
+      - g1_dlc_mean
+      - g1_dlc_std
+      - g1_dlc_max
+      - g4_frame_count
+
+  # train 折内类别可分性诊断（仅定性观察 Gear↔RPM 互混，非评估指标、不参与选择）
+  train_diagnostic:
+    enabled: true
+    role: "diagnostic_only"
+    is_acceptance_metric: false
+    holdout_ratio: 0.25
+    seed: 20261108

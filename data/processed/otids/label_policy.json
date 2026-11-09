@@ -1,0 +1,41 @@
+{
+  "theta": 0.2,
+  "window_size_frames": 100,
+  "stride_frames": 50,
+  "n_windows": 92013,
+  "window_positive_primary": 44745,
+  "window_negative_primary": 47268,
+  "window_positive_official": 25524,
+  "window_negative_official": 66489,
+  "by_dominant_class": {
+    "DoS": {
+      "n_windows": 13089,
+      "primary_positive": 13089,
+      "official_positive": 13089
+    },
+    "Fuzzy": {
+      "n_windows": 11802,
+      "primary_positive": 11802,
+      "official_positive": 2864
+    },
+    "Impersonation": {
+      "n_windows": 19854,
+      "primary_positive": 19854,
+      "official_positive": 9571
+    },
+    "Normal": {
+      "n_windows": 47268,
+      "primary_positive": 0,
+      "official_positive": 0
+    }
+  },
+  "files": [
+    "windows.parquet",
+    "labels/window_labels.parquet"
+  ],
+  "label_policy": {
+    "primary": "帧 label = 文件级 target>0；窗口 label = attack_ratio>=0.20（复用 HCRL 同一 build_windows）",
+    "official_sensitivity": "DoS: can_id==0x000；Fuzzy/Impersonation: ts - t_start >= 250s；Attack-free: 0；再按 θ=0.20 窗口化",
+    "note": "主口径因文件级标签在段内恒定，attack_ratio 退化为 0/1，窗口标签等价于文件标签；θ=0.20 仍由与 HCRL 完全相同的 build_windows 执行，口径代码路径一致。"
+  }
+}

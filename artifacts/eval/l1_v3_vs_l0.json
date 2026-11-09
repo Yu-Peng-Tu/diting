@@ -1,0 +1,61 @@
+{
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
+  "split_version": "split-v3",
+  "level": "window",
+  "l0_source": "split-v3 train 正常窗口（本任务重新 fit，见 reference_rule 之外的 primary_rule）",
+  "l0_threshold_policy": "同口径主行：用 split-v3 train 正常窗口重新 fit 规则阈值（分位数统计，非模型训练），在 split-v3 val 上评估；与 L1-v3 的训练/评估划分完全一致。L0 不是可训练模型，故仍称『重算』",
+  "l0_n_samples": 19277,
+  "l1_n_samples": 19277,
+  "same_val_note": "L0 与 L1-v3 均在同一 split-v3 val 窗口集合上按窗口级口径评估；样本数不一致则对照无效",
+  "rows": [
+    {
+      "model": "L0 统计规则基线（split-v3 重算）",
+      "recall": 0.982779,
+      "fpr": 0.112413,
+      "precision": 0.893993,
+      "f1": 0.936286,
+      "false_alarms_per_10k_normal": 1124.1337,
+      "threshold": "规则投票 >= 1（固定阈值）"
+    },
+    {
+      "model": "L1-v3 @0.5",
+      "recall": 0.999789,
+      "fpr": 0.000306,
+      "precision": 0.999683,
+      "f1": 0.999736,
+      "false_alarms_per_10k_normal": 3.0575,
+      "threshold": 0.5
+    },
+    {
+      "model": "L1-v3 @标定阈值",
+      "recall": 0.999789,
+      "fpr": 0.000306,
+      "precision": 0.999683,
+      "f1": 0.999736,
+      "false_alarms_per_10k_normal": 3.0575,
+      "threshold": 0.54
+    }
+  ],
+  "deltas_vs_l0": [
+    {
+      "model": "L1-v3 @0.5",
+      "fpr_absolute_change": -0.112107,
+      "fpr_relative_change_pct": -99.7278,
+      "recall_absolute_change": 0.01701,
+      "f1_absolute_change": 0.06345,
+      "false_alarms_per_10k_change": -1121.0762
+    },
+    {
+      "model": "L1-v3 @标定阈值",
+      "fpr_absolute_change": -0.112107,
+      "fpr_relative_change_pct": -99.7278,
+      "recall_absolute_change": 0.01701,
+      "f1_absolute_change": 0.06345,
+      "false_alarms_per_10k_change": -1121.0762
+    }
+  ],
+  "fpr_conclusion": "FPR 明显下降：标定阈值下相对 L0 下降 99.73%（0.112413 → 0.000306），每万正常窗口误报数 1124.13 → 3.06。结论明确：是。",
+  "fpr_dropped_significantly": true,
+  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2"
+}

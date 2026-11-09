@@ -1,0 +1,156 @@
+{
+  "version": "l1-features-v1",
+  "source": "data/processed/features/window_features.parquet",
+  "source_sha256": "fbccb346f817e17a90fcda813ea3276e0236105a6cf4b8ccd3a5aeec27352418",
+  "n_features": 33,
+  "columns": [
+    "g1_dlc_mean",
+    "g1_dlc_std",
+    "g1_dlc_max",
+    "g1_id_freq_mean",
+    "g1_id_freq_std",
+    "g1_id_freq_min",
+    "g2_dt_mean",
+    "g2_dt_std",
+    "g2_dt_min",
+    "g2_dt_max",
+    "g2_same_id_dt_mean",
+    "g2_same_id_dt_std",
+    "g2_same_id_dt_cv",
+    "g3_byte_mean",
+    "g3_byte_std",
+    "g3_byte_entropy_mean",
+    "g3_hamming_mean",
+    "g3_payload_change_rate",
+    "g4_frame_count",
+    "g4_unique_ids",
+    "g4_id_entropy",
+    "g4_top1_id_ratio",
+    "g4_min_id_share",
+    "g5_same_id_dt_mean",
+    "g5_same_id_dt_std",
+    "g5_same_id_dt_max",
+    "g5_dt_p50",
+    "g5_dt_p95",
+    "g6_payload_change_rate",
+    "g6_byte_entropy_mean",
+    "g6_dlc_entropy",
+    "g6_hamming_p95",
+    "g6_unique_payload_ratio"
+  ],
+  "feature_groups": {
+    "G1": [
+      "g1_dlc_mean",
+      "g1_dlc_std",
+      "g1_dlc_max",
+      "g1_id_freq_mean",
+      "g1_id_freq_std",
+      "g1_id_freq_min"
+    ],
+    "G2": [
+      "g2_dt_mean",
+      "g2_dt_std",
+      "g2_dt_min",
+      "g2_dt_max",
+      "g2_same_id_dt_mean",
+      "g2_same_id_dt_std",
+      "g2_same_id_dt_cv"
+    ],
+    "G3": [
+      "g3_byte_mean",
+      "g3_byte_std",
+      "g3_byte_entropy_mean",
+      "g3_hamming_mean",
+      "g3_payload_change_rate"
+    ],
+    "G4": [
+      "g4_frame_count",
+      "g4_unique_ids",
+      "g4_id_entropy",
+      "g4_top1_id_ratio",
+      "g4_min_id_share"
+    ],
+    "G5": [
+      "g5_same_id_dt_mean",
+      "g5_same_id_dt_std",
+      "g5_same_id_dt_max",
+      "g5_dt_p50",
+      "g5_dt_p95"
+    ],
+    "G6": [
+      "g6_payload_change_rate",
+      "g6_byte_entropy_mean",
+      "g6_dlc_entropy",
+      "g6_hamming_p95",
+      "g6_unique_payload_ratio"
+    ]
+  },
+  "ablation_groups": {
+    "groups": {
+      "id_frequency": {
+        "label": "①ID 频率组",
+        "n_columns": 7,
+        "columns": [
+          "g1_id_freq_mean",
+          "g1_id_freq_std",
+          "g1_id_freq_min",
+          "g4_unique_ids",
+          "g4_id_entropy",
+          "g4_top1_id_ratio",
+          "g4_min_id_share"
+        ]
+      },
+      "interval": {
+        "label": "②周期间隔组",
+        "n_columns": 12,
+        "columns": [
+          "g2_dt_mean",
+          "g2_dt_std",
+          "g2_dt_min",
+          "g2_dt_max",
+          "g2_same_id_dt_mean",
+          "g2_same_id_dt_std",
+          "g2_same_id_dt_cv",
+          "g5_same_id_dt_mean",
+          "g5_same_id_dt_std",
+          "g5_same_id_dt_max",
+          "g5_dt_p50",
+          "g5_dt_p95"
+        ]
+      },
+      "payload": {
+        "label": "③payload 字节组",
+        "n_columns": 10,
+        "columns": [
+          "g3_byte_mean",
+          "g3_byte_std",
+          "g3_byte_entropy_mean",
+          "g3_hamming_mean",
+          "g3_payload_change_rate",
+          "g6_payload_change_rate",
+          "g6_byte_entropy_mean",
+          "g6_dlc_entropy",
+          "g6_hamming_p95",
+          "g6_unique_payload_ratio"
+        ]
+      }
+    },
+    "retained_base_columns": [
+      "g1_dlc_mean",
+      "g1_dlc_std",
+      "g1_dlc_max",
+      "g4_frame_count"
+    ],
+    "passed": true,
+    "n_total": 33,
+    "n_ablated": 29
+  },
+  "leakage_guard": "flag / label / attack_ratio / can_id==0x000 布尔等标签等价字段均未入特征（沿用既有断言）",
+  "label_source": "data/processed/labels/window_labels.parquet（既有窗口标签）",
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
+  "data_scope_short": "subset-1e6-per-file / val / window-level",
+  "dataset": "HCRL Car-Hacking Dataset（Kaggle 镜像，MIT）",
+  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test",
+  "level": "window"
+}

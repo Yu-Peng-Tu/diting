@@ -1,0 +1,109 @@
+{
+  "n_windows": 92013,
+  "n_features": 33,
+  "feature_columns": [
+    "g1_dlc_mean",
+    "g1_dlc_std",
+    "g1_dlc_max",
+    "g1_id_freq_mean",
+    "g1_id_freq_std",
+    "g1_id_freq_min",
+    "g2_dt_mean",
+    "g2_dt_std",
+    "g2_dt_min",
+    "g2_dt_max",
+    "g2_same_id_dt_mean",
+    "g2_same_id_dt_std",
+    "g2_same_id_dt_cv",
+    "g3_byte_mean",
+    "g3_byte_std",
+    "g3_byte_entropy_mean",
+    "g3_hamming_mean",
+    "g3_payload_change_rate",
+    "g4_frame_count",
+    "g4_unique_ids",
+    "g4_id_entropy",
+    "g4_top1_id_ratio",
+    "g4_min_id_share",
+    "g5_same_id_dt_mean",
+    "g5_same_id_dt_std",
+    "g5_same_id_dt_max",
+    "g5_dt_p50",
+    "g5_dt_p95",
+    "g6_payload_change_rate",
+    "g6_byte_entropy_mean",
+    "g6_dlc_entropy",
+    "g6_hamming_p95",
+    "g6_unique_payload_ratio"
+  ],
+  "feature_function": "diting.features.build.compute_window_features (G1-G6, 唯一实现)",
+  "streaming_wrapper": "diting.features.stream.compute_window_features_streaming",
+  "id_frequency_source": "artifacts/features/id_frequency_train.json",
+  "id_frequency_sha256": "d773c2597b060d2d36ec1d50ec6e420306886712076ff8b55f6ff94ba88b70f2",
+  "id_frequency_fit_on": "HCRL train（冻结复用，OTIDS 侧零拟合）",
+  "normalization_params_source": "artifacts/features/feature_params.json",
+  "normalization_params_sha256": "afd99a8267473a44f380570a5a46263686de744d20c2a535fe28a9ddb60a0687",
+  "normalization_fit_on": "train",
+  "normalization_clip": 6.0,
+  "leakage_assertions": {
+    "passed": true,
+    "n_feature_columns": 33,
+    "feature_groups": {
+      "G1": [
+        "g1_dlc_mean",
+        "g1_dlc_std",
+        "g1_dlc_max",
+        "g1_id_freq_mean",
+        "g1_id_freq_std",
+        "g1_id_freq_min"
+      ],
+      "G2": [
+        "g2_dt_mean",
+        "g2_dt_std",
+        "g2_dt_min",
+        "g2_dt_max",
+        "g2_same_id_dt_mean",
+        "g2_same_id_dt_std",
+        "g2_same_id_dt_cv"
+      ],
+      "G3": [
+        "g3_byte_mean",
+        "g3_byte_std",
+        "g3_byte_entropy_mean",
+        "g3_hamming_mean",
+        "g3_payload_change_rate"
+      ],
+      "G4": [
+        "g4_frame_count",
+        "g4_unique_ids",
+        "g4_id_entropy",
+        "g4_top1_id_ratio",
+        "g4_min_id_share"
+      ],
+      "G5": [
+        "g5_same_id_dt_mean",
+        "g5_same_id_dt_std",
+        "g5_same_id_dt_max",
+        "g5_dt_p50",
+        "g5_dt_p95"
+      ],
+      "G6": [
+        "g6_payload_change_rate",
+        "g6_byte_entropy_mean",
+        "g6_dlc_entropy",
+        "g6_hamming_p95",
+        "g6_unique_payload_ratio"
+      ]
+    },
+    "forbidden_fields_absent": [
+      "flag",
+      "label",
+      "can_id==0x000 布尔"
+    ],
+    "note": "g4_min_id_share 为窗口内数值最小 ID 的相对占比，非帧级 0x000 布尔；已列入 W2 消融清单"
+  },
+  "files": [
+    "window_features_raw.parquet",
+    "window_features.parquet"
+  ]
+}
