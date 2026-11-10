@@ -1,0 +1,46 @@
+{
+  "manifest_version": "1.0",
+  "stage": "xdomain_id_ablation",
+  "project": "diting",
+  "project_version": "xdomain-otids-v1",
+  "code_version": "0.2.0",
+  "git_revision": "38dcfbfc544c6b1191c5b829524d34003f7aa1ca",
+  "config_path": "./configs/xdomain.yaml",
+  "config_sha256": "d1886e0751c6b6aa430a56b72300fc1f9a5c091d181ad93dfc18cbf3c1d33497",
+  "random_seed": 20261108,
+  "created_at": "2026-11-09T09:05:37+08:00",
+  "inputs": [
+    {
+      "path": "data/processed/features/window_features.parquet",
+      "exists": true,
+      "size_bytes": 16725119,
+      "sha256": "fbccb346f817e17a90fcda813ea3276e0236105a6cf4b8ccd3a5aeec27352418"
+    },
+    {
+      "path": "data/processed/split/split-v3/windows.parquet",
+      "exists": true,
+      "size_bytes": 2761229,
+      "sha256": "2a79c6d2b66883534e04dd2146155a0c892f9ddad639543d9a9e298e5975aa87"
+    },
+    {
+      "path": "data/raw/otids-dataset.zip",
+      "exists": true,
+      "size_bytes": 209643319,
+      "sha256": "4605238308e1090b5d4e5fdd53fc1ba85e55a1caca2fb932d1e037ee7ca02d17"
+    }
+  ],
+  "versions": {
+    "model_version": "xdomain-drop-id-v1",
+    "feature_version": "l1-features-v1",
+    "threshold_version": "l1-v3-thr-v1 (frozen, reused)",
+    "split_manifest_version": "split-v3 (HCRL train only)",
+    "code_version": "38dcfbfc544c6b1191c5b829524d34003f7aa1ca",
+    "random_seed": 20261108
+  },
+  "trained_on": "HCRL split-v3 train",
+  "otids_used_for_training": false,
+  "outputs": [
+    "../xdomain_drop_id_frequency_model.joblib",
+    "../xdomain_id_ablation.json"
+  ]
+}

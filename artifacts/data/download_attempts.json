@@ -1,0 +1,40 @@
+{
+  "url": "https://ocslab.hksecurity.net/Datasets/car-hacking-dataset",
+  "whitelisted": true,
+  "checked_at": "2026-11-08T10:38:49+08:00",
+  "purpose": "核对官方字段定义、引用信息与下载入口",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "bytes": 227884,
+  "sha256": "7263c3587e8812d6a1e42f5dab95c2cdf96a4a07f2c0b357f8cfe79ed201744b",
+  "referenced_hosts": [
+    "1483894298-atari-embeds.googleusercontent.com",
+    "1796787474-atari-embeds.googleusercontent.com",
+    "accounts.google.com",
+    "apis.google.com",
+    "arxiv.org",
+    "csp.withgoogle.com",
+    "docs.google.com",
+    "domains.google.com",
+    "drive.google.com",
+    "fonts.googleapis.com",
+    "github.com",
+    "go",
+    "lh7-us.googleusercontent.com",
+    "ocslab.hksecurity.net",
+    "schema.org",
+    "sites.google.com",
+    "ssl.gstatic.com",
+    "uberproxy-pen-redirect.corp.google.com",
+    "www.dropbox.com",
+    "www.google.com",
+    "www.googletagmanager.com",
+    "www.gstatic.com"
+  ],
+  "third_party_download_hosts": [
+    "drive.google.com",
+    "www.dropbox.com"
+  ],
+  "direct_dataset_file_on_page": false,
+  "note": "官方页面可达，但数据集文件托管在页面链接的第三方地址上；这些地址不在白名单内，本模块不访问。字段定义与引用信息已核对。"
+}

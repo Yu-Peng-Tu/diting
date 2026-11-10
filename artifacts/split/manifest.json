@@ -1,0 +1,73 @@
+{
+  "manifest_version": "1.0",
+  "stage": "split",
+  "project": "diting",
+  "project_version": "0.2.0-w2-realdata",
+  "code_version": "0.2.0",
+  "git_revision": "bb5d7f95e7662c4f8b7920362220c0313d98733f",
+  "config_path": "./configs/default.yaml",
+  "config_sha256": "a0ea9bad194744cd0091ace4220f8aa2a2a8df4fd470b72b46104edaa12f4cd3",
+  "random_seed": 20261108,
+  "created_at": "2026-11-08T12:13:48+08:00",
+  "inputs": [
+    {
+      "path": "data/processed/labels/windows_full.parquet",
+      "exists": true,
+      "size_bytes": 3421847,
+      "sha256": "385068169b127b833065115bce721f487312c718b3b56c39032b9a8236708614"
+    },
+    {
+      "path": "data/processed/split/split-v2/split_manifest.json",
+      "exists": true,
+      "size_bytes": 8361,
+      "sha256": "b514e5d2a39bcca98ff984daf8f31eb22afd8ee01804ab739e514485f0e7ccdc"
+    }
+  ],
+  "split_manifest_version": "split-v2",
+  "split_windows": {
+    "train": 59831,
+    "val": 19702,
+    "test": 19952
+  },
+  "assertions": {
+    "A1_no_segment_across_splits": {
+      "passed": true,
+      "n_segments": 273,
+      "n_offenders": 0
+    },
+    "A2_no_window_crosses_segment": {
+      "passed": true,
+      "n_bad": 0
+    },
+    "A3_splits_populated": {
+      "passed": true,
+      "split_windows": {
+        "train": 59831,
+        "val": 19702,
+        "test": 19952
+      }
+    },
+    "A4_time_ordered": {
+      "passed": true,
+      "split_start_times": [
+        1478191030.045114,
+        1478198376.389427,
+        1478199213.329851
+      ]
+    },
+    "A5_manifest_matches_windows": {
+      "passed": true,
+      "n_segments": 273
+    }
+  },
+  "test_set_status": "sealed — 本任务不评估 test，仅在 val 上做 L0 基线评估",
+  "preserved_v1_files": [
+    "data/processed/split/split_manifest.json",
+    "data/processed/split/windows.parquet"
+  ],
+  "outputs": [
+    "./data/processed/split/split-v2/windows.parquet",
+    "./data/processed/split/split-v2/split_manifest.json",
+    "data/processed/split/active_version.json"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "manifest_version": "1.0",
+  "stage": "data",
+  "project": "diting",
+  "project_version": "0.2.0-w2-realdata",
+  "code_version": "0.2.0",
+  "git_revision": "bb5d7f95e7662c4f8b7920362220c0313d98733f",
+  "config_path": "./configs/default.yaml",
+  "config_sha256": "a0ea9bad194744cd0091ace4220f8aa2a2a8df4fd470b72b46104edaa12f4cd3",
+  "random_seed": 20261108,
+  "created_at": "2026-11-08T12:13:34+08:00",
+  "inputs": [
+    {
+      "path": "data/interim/frames.parquet",
+      "exists": true,
+      "size_bytes": 87211411,
+      "sha256": "1355ad57f02ff01dfc5117e6e58eb6fd6f35025cf2d2723422de128926a8e13b"
+    }
+  ],
+  "dataset_status": "available",
+  "real_data_available": true,
+  "is_real_data": true,
+  "source_tag": "public:car-hacking",
+  "data_mode": "local_real_streaming",
+  "zip_sha256_verified": true,
+  "row_count_match": true,
+  "parquet_rows": 4988871,
+  "raw_data_lines": 4988871,
+  "duckdb_verification": {
+    "engine": "duckdb",
+    "query": "SELECT count(*), count(DISTINCT can_id), count(DISTINCT segment_id), min/max(timestamp), sum(label=1) FROM frames.parquet",
+    "n_rows": 4988871,
+    "n_unique_can_ids": 2048,
+    "n_segments": 273,
+    "t_start": 1478191030.045114,
+    "t_end": 1479121941.286773,
+    "n_injected": 754388
+  },
+  "n_windows": 99485,
+  "label_stats": {
+    "theta": 0.2,
+    "frame_label_rows": 4988871,
+    "frame_positive": 754388,
+    "window_label_rows": 99485,
+    "window_positive": 39680,
+    "window_negative": 59805,
+    "n_segments_with_windows": 273,
+    "files": [
+      "frame_labels.parquet",
+      "window_labels.parquet",
+      "windows_full.parquet"
+    ],
+    "storage_note": "标签存于 data/processed/labels/，特征存于 data/processed/features/，物理隔离（§4.6 L2）"
+  },
+  "subset_scope": {
+    "max_rows_per_file": 1000000,
+    "note": "每个攻击集取前 N 行；Attack-free 文件不足 N 行则全量使用。详见 inventory.files[].rows_used",
+    "files": [
+      {
+        "file": "DoS_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "Fuzzy_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "RPM_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "gear_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "normal_run_data.txt",
+        "rows_used": 988871,
+        "is_subset": false
+      }
+    ]
+  },
+  "outputs": [
+    "data/interim/frames.parquet",
+    "data/interim/segment_index.json",
+    "data/processed/labels/frame_labels.parquet",
+    "data/processed/labels/window_labels.parquet",
+    "data/processed/labels/windows_full.parquet",
+    "artifacts/data/dataset_provenance.json",
+    "artifacts/data/raw_file_inventory.json"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "version": "split-v1",
+  "created_at": "2026-11-08T10:38:56+08:00",
+  "random_seed": 20261108,
+  "method": "按 segment_id（注入片段/会话连续段）分组 + 片段起始时间顺序切分 6:2:2；窗口不跨片段边界",
+  "ratios": {
+    "train": 0.6,
+    "val": 0.2,
+    "test": 0.2
+  },
+  "grouping_key": "segment_id",
+  "total_windows": 126,
+  "total_segments": 42,
+  "split_windows": {
+    "train": 75,
+    "val": 27,
+    "test": 24
+  },
+  "split_segments": {
+    "train": [
+      "sim-dos__seg0000",
+      "sim-dos__seg0001",
+      "sim-dos__seg0002",
+      "sim-dos__seg0003",
+      "sim-dos__seg0004",
+      "sim-dos__seg0005",
+      "sim-dos__seg0006",
+      "sim-dos__seg0007",
+      "sim-fuzzy__seg0000",
+      "sim-fuzzy__seg0001",
+      "sim-fuzzy__seg0002",
+      "sim-fuzzy__seg0003",
+      "sim-fuzzy__seg0004",
+      "sim-fuzzy__seg0005",
+      "sim-fuzzy__seg0006",
+      "sim-normal__seg0000",
+      "sim-normal__seg0001",
+      "sim-normal__seg0002",
+      "sim-normal__seg0003",
+      "sim-normal__seg0004",
+      "sim-normal__seg0005",
+      "sim-normal__seg0006",
+      "sim-normal__seg0007",
+      "sim-normal__seg0008",
+      "sim-normal__seg0009"
+    ],
+    "val": [
+      "sim-fuzzy__seg0007",
+      "sim-gear__seg0000",
+      "sim-gear__seg0001",
+      "sim-gear__seg0002",
+      "sim-gear__seg0003",
+      "sim-gear__seg0004",
+      "sim-gear__seg0005",
+      "sim-gear__seg0006",
+      "sim-gear__seg0007"
+    ],
+    "test": [
+      "sim-rpm__seg0000",
+      "sim-rpm__seg0001",
+      "sim-rpm__seg0002",
+      "sim-rpm__seg0003",
+      "sim-rpm__seg0004",
+      "sim-rpm__seg0005",
+      "sim-rpm__seg0006",
+      "sim-rpm__seg0007"
+    ]
+  },
+  "split_positive_windows": {
+    "train": 21,
+    "val": 15,
+    "test": 12
+  },
+  "split_negative_windows": {
+    "train": 54,
+    "val": 12,
+    "test": 12
+  },
+  "time_ranges": {
+    "train": [
+      0.010494,
+      20006.996132
+    ],
+    "val": [
+      20007.04693,
+      30007.208348
+    ],
+    "test": [
+      40000.006468,
+      40007.143765
+    ]
+  },
+  "assertions": {
+    "A1_no_segment_across_splits": {
+      "passed": true,
+      "n_segments": 42,
+      "n_offenders": 0
+    },
+    "A2_no_window_crosses_segment": {
+      "passed": true,
+      "n_bad": 0
+    },
+    "A3_splits_populated": {
+      "passed": true,
+      "split_windows": {
+        "train": 75,
+        "val": 27,
+        "test": 24
+      }
+    },
+    "A4_time_ordered": {
+      "passed": true,
+      "split_start_times": [
+        0.010494,
+        20007.04693,
+        40000.006468
+      ]
+    },
+    "A5_manifest_matches_windows": {
+      "passed": true,
+      "n_segments": 42
+    }
+  },
+  "test_set_status": "sealed — 本任务不评估 test，仅在 val 上做 L0 基线评估",
+  "content_sha256": "8058214a99ec7db17e12201562a9b6730b92d2b7c0462d6f5ec2a307b01b864b"
+}

@@ -55,6 +55,9 @@ def test_golden_vector_artifact_matches_recompute(project_root, cfg, built):
     golden_path = project_root / "artifacts" / "features" / "golden_vector.json"
     if not golden_path.is_file():
         pytest.skip("尚未运行 make features")
+    interim_frames = project_root / "data" / "interim" / "frames.parquet"
+    if not interim_frames.is_file():
+        pytest.skip("帧级中间表不随仓库分发；先跑数据阶段再跑 make features")
     golden = json.loads(golden_path.read_text(encoding="utf-8"))
     frames = load_segment_frames(
         project_root / "data" / "interim", golden["sample"]["segment_id"]

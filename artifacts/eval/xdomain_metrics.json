@@ -1,6 +1,6 @@
 {
   "version": "xdomain-otids-v1",
-  "task": "TASK-20261109-0827-谛听W4跨域验证OTIDS",
+  "task": "xdomain-otids-zero-shot",
   "created_at": "2026-11-09T09:05:38+08:00",
   "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
   "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",

@@ -1,4 +1,4 @@
-# 谛听 W4 · OTIDS（Kia Soul）跨域零样本验证配置
+# 谛听 · OTIDS（Kia Soul）跨域零样本验证配置
 # 新增文件，不改动 configs/default.yaml / l1.yaml / l1_v3.yaml（既有输入保持只读）。
 # 铁律：模型与阈值在 HCRL Car-Hacking（Hyundai）上训练完毕后完全冻结，
 #       OTIDS 侧只做零样本推理；特征管线的归一化参数与 ID 频次表同样冻结复用。
@@ -6,7 +6,7 @@
 xdomain:
   version: "xdomain-otids-v1"
   seed: 20261108
-  task: "TASK-20261109-0827-谛听W4跨域验证OTIDS"
+  task: "xdomain-otids-zero-shot"
 
   # 数据边界声明（写进每一份 metrics 产物，防止被误引用为同分布 / 实车指标）
   data_scope: "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估"

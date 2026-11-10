@@ -1,0 +1,199 @@
+{
+  "provenance_version": "2.0",
+  "checked_at": "2026-11-08T12:12:02+08:00",
+  "dataset": {
+    "name": "HCRL Car-Hacking Dataset",
+    "official_page": "https://ocslab.hksecurity.net/Datasets/car-hacking-dataset",
+    "paper_page": "https://arxiv.org/abs/1907.07377",
+    "citation_primary": "Song, H. M., Woo, J., Kim, H. K., In-vehicle network intrusion detection using deep convolutional neural network, Vehicular Communications 21 (2020) 100198",
+    "citation_secondary": "Seo, E., Song, H. M., Kim, H. K., GIDS: GAN based Intrusion Detection System for In-Vehicle Network, PST 2018",
+    "license_note": "官方数据集用于学术用途须引用论文；本次副本经 Kaggle 镜像（MIT 许可）获取。原始数据不提交 git、不重新分发。",
+    "official_schema_fields": [
+      "timestamp",
+      "can_id",
+      "dlc",
+      "data_0",
+      "data_1",
+      "data_2",
+      "data_3",
+      "data_4",
+      "data_5",
+      "data_6",
+      "data_7",
+      "flag"
+    ],
+    "official_counts": {
+      "DoS": 3665771,
+      "Fuzzy": 3838860,
+      "Gear": 4443142,
+      "RPM": 4621702,
+      "Attack-free": 988987
+    }
+  },
+  "source_of_this_copy": {
+    "statement": "本次实际文件来源为 Kaggle 公开镜像，非官方直发（not official direct download）。",
+    "is_official_direct_download": false,
+    "kaggle_mirror": "https://www.kaggle.com/datasets/pranavjha24/car-hacking-dataset",
+    "kaggle_license": "MIT",
+    "acquired_by": "规划方（Kimi）本地化后以 zip 形式交付，路径见 input_zip.path",
+    "official_download_hosts": [
+      "https://drive.google.com",
+      "https://www.dropbox.com"
+    ],
+    "official_download_note": "官方页面列出的下载入口指向 Google Drive / Dropbox；在本网络不可达且不在白名单内，W1 曾如实记录该阻塞。本次未发起任何网络访问，数据完全由本地 zip 提供。",
+    "network_accessed_this_run": false
+  },
+  "input_zip": {
+    "path": "./data/raw/car-hacking-dataset.zip",
+    "exists": true,
+    "expected_sha256": "8d79a4d33fc9251541abd65a03b551076ae895f3df12b5aa24206b8db25f6cc5",
+    "expected_size_bytes": 137852368,
+    "actual_sha256": "8d79a4d33fc9251541abd65a03b551076ae895f3df12b5aa24206b8db25f6cc5",
+    "actual_size_bytes": 137852368,
+    "sha256_match": true,
+    "size_match": true,
+    "verified": true
+  },
+  "file_inventory": {
+    "checked_at": "2026-11-08T12:12:02+08:00",
+    "source_tag": "public:car-hacking",
+    "files": [
+      {
+        "file": "DoS_dataset.csv",
+        "session_id": "DoS",
+        "fmt": "attack_csv",
+        "attack_kind": "DoS",
+        "has_flag": true,
+        "size_bytes": 190058708,
+        "sha256": "09bf3136647b1d846d13c374f26208f06ffeba18369093fc57c8076fc56b795e",
+        "physical_newlines": 3665771,
+        "logical_lines": 3665771,
+        "official_count": 3665771,
+        "deviation_pct": 0.0,
+        "within_5pct": true,
+        "rows_requested": 1000000,
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "Fuzzy_dataset.csv",
+        "session_id": "Fuzzy",
+        "fmt": "attack_csv",
+        "attack_kind": "Fuzzy",
+        "has_flag": true,
+        "size_bytes": 198520767,
+        "sha256": "a0e78dff6365a1ad3d314973f1ac5879b57f9b80c40eb07b1e3bbe4aeddaecfe",
+        "physical_newlines": 3838860,
+        "logical_lines": 3838860,
+        "official_count": 3838860,
+        "deviation_pct": 0.0,
+        "within_5pct": true,
+        "rows_requested": 1000000,
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "RPM_dataset.csv",
+        "session_id": "RPM",
+        "fmt": "attack_csv",
+        "attack_kind": "Spoofing_the_RPM_gauge",
+        "has_flag": true,
+        "size_bytes": 239581936,
+        "sha256": "6718c6cb0a5fe6bdf0e966a680f1d6d7d79c063d603254d6118c16aaeb74974d",
+        "physical_newlines": 4621702,
+        "logical_lines": 4621702,
+        "official_count": 4621702,
+        "deviation_pct": 0.0,
+        "within_5pct": true,
+        "rows_requested": 1000000,
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "gear_dataset.csv",
+        "session_id": "Gear",
+        "fmt": "attack_csv",
+        "attack_kind": "Spoofing_the_drive_gear",
+        "has_flag": true,
+        "size_bytes": 230320414,
+        "sha256": "b4eba43605fff337117ff30e13c33f63b56eec3b00927c8bccb31192df3bee23",
+        "physical_newlines": 4443142,
+        "logical_lines": 4443142,
+        "official_count": 4443142,
+        "deviation_pct": 0.0,
+        "within_5pct": true,
+        "rows_requested": 1000000,
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "normal_run_data.txt",
+        "session_id": "Attack-free",
+        "fmt": "candump",
+        "attack_kind": "Normal",
+        "has_flag": false,
+        "size_bytes": 87371776,
+        "sha256": "efbbafbf8e965c0d2f75eb97f1d118d0ae1c4b9f3077a6c4c000a26eb5be97ea",
+        "physical_newlines": 988871,
+        "logical_lines": 988872,
+        "official_count": 988987,
+        "deviation_pct": -0.011729,
+        "within_5pct": true,
+        "rows_requested": 1000000,
+        "rows_used": 988871,
+        "is_subset": false
+      }
+    ],
+    "n_files": 5,
+    "all_within_5pct": true,
+    "raw_dir": "./data/raw/car-hacking"
+  },
+  "field_level_verification": {
+    "attack_csv": "Timestamp,CAN ID(HEX),DLC,DATA[0..7](HEX),Flag(T/R)；无表头；DLC<8 时 DATA 列数随 DLC 变化",
+    "normal_candump": "Timestamp: <秒> ID: <hex> 000 DLC: <n> <hex bytes...>；无 Flag 列，全部正常帧",
+    "flag_mapping": "T -> label=1（注入帧），R -> label=0（正常帧）",
+    "attack_free_policy": "Attack-free 数据集不参与攻击类标签，仅作正常流量来源（策划方案 §4.2）",
+    "evidence": "逐文件 SHA-256、字节数、行数（physical_newlines）与官方 §1.2 计数逐一比对，见 file_inventory.files"
+  },
+  "subset_scope": {
+    "max_rows_per_file": 1000000,
+    "note": "本机内存 8GB，全量约 1755 万帧不可一次性处理；按任务单第 6 条使用配置化子集",
+    "files": [
+      {
+        "file": "DoS_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "Fuzzy_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "RPM_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "gear_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "normal_run_data.txt",
+        "rows_used": 988871,
+        "is_subset": false
+      }
+    ]
+  },
+  "real_data_available": true,
+  "status": "available",
+  "source_tag": "public:car-hacking",
+  "conclusion": "真实 HCRL Car-Hacking 数据集已由 Kaggle 公开镜像（MIT）本地化并接入，zip 与 5 个文件的 SHA-256 / 行数均已核对留痕；W1 的 simulated 数值仅用于管线验证，已被本次真实数据评估结果取代。",
+  "whitelist": [
+    "https://ocslab.hksecurity.net/Datasets/car-hacking-dataset",
+    "https://arxiv.org/abs/1907.07377",
+    "https://www.kaggle.com/datasets/pranavjha24/car-hacking-dataset"
+  ],
+  "network_scope_note": "本任务数据已本地化，未访问外部网络；原始数据不提交 git、不重新分发。"
+}

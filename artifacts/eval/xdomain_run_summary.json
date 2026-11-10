@@ -1,0 +1,18 @@
+{
+  "elapsed_seconds": 339.16,
+  "otids_frames": 4613439,
+  "otids_windows": 92013,
+  "zeroshot_f1_at_0_54": 0.914101,
+  "zeroshot_recall_at_0_54": 0.841792,
+  "zeroshot_fpr_at_0_54": 0.0,
+  "zeroshot_ap": 0.99983824,
+  "w3_same_dist_f1": 0.999736,
+  "f1_drop": 0.085635,
+  "adapted_threshold": 0.05,
+  "id_ablation_collapsed": false,
+  "id_ablation_ap_delta": -0.07716652,
+  "dominant_drift_group": "dlc",
+  "hcrl_untouched": true,
+  "report_dir": "./artifacts/reports/xdomain",
+  "result_md_written": false
+}

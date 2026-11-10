@@ -1,0 +1,383 @@
+{
+  "is_real_data": false,
+  "source_tag": "simulated",
+  "warning": "本批文件为自生成 simulated 样本，仅用于验证管线代码正确性，不是 HCRL Car-Hacking 数据集，不得用于任何真实指标或结论。",
+  "official_page": "https://ocslab.hksecurity.net/Datasets/car-hacking-dataset",
+  "raw_header": "Timestamp,CAN ID,DLC,DATA[0],DATA[1],DATA[2],DATA[3],DATA[4],DATA[5],DATA[6],DATA[7],Flag",
+  "seed": 20261108,
+  "n_files": 5,
+  "total_rows": 8400,
+  "files": [
+    {
+      "path": "./data/raw/simulated/SIMULATED_NOT_REAL_DATA__sim-normal.csv",
+      "session_id": "sim-normal",
+      "rows": 2000,
+      "segments": [
+        {
+          "session_id": "sim-normal",
+          "segment_no": 0,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-normal",
+          "segment_no": 1,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-normal",
+          "segment_no": 2,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-normal",
+          "segment_no": 3,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-normal",
+          "segment_no": 4,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-normal",
+          "segment_no": 5,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-normal",
+          "segment_no": 6,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-normal",
+          "segment_no": 7,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-normal",
+          "segment_no": 8,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-normal",
+          "segment_no": 9,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        }
+      ]
+    },
+    {
+      "path": "./data/raw/simulated/SIMULATED_NOT_REAL_DATA__sim-dos.csv",
+      "session_id": "sim-dos",
+      "rows": 1600,
+      "segments": [
+        {
+          "session_id": "sim-dos",
+          "segment_no": 0,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-dos",
+          "segment_no": 1,
+          "is_attack": true,
+          "attack_kind": "DoS",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-dos",
+          "segment_no": 2,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-dos",
+          "segment_no": 3,
+          "is_attack": true,
+          "attack_kind": "DoS",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-dos",
+          "segment_no": 4,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-dos",
+          "segment_no": 5,
+          "is_attack": true,
+          "attack_kind": "DoS",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-dos",
+          "segment_no": 6,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-dos",
+          "segment_no": 7,
+          "is_attack": true,
+          "attack_kind": "DoS",
+          "n_frames": 200,
+          "n_injected": 172
+        }
+      ]
+    },
+    {
+      "path": "./data/raw/simulated/SIMULATED_NOT_REAL_DATA__sim-fuzzy.csv",
+      "session_id": "sim-fuzzy",
+      "rows": 1600,
+      "segments": [
+        {
+          "session_id": "sim-fuzzy",
+          "segment_no": 0,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-fuzzy",
+          "segment_no": 1,
+          "is_attack": true,
+          "attack_kind": "Fuzzy",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-fuzzy",
+          "segment_no": 2,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-fuzzy",
+          "segment_no": 3,
+          "is_attack": true,
+          "attack_kind": "Fuzzy",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-fuzzy",
+          "segment_no": 4,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-fuzzy",
+          "segment_no": 5,
+          "is_attack": true,
+          "attack_kind": "Fuzzy",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-fuzzy",
+          "segment_no": 6,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-fuzzy",
+          "segment_no": 7,
+          "is_attack": true,
+          "attack_kind": "Fuzzy",
+          "n_frames": 200,
+          "n_injected": 172
+        }
+      ]
+    },
+    {
+      "path": "./data/raw/simulated/SIMULATED_NOT_REAL_DATA__sim-gear.csv",
+      "session_id": "sim-gear",
+      "rows": 1600,
+      "segments": [
+        {
+          "session_id": "sim-gear",
+          "segment_no": 0,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-gear",
+          "segment_no": 1,
+          "is_attack": true,
+          "attack_kind": "Gear",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-gear",
+          "segment_no": 2,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-gear",
+          "segment_no": 3,
+          "is_attack": true,
+          "attack_kind": "Gear",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-gear",
+          "segment_no": 4,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-gear",
+          "segment_no": 5,
+          "is_attack": true,
+          "attack_kind": "Gear",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-gear",
+          "segment_no": 6,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-gear",
+          "segment_no": 7,
+          "is_attack": true,
+          "attack_kind": "Gear",
+          "n_frames": 200,
+          "n_injected": 172
+        }
+      ]
+    },
+    {
+      "path": "./data/raw/simulated/SIMULATED_NOT_REAL_DATA__sim-rpm.csv",
+      "session_id": "sim-rpm",
+      "rows": 1600,
+      "segments": [
+        {
+          "session_id": "sim-rpm",
+          "segment_no": 0,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-rpm",
+          "segment_no": 1,
+          "is_attack": true,
+          "attack_kind": "RPM",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-rpm",
+          "segment_no": 2,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-rpm",
+          "segment_no": 3,
+          "is_attack": true,
+          "attack_kind": "RPM",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-rpm",
+          "segment_no": 4,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-rpm",
+          "segment_no": 5,
+          "is_attack": true,
+          "attack_kind": "RPM",
+          "n_frames": 200,
+          "n_injected": 172
+        },
+        {
+          "session_id": "sim-rpm",
+          "segment_no": 6,
+          "is_attack": false,
+          "attack_kind": "Normal",
+          "n_frames": 200,
+          "n_injected": 0
+        },
+        {
+          "session_id": "sim-rpm",
+          "segment_no": 7,
+          "is_attack": true,
+          "attack_kind": "RPM",
+          "n_frames": 200,
+          "n_injected": 172
+        }
+      ]
+    }
+  ]
+}

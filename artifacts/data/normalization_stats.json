@@ -1,0 +1,152 @@
+{
+  "schema": [
+    "frame_index",
+    "timestamp",
+    "can_id",
+    "dlc",
+    "data_0",
+    "data_1",
+    "data_2",
+    "data_3",
+    "data_4",
+    "data_5",
+    "data_6",
+    "data_7",
+    "flag",
+    "source_tag",
+    "label",
+    "session_id",
+    "segment_id",
+    "attack_kind"
+  ],
+  "parquet": "./data/interim/frames.parquet",
+  "segment_index_path": "./data/interim/segment_index.json",
+  "n_files": 5,
+  "raw_data_lines_total": 4988871,
+  "parquet_rows_total": 4988871,
+  "row_count_match": true,
+  "n_injected": 754388,
+  "n_normal": 4234483,
+  "n_segments": 273,
+  "n_sessions": 5,
+  "source_tags": [
+    "public:car-hacking"
+  ],
+  "is_real_data": true,
+  "chunk_size": 200000,
+  "gap_threshold_s": 0.02,
+  "segment_max_frames": 20000,
+  "per_file": [
+    {
+      "file": "DoS_dataset.csv",
+      "session_id": "DoS",
+      "fmt": "attack_csv",
+      "rows_used": 1000000,
+      "skipped_rows": 0,
+      "n_injected": 223836,
+      "n_normal": 776164,
+      "n_segments": 63,
+      "source_tag": "public:car-hacking",
+      "is_real_data": true
+    },
+    {
+      "file": "Fuzzy_dataset.csv",
+      "session_id": "Fuzzy",
+      "fmt": "attack_csv",
+      "rows_used": 1000000,
+      "skipped_rows": 0,
+      "n_injected": 187739,
+      "n_normal": 812261,
+      "n_segments": 57,
+      "source_tag": "public:car-hacking",
+      "is_real_data": true
+    },
+    {
+      "file": "RPM_dataset.csv",
+      "session_id": "RPM",
+      "fmt": "attack_csv",
+      "rows_used": 1000000,
+      "skipped_rows": 0,
+      "n_injected": 169606,
+      "n_normal": 830394,
+      "n_segments": 53,
+      "source_tag": "public:car-hacking",
+      "is_real_data": true
+    },
+    {
+      "file": "gear_dataset.csv",
+      "session_id": "Gear",
+      "fmt": "attack_csv",
+      "rows_used": 1000000,
+      "skipped_rows": 0,
+      "n_injected": 173207,
+      "n_normal": 826793,
+      "n_segments": 50,
+      "source_tag": "public:car-hacking",
+      "is_real_data": true
+    },
+    {
+      "file": "normal_run_data.txt",
+      "session_id": "Attack-free",
+      "fmt": "candump",
+      "rows_used": 988871,
+      "skipped_rows": 0,
+      "n_injected": 0,
+      "n_normal": 988871,
+      "n_segments": 50,
+      "source_tag": "public:car-hacking",
+      "is_real_data": true
+    }
+  ],
+  "subset_scope": {
+    "max_rows_per_file": 1000000,
+    "note": "每个攻击集取前 N 行；Attack-free 文件不足 N 行则全量使用。详见 inventory.files[].rows_used",
+    "files": [
+      {
+        "file": "DoS_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "Fuzzy_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "RPM_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "gear_dataset.csv",
+        "rows_used": 1000000,
+        "is_subset": true
+      },
+      {
+        "file": "normal_run_data.txt",
+        "rows_used": 988871,
+        "is_subset": false
+      }
+    ]
+  },
+  "duckdb_verification": {
+    "engine": "duckdb",
+    "query": "SELECT count(*), count(DISTINCT can_id), count(DISTINCT segment_id), min/max(timestamp), sum(label=1) FROM frames.parquet",
+    "n_rows": 4988871,
+    "n_unique_can_ids": 2048,
+    "n_segments": 273,
+    "t_start": 1478191030.045114,
+    "t_end": 1479121941.286773,
+    "n_injected": 754388
+  },
+  "source_tag_verification": {
+    "by_source_tag": [
+      {
+        "source_tag": "public:car-hacking",
+        "n_frames": 4988871,
+        "n_injected": 754388
+      }
+    ],
+    "is_real_data": true
+  }
+}

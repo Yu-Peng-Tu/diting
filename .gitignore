@@ -7,6 +7,15 @@ __pycache__/
 node_modules/
 .DS_Store
 build/
+
 # Keep the included web/dist production build for zero-build local startup.
 data/raw/*
 !data/raw/README.md
+
+# Frame-level and pre-normalisation tables are regenerable from the raw datasets
+# with the Makefile targets. They run to roughly 200 MB, so only the window-level
+# tables the workbench reads are distributed.
+data/interim/
+data/processed/**/frames.parquet
+data/processed/**/frame_labels.parquet
+data/processed/**/*_raw.parquet

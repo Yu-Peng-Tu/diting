@@ -1,0 +1,70 @@
+{
+  "manifest_version": "1.0",
+  "stage": "xdomain_eval",
+  "project": "diting",
+  "project_version": "xdomain-otids-v1",
+  "code_version": "0.2.0",
+  "git_revision": "38dcfbfc544c6b1191c5b829524d34003f7aa1ca",
+  "config_path": "./configs/xdomain.yaml",
+  "config_sha256": "d1886e0751c6b6aa430a56b72300fc1f9a5c091d181ad93dfc18cbf3c1d33497",
+  "random_seed": 20261108,
+  "created_at": "2026-11-09T09:05:38+08:00",
+  "inputs": [
+    {
+      "path": "artifacts/models/l1_v3/model.joblib",
+      "exists": true,
+      "size_bytes": 2554437,
+      "sha256": "465a26db953b911c4fcf7011c28904c06a13d81403dc643b4a8320a0e99cc19d"
+    },
+    {
+      "path": "artifacts/models/l1_v3/threshold.json",
+      "exists": true,
+      "size_bytes": 772,
+      "sha256": "f2e2aee70e0a93a2e5a8e30dfd1d3fa425bee2da7e99ef2953bf98c6ef84705e"
+    },
+    {
+      "path": "artifacts/features/feature_params.json",
+      "exists": true,
+      "size_bytes": 4227,
+      "sha256": "afd99a8267473a44f380570a5a46263686de744d20c2a535fe28a9ddb60a0687"
+    },
+    {
+      "path": "artifacts/features/id_frequency_train.json",
+      "exists": true,
+      "size_bytes": 61961,
+      "sha256": "d773c2597b060d2d36ec1d50ec6e420306886712076ff8b55f6ff94ba88b70f2"
+    },
+    {
+      "path": "data/raw/otids-dataset.zip",
+      "exists": true,
+      "size_bytes": 209643319,
+      "sha256": "4605238308e1090b5d4e5fdd53fc1ba85e55a1caca2fb932d1e037ee7ca02d17"
+    }
+  ],
+  "versions": {
+    "model_version": "l1-gbdt-v3 (frozen)",
+    "feature_version": "l1-features-v1 (frozen)",
+    "threshold_version": "l1-v3-thr-v1 (frozen)",
+    "split_manifest_version": "split-v3 (HCRL, read-only)",
+    "code_version": "38dcfbfc544c6b1191c5b829524d34003f7aa1ca",
+    "random_seed": 20261108
+  },
+  "evaluated_on": "otids_zeroshot",
+  "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+  "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+  "otids_rows_loaded": 4613439,
+  "otids_windows": 92013,
+  "hcrl_test_rows_loaded": 0,
+  "outputs": [
+    "../xdomain_metrics.json",
+    "../xdomain_binary_metrics.json",
+    "../xdomain_per_attack_type.json",
+    "../xdomain_five_class_mapping.json",
+    "../xdomain_official_label_sensitivity.json",
+    "../xdomain_adaptation.json",
+    "../xdomain_id_ablation.json",
+    "../xdomain_feature_drift.json",
+    "../xdomain_frozen_assets.json",
+    "../xdomain_hcrl_integrity.json"
+  ]
+}

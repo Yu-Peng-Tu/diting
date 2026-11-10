@@ -1,0 +1,35 @@
+{
+  "paths": {
+    "model_joblib": "./artifacts/models/l1_v3/model.joblib",
+    "threshold_json": "./artifacts/models/l1_v3/threshold.json",
+    "features_json": "./artifacts/models/l1_v3/features.json",
+    "manifest_json": "./artifacts/models/l1_v3/manifest.json",
+    "feature_params": "./artifacts/features/feature_params.json",
+    "id_frequency": "./artifacts/features/id_frequency_train.json"
+  },
+  "sha256": {
+    "model_joblib": "465a26db953b911c4fcf7011c28904c06a13d81403dc643b4a8320a0e99cc19d",
+    "threshold_json": "f2e2aee70e0a93a2e5a8e30dfd1d3fa425bee2da7e99ef2953bf98c6ef84705e",
+    "features_json": "33e4af5aacf8b65c9e3aa3244c53c9431ddbe35bf6317a19c96df53eb9476ae3",
+    "manifest_json": "c1c0fa518c22a7ca69acac4d36635722fc4cd0424b88a9747a84c7c192d77660",
+    "feature_params": "afd99a8267473a44f380570a5a46263686de744d20c2a535fe28a9ddb60a0687",
+    "id_frequency": "d773c2597b060d2d36ec1d50ec6e420306886712076ff8b55f6ff94ba88b70f2"
+  },
+  "model_joblib_sha256_matches_manifest": true,
+  "declared_model_joblib_sha256": "465a26db953b911c4fcf7011c28904c06a13d81403dc643b4a8320a0e99cc19d",
+  "frozen_threshold": 0.54,
+  "default_threshold": 0.5,
+  "threshold_version": "l1-v3-thr-v1",
+  "calibrated_on": "val",
+  "model_version": "l1-gbdt-v3",
+  "feature_version": "l1-features-v1",
+  "split_version": "split-v3",
+  "random_seed": 20261108,
+  "multiclass_classes": [
+    "DoS",
+    "Fuzzy",
+    "Gear",
+    "Normal",
+    "RPM"
+  ]
+}

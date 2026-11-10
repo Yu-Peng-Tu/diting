@@ -1,0 +1,146 @@
+{
+  "manifest_version": "1.0",
+  "stage": "features",
+  "project": "diting",
+  "project_version": "0.2.0-w2-realdata",
+  "code_version": "0.2.0",
+  "git_revision": "bb5d7f95e7662c4f8b7920362220c0313d98733f",
+  "config_path": "./configs/default.yaml",
+  "config_sha256": "a0ea9bad194744cd0091ace4220f8aa2a2a8df4fd470b72b46104edaa12f4cd3",
+  "random_seed": 20261108,
+  "created_at": "2026-11-08T12:17:22+08:00",
+  "inputs": [
+    {
+      "path": "data/interim/frames.parquet",
+      "exists": true,
+      "size_bytes": 87211411,
+      "sha256": "1355ad57f02ff01dfc5117e6e58eb6fd6f35025cf2d2723422de128926a8e13b"
+    },
+    {
+      "path": "data/processed/split/split-v2/windows.parquet",
+      "exists": true,
+      "size_bytes": 3423572,
+      "sha256": "1e4271b9cfc46855c738c2ab5ba3ec1dfa15d1a5c2f45abc765f3b38e831c971"
+    }
+  ],
+  "feature_version": "feat-v2",
+  "n_feature_columns": 33,
+  "feature_groups": {
+    "G1": [
+      "g1_dlc_mean",
+      "g1_dlc_std",
+      "g1_dlc_max",
+      "g1_id_freq_mean",
+      "g1_id_freq_std",
+      "g1_id_freq_min"
+    ],
+    "G2": [
+      "g2_dt_mean",
+      "g2_dt_std",
+      "g2_dt_min",
+      "g2_dt_max",
+      "g2_same_id_dt_mean",
+      "g2_same_id_dt_std",
+      "g2_same_id_dt_cv"
+    ],
+    "G3": [
+      "g3_byte_mean",
+      "g3_byte_std",
+      "g3_byte_entropy_mean",
+      "g3_hamming_mean",
+      "g3_payload_change_rate"
+    ],
+    "G4": [
+      "g4_frame_count",
+      "g4_unique_ids",
+      "g4_id_entropy",
+      "g4_top1_id_ratio",
+      "g4_min_id_share"
+    ],
+    "G5": [
+      "g5_same_id_dt_mean",
+      "g5_same_id_dt_std",
+      "g5_same_id_dt_max",
+      "g5_dt_p50",
+      "g5_dt_p95"
+    ],
+    "G6": [
+      "g6_payload_change_rate",
+      "g6_byte_entropy_mean",
+      "g6_dlc_entropy",
+      "g6_hamming_p95",
+      "g6_unique_payload_ratio"
+    ]
+  },
+  "leakage_assertions": {
+    "passed": true,
+    "n_feature_columns": 33,
+    "feature_groups": {
+      "G1": [
+        "g1_dlc_mean",
+        "g1_dlc_std",
+        "g1_dlc_max",
+        "g1_id_freq_mean",
+        "g1_id_freq_std",
+        "g1_id_freq_min"
+      ],
+      "G2": [
+        "g2_dt_mean",
+        "g2_dt_std",
+        "g2_dt_min",
+        "g2_dt_max",
+        "g2_same_id_dt_mean",
+        "g2_same_id_dt_std",
+        "g2_same_id_dt_cv"
+      ],
+      "G3": [
+        "g3_byte_mean",
+        "g3_byte_std",
+        "g3_byte_entropy_mean",
+        "g3_hamming_mean",
+        "g3_payload_change_rate"
+      ],
+      "G4": [
+        "g4_frame_count",
+        "g4_unique_ids",
+        "g4_id_entropy",
+        "g4_top1_id_ratio",
+        "g4_min_id_share"
+      ],
+      "G5": [
+        "g5_same_id_dt_mean",
+        "g5_same_id_dt_std",
+        "g5_same_id_dt_max",
+        "g5_dt_p50",
+        "g5_dt_p95"
+      ],
+      "G6": [
+        "g6_payload_change_rate",
+        "g6_byte_entropy_mean",
+        "g6_dlc_entropy",
+        "g6_hamming_p95",
+        "g6_unique_payload_ratio"
+      ]
+    },
+    "forbidden_fields_absent": [
+      "flag",
+      "label",
+      "can_id==0x000 布尔"
+    ],
+    "note": "g4_min_id_share 为窗口内数值最小 ID 的相对占比，非帧级 0x000 布尔；已列入 W2 消融清单"
+  },
+  "fit_on": "train",
+  "fitting_mode": "streaming_by_segment",
+  "n_train_segments_used_for_id_freq": 160,
+  "chunk_size": 200000,
+  "golden_sample_segment": "Attack-free__seg0001",
+  "split_manifest_version": "split-v2",
+  "outputs": [
+    "./data/processed/features/window_features_raw.parquet",
+    "./data/processed/features/window_features.parquet",
+    "./artifacts/features/feature_params.json",
+    "./artifacts/features/golden_vector.json",
+    "./artifacts/features/id_frequency_train.json",
+    "./artifacts/features/leakage_assertions.json"
+  ]
+}

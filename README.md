@@ -112,7 +112,7 @@ Run verification:
 cd web && npm run build
 ```
 
-Current verification status: **102 pytest tests passed, 2 skipped** (104 collected), Ruff passed, and the TypeScript production build passed.
+Current verification status: **103 pytest tests passed, 1 skipped** (104 collected). The skipped case recomputes the golden feature vector from the frame-level intermediate table, which is not distributed. Ruff passed, and the TypeScript production build passed.
 
 ## API
 
@@ -135,13 +135,13 @@ Responses include evaluation scope, artifact sources, caveats, and `test_rows_lo
 src/diting/             Data, features, splitting, models, evaluation, and server
 web/                    Vite + React + TypeScript + Recharts
 configs/                Reproduction configurations
-artifacts/              Frozen model and evaluation JSON required by the workbench
-data/processed/         Compact derived window tables required for local demos
+artifacts/              Frozen model bundles, evaluation metrics and figures
+data/processed/         Window-level tables read by the workbench
 tests/                  Backend, feature, leakage, cross-domain, and API tests
 docs/images/            Workbench screenshots
 ```
 
-Raw CAN datasets are **not redistributed**. The included Parquet files are derived window tables used by the local workbench. Rebuilding artifacts from original datasets requires downloading them separately and updating the input paths in `configs/`.
+Raw CAN datasets are **not redistributed**. What the repository does carry is the derived data the workbench reads: nine window-level Parquet tables (about 53 MB) and the frozen model bundle. Frame-level tables and pre-normalisation feature dumps (roughly 200 MB) stay out of the repository — the `make` targets rebuild them from the raw datasets once the input paths in `configs/` are set. Human-readable run reports written during development are not shipped either; every figure quoted above can be recomputed from the included JSON artifacts.
 
 Dataset references:
 

@@ -1,0 +1,49 @@
+{
+  "manifest_version": "1.0",
+  "stage": "baseline",
+  "project": "diting",
+  "project_version": "0.2.0-w2-realdata",
+  "code_version": "0.2.0",
+  "git_revision": "bb5d7f95e7662c4f8b7920362220c0313d98733f",
+  "config_path": "./configs/default.yaml",
+  "config_sha256": "a0ea9bad194744cd0091ace4220f8aa2a2a8df4fd470b72b46104edaa12f4cd3",
+  "random_seed": 20261108,
+  "created_at": "2026-11-08T12:17:29+08:00",
+  "inputs": [
+    {
+      "path": "data/processed/features/window_features_raw.parquet",
+      "exists": true,
+      "size_bytes": 15979809,
+      "sha256": "f31831b0e1899e6556302e9a842edb89e4d083c86489df4f1af9536629504072"
+    }
+  ],
+  "model_version": "l0-v2",
+  "evaluated_on": "val",
+  "recall": 1.0,
+  "fpr": 0.143066,
+  "confusion_matrix": {
+    "labels": [
+      "Normal",
+      "Attack"
+    ],
+    "matrix": [
+      [
+        9949,
+        1661
+      ],
+      [
+        0,
+        8092
+      ]
+    ]
+  },
+  "is_real_data": true,
+  "test_set_status": "sealed — 本任务不评估 test",
+  "outputs": [
+    "./artifacts/baseline/l0_predictions.parquet",
+    "./artifacts/baseline/l0_metrics.json",
+    "./artifacts/baseline/confusion_matrix.json",
+    "./artifacts/baseline/l0_rule_thresholds.json",
+    "./artifacts/baseline/baseline_report.md"
+  ]
+}

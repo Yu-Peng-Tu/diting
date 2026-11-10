@@ -1,0 +1,89 @@
+{
+  "manifest_version": "1.0",
+  "stage": "l1_v3_ablation",
+  "project": "diting",
+  "project_version": "l1-gbdt-v3",
+  "code_version": "0.2.0",
+  "git_revision": "a26ef554a6f96916b0502aef237abc3732c37766",
+  "config_path": "./configs/l1_v3.yaml",
+  "config_sha256": "5b7ecc0e02d32929987d6bf98e4f741e38fe800d1b9756fa940e35b586eaa70f",
+  "random_seed": 20261108,
+  "created_at": "2026-11-08T15:09:58+08:00",
+  "inputs": [
+    {
+      "path": "data/processed/features/window_features.parquet",
+      "exists": true,
+      "size_bytes": 16725119,
+      "sha256": "fbccb346f817e17a90fcda813ea3276e0236105a6cf4b8ccd3a5aeec27352418"
+    }
+  ],
+  "versions": {
+    "model_version": "l1-gbdt-v3",
+    "feature_version": "l1-features-v1",
+    "threshold_version": "l1-v3-thr-v1",
+    "split_manifest_version": "split-v3",
+    "code_version": "a26ef554a6f96916b0502aef237abc3732c37766",
+    "random_seed": 20261108,
+    "l1_v3_config_sha256": "5b7ecc0e02d32929987d6bf98e4f741e38fe800d1b9756fa940e35b586eaa70f",
+    "default_config_sha256": "a0ea9bad194744cd0091ace4220f8aa2a2a8df4fd470b72b46104edaa12f4cd3",
+    "model_joblib_sha256": "465a26db953b911c4fcf7011c28904c06a13d81403dc643b4a8320a0e99cc19d",
+    "split_manifest_sha256": "a1dfd8aae179d81ed626f1ff9cd70510b6630f0b46d3881f76db57c520477dc9"
+  },
+  "evaluated_on": "val",
+  "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
+  "split_version": "split-v3",
+  "groups": {
+    "id_frequency": {
+      "label": "①ID 频率组",
+      "n_columns": 7,
+      "columns": [
+        "g1_id_freq_mean",
+        "g1_id_freq_std",
+        "g1_id_freq_min",
+        "g4_unique_ids",
+        "g4_id_entropy",
+        "g4_top1_id_ratio",
+        "g4_min_id_share"
+      ]
+    },
+    "interval": {
+      "label": "②周期间隔组",
+      "n_columns": 12,
+      "columns": [
+        "g2_dt_mean",
+        "g2_dt_std",
+        "g2_dt_min",
+        "g2_dt_max",
+        "g2_same_id_dt_mean",
+        "g2_same_id_dt_std",
+        "g2_same_id_dt_cv",
+        "g5_same_id_dt_mean",
+        "g5_same_id_dt_std",
+        "g5_same_id_dt_max",
+        "g5_dt_p50",
+        "g5_dt_p95"
+      ]
+    },
+    "payload": {
+      "label": "③payload 字节组",
+      "n_columns": 10,
+      "columns": [
+        "g3_byte_mean",
+        "g3_byte_std",
+        "g3_byte_entropy_mean",
+        "g3_hamming_mean",
+        "g3_payload_change_rate",
+        "g6_payload_change_rate",
+        "g6_byte_entropy_mean",
+        "g6_dlc_entropy",
+        "g6_hamming_p95",
+        "g6_unique_payload_ratio"
+      ]
+    }
+  },
+  "id_group_conclusion": "去掉 ID 频率组后 AP 从 0.999999 到 0.999991（相对变化 -0.00%，未达 10% 崩塌线），指标未崩塌：模型主要依赖行为类（周期/payload）特征，而非单纯记忆具体 ID。",
+  "outputs": [
+    "../l1_v3_ablation_metrics.json",
+    "../l1_v3_ablation_comparison.svg"
+  ]
+}

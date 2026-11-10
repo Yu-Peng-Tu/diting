@@ -1,0 +1,398 @@
+{
+  "manifest_version": "1.0",
+  "stage": "otids_xdomain_ingest",
+  "version": "xdomain-otids-v1",
+  "task": "artifacts/reports/xdomain",
+  "created_at": "2026-11-09T09:05:27+08:00",
+  "random_seed": 20261108,
+  "config_sha256": "d1886e0751c6b6aa430a56b72300fc1f9a5c091d181ad93dfc18cbf3c1d33497",
+  "git_revision_at_ingest": "38dcfbfc544c6b1191c5b829524d34003f7aa1ca",
+  "dataset": "OTIDS (Kia Soul), Kaggle 镜像 bikashkundu/can-hcrl-otids（官方源 ocslab.hksecurity.net 转存）",
+  "source_tag": "public:otids:kia-soul",
+  "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
+  "level": "window",
+  "input_zip": {
+    "path": "./data/raw/otids-dataset.zip",
+    "exists": true,
+    "expected_sha256": "4605238308e1090b5d4e5fdd53fc1ba85e55a1caca2fb932d1e037ee7ca02d17",
+    "expected_size_bytes": 209643319,
+    "actual_sha256": "4605238308e1090b5d4e5fdd53fc1ba85e55a1caca2fb932d1e037ee7ca02d17",
+    "actual_size_bytes": 209643319,
+    "sha256_match": true,
+    "size_match": true,
+    "members": [
+      "CAN_HCRL_OTIDS_B.csv",
+      "CAN_HCRL_OTIDS_UB.csv",
+      "dataset.csv",
+      "dataset1.csv",
+      "dataset2.csv",
+      "dataset3.csv"
+    ],
+    "expected_members": [
+      "dataset.csv",
+      "dataset1.csv",
+      "dataset2.csv",
+      "dataset3.csv",
+      "CAN_HCRL_OTIDS_B.csv",
+      "CAN_HCRL_OTIDS_UB.csv"
+    ],
+    "all_expected_members_present": true,
+    "verified": true
+  },
+  "primary_members": [
+    "dataset.csv",
+    "dataset1.csv",
+    "dataset2.csv",
+    "dataset3.csv"
+  ],
+  "excluded_members": [
+    "CAN_HCRL_OTIDS_B.csv",
+    "CAN_HCRL_OTIDS_UB.csv"
+  ],
+  "excluded_reason": "B / UB 为第三方二次加工（SMOTE 平衡/合并、十进制化、列结构不同），来源口径不明，仅作规模参考，禁止作为评估口径；本任务未读取其数据行",
+  "field_level_rules": {
+    "TS": "-> timestamp (float)",
+    "ID1": "-> can_id = int(ID1, 16)，4 位十六进制；B 文件十进制 ID1 取值上界 1680=0x690 交叉印证",
+    "ID0": "-> id0_token 帧属性标记（仅取 {000,100}），保留在帧表，不进特征矩阵",
+    "LEN": "-> dlc (int)",
+    "DLC0..DLC7": "-> data_0..7 (int, 空值 -1)",
+    "target": "-> file_label 文件级标签 0/1/2/3",
+    "flag": "OTIDS 无逐帧 T/R Flag，统一占位 'NA'，不参与任何标签或特征计算"
+  },
+  "window_policy": {
+    "size_frames": 100,
+    "stride_frames": 50,
+    "attack_ratio_theta": 0.2,
+    "gap_threshold_s": 0.02,
+    "segment_max_frames": 20000,
+    "same_as_hcrl": true
+  },
+  "label_policy": {
+    "primary": "帧 label = 文件级 target>0；窗口 label = attack_ratio>=0.20（复用 HCRL 同一 build_windows）",
+    "official_sensitivity": "DoS: can_id==0x000；Fuzzy/Impersonation: ts - t_start >= 250s；Attack-free: 0；再按 θ=0.20 窗口化",
+    "official_attack_start_s": 250.0,
+    "official_dos_injected_can_id": 0
+  },
+  "frozen_assets": {
+    "model_joblib": {
+      "path": "./artifacts/models/l1_v3/model.joblib",
+      "sha256": "465a26db953b911c4fcf7011c28904c06a13d81403dc643b4a8320a0e99cc19d",
+      "exists": true
+    },
+    "threshold_json": {
+      "path": "./artifacts/models/l1_v3/threshold.json",
+      "sha256": "f2e2aee70e0a93a2e5a8e30dfd1d3fa425bee2da7e99ef2953bf98c6ef84705e",
+      "exists": true
+    },
+    "features_json": {
+      "path": "./artifacts/models/l1_v3/features.json",
+      "sha256": "33e4af5aacf8b65c9e3aa3244c53c9431ddbe35bf6317a19c96df53eb9476ae3",
+      "exists": true
+    },
+    "manifest_json": {
+      "path": "./artifacts/models/l1_v3/manifest.json",
+      "sha256": "c1c0fa518c22a7ca69acac4d36635722fc4cd0424b88a9747a84c7c192d77660",
+      "exists": true
+    },
+    "feature_params": {
+      "path": "./artifacts/features/feature_params.json",
+      "sha256": "afd99a8267473a44f380570a5a46263686de744d20c2a535fe28a9ddb60a0687",
+      "exists": true
+    },
+    "id_frequency": {
+      "path": "./artifacts/features/id_frequency_train.json",
+      "sha256": "d773c2597b060d2d36ec1d50ec6e420306886712076ff8b55f6ff94ba88b70f2",
+      "exists": true
+    },
+    "hcrl_features_norm": {
+      "path": "./data/processed/features/window_features.parquet",
+      "sha256": "fbccb346f817e17a90fcda813ea3276e0236105a6cf4b8ccd3a5aeec27352418",
+      "exists": true
+    },
+    "hcrl_split_v3_windows": {
+      "path": "./data/processed/split/split-v3/windows.parquet",
+      "sha256": "2a79c6d2b66883534e04dd2146155a0c892f9ddad639543d9a9e298e5975aa87",
+      "exists": true
+    }
+  },
+  "frozen_threshold": 0.54,
+  "frozen_threshold_version": "l1-v3-thr-v1",
+  "parse_stats": {
+    "schema": [
+      "frame_index",
+      "timestamp",
+      "can_id",
+      "dlc",
+      "data_0",
+      "data_1",
+      "data_2",
+      "data_3",
+      "data_4",
+      "data_5",
+      "data_6",
+      "data_7",
+      "flag",
+      "source_tag",
+      "label",
+      "session_id",
+      "segment_id",
+      "attack_kind",
+      "id0_token",
+      "file_label",
+      "official_label"
+    ],
+    "parquet": "./data/processed/otids/frames.parquet",
+    "n_files": 4,
+    "parquet_rows_total": 4613439,
+    "skipped_rows_total": 0,
+    "all_row_counts_match": true,
+    "n_segments": 243,
+    "n_sessions": 4,
+    "source_tags": [
+      "public:otids:kia-soul"
+    ],
+    "excluded_zip_members": [
+      "CAN_HCRL_OTIDS_B.csv",
+      "CAN_HCRL_OTIDS_UB.csv"
+    ],
+    "primary_zip_members": [
+      "dataset.csv",
+      "dataset1.csv",
+      "dataset2.csv",
+      "dataset3.csv"
+    ],
+    "per_file": [
+      {
+        "file": "dataset.csv",
+        "session_id": "OTIDS_AttackFree",
+        "file_label": 0,
+        "attack_kind": "Normal",
+        "zip_member_bytes": 113351635,
+        "ts_min": 0.0,
+        "ts_max": 1037.590316,
+        "span_seconds": 1037.590316,
+        "rows_scanned": 2369398,
+        "rows_parsed": 2369398,
+        "rows_skipped": 0,
+        "row_count_match": true,
+        "n_primary_injected": 0,
+        "n_official_injected": 0,
+        "n_segments": 119
+      },
+      {
+        "file": "dataset1.csv",
+        "session_id": "OTIDS_DoS",
+        "file_label": 1,
+        "attack_kind": "DoS",
+        "zip_member_bytes": 31677380,
+        "ts_min": 0.0,
+        "ts_max": 306.296857,
+        "span_seconds": 306.296857,
+        "rows_scanned": 656579,
+        "rows_parsed": 656579,
+        "rows_skipped": 0,
+        "row_count_match": true,
+        "n_primary_injected": 656579,
+        "n_official_injected": 335624,
+        "n_segments": 38
+      },
+      {
+        "file": "dataset2.csv",
+        "session_id": "OTIDS_Fuzzy",
+        "file_label": 2,
+        "attack_kind": "Fuzzy",
+        "zip_member_bytes": 28469845,
+        "ts_min": 0.0,
+        "ts_max": 347.331739,
+        "span_seconds": 347.331739,
+        "rows_scanned": 591990,
+        "rows_parsed": 591990,
+        "rows_skipped": 0,
+        "row_count_match": true,
+        "n_primary_injected": 591990,
+        "n_official_injected": 143710,
+        "n_segments": 33
+      },
+      {
+        "file": "dataset3.csv",
+        "session_id": "OTIDS_Impersonation",
+        "file_label": 3,
+        "attack_kind": "Impersonation",
+        "zip_member_bytes": 55346479,
+        "ts_min": 1481192898.075465,
+        "ts_max": 1481193380.725113,
+        "span_seconds": 482.649648,
+        "rows_scanned": 995472,
+        "rows_parsed": 995472,
+        "rows_skipped": 0,
+        "row_count_match": true,
+        "n_primary_injected": 995472,
+        "n_official_injected": 479889,
+        "n_segments": 53
+      }
+    ]
+  },
+  "window_stats": {
+    "theta": 0.2,
+    "window_size_frames": 100,
+    "stride_frames": 50,
+    "n_windows": 92013,
+    "window_positive_primary": 44745,
+    "window_negative_primary": 47268,
+    "window_positive_official": 25524,
+    "window_negative_official": 66489,
+    "by_dominant_class": {
+      "DoS": {
+        "n_windows": 13089,
+        "primary_positive": 13089,
+        "official_positive": 13089
+      },
+      "Fuzzy": {
+        "n_windows": 11802,
+        "primary_positive": 11802,
+        "official_positive": 2864
+      },
+      "Impersonation": {
+        "n_windows": 19854,
+        "primary_positive": 19854,
+        "official_positive": 9571
+      },
+      "Normal": {
+        "n_windows": 47268,
+        "primary_positive": 0,
+        "official_positive": 0
+      }
+    },
+    "files": [
+      "windows.parquet",
+      "labels/window_labels.parquet"
+    ],
+    "label_policy": {
+      "primary": "帧 label = 文件级 target>0；窗口 label = attack_ratio>=0.20（复用 HCRL 同一 build_windows）",
+      "official_sensitivity": "DoS: can_id==0x000；Fuzzy/Impersonation: ts - t_start >= 250s；Attack-free: 0；再按 θ=0.20 窗口化",
+      "note": "主口径因文件级标签在段内恒定，attack_ratio 退化为 0/1，窗口标签等价于文件标签；θ=0.20 仍由与 HCRL 完全相同的 build_windows 执行，口径代码路径一致。"
+    }
+  },
+  "feature_meta": {
+    "n_windows": 92013,
+    "n_features": 33,
+    "feature_columns": [
+      "g1_dlc_mean",
+      "g1_dlc_std",
+      "g1_dlc_max",
+      "g1_id_freq_mean",
+      "g1_id_freq_std",
+      "g1_id_freq_min",
+      "g2_dt_mean",
+      "g2_dt_std",
+      "g2_dt_min",
+      "g2_dt_max",
+      "g2_same_id_dt_mean",
+      "g2_same_id_dt_std",
+      "g2_same_id_dt_cv",
+      "g3_byte_mean",
+      "g3_byte_std",
+      "g3_byte_entropy_mean",
+      "g3_hamming_mean",
+      "g3_payload_change_rate",
+      "g4_frame_count",
+      "g4_unique_ids",
+      "g4_id_entropy",
+      "g4_top1_id_ratio",
+      "g4_min_id_share",
+      "g5_same_id_dt_mean",
+      "g5_same_id_dt_std",
+      "g5_same_id_dt_max",
+      "g5_dt_p50",
+      "g5_dt_p95",
+      "g6_payload_change_rate",
+      "g6_byte_entropy_mean",
+      "g6_dlc_entropy",
+      "g6_hamming_p95",
+      "g6_unique_payload_ratio"
+    ],
+    "feature_function": "diting.features.build.compute_window_features (G1-G6, 唯一实现)",
+    "streaming_wrapper": "diting.features.stream.compute_window_features_streaming",
+    "id_frequency_source": "./artifacts/features/id_frequency_train.json",
+    "id_frequency_sha256": "d773c2597b060d2d36ec1d50ec6e420306886712076ff8b55f6ff94ba88b70f2",
+    "id_frequency_fit_on": "HCRL train（冻结复用，OTIDS 侧零拟合）",
+    "normalization_params_source": "./artifacts/features/feature_params.json",
+    "normalization_params_sha256": "afd99a8267473a44f380570a5a46263686de744d20c2a535fe28a9ddb60a0687",
+    "normalization_fit_on": "train",
+    "normalization_clip": 6.0,
+    "leakage_assertions": {
+      "passed": true,
+      "n_feature_columns": 33,
+      "feature_groups": {
+        "G1": [
+          "g1_dlc_mean",
+          "g1_dlc_std",
+          "g1_dlc_max",
+          "g1_id_freq_mean",
+          "g1_id_freq_std",
+          "g1_id_freq_min"
+        ],
+        "G2": [
+          "g2_dt_mean",
+          "g2_dt_std",
+          "g2_dt_min",
+          "g2_dt_max",
+          "g2_same_id_dt_mean",
+          "g2_same_id_dt_std",
+          "g2_same_id_dt_cv"
+        ],
+        "G3": [
+          "g3_byte_mean",
+          "g3_byte_std",
+          "g3_byte_entropy_mean",
+          "g3_hamming_mean",
+          "g3_payload_change_rate"
+        ],
+        "G4": [
+          "g4_frame_count",
+          "g4_unique_ids",
+          "g4_id_entropy",
+          "g4_top1_id_ratio",
+          "g4_min_id_share"
+        ],
+        "G5": [
+          "g5_same_id_dt_mean",
+          "g5_same_id_dt_std",
+          "g5_same_id_dt_max",
+          "g5_dt_p50",
+          "g5_dt_p95"
+        ],
+        "G6": [
+          "g6_payload_change_rate",
+          "g6_byte_entropy_mean",
+          "g6_dlc_entropy",
+          "g6_hamming_p95",
+          "g6_unique_payload_ratio"
+        ]
+      },
+      "forbidden_fields_absent": [
+        "flag",
+        "label",
+        "can_id==0x000 布尔"
+      ],
+      "note": "g4_min_id_share 为窗口内数值最小 ID 的相对占比，非帧级 0x000 布尔；已列入 W2 消融清单"
+    },
+    "files": [
+      "window_features_raw.parquet",
+      "window_features.parquet"
+    ]
+  },
+  "hcrl_mixing_forbidden": "OTIDS 帧表、窗口、特征全部写入 data/processed/otids/ 独立目录；未写入任何 HCRL 训练/划分/特征产物；HCRL test 折全程封存、零读取",
+  "outputs": [
+    "frames.parquet",
+    "segment_index.json",
+    "parse_stats.json",
+    "windows.parquet",
+    "labels/window_labels.parquet",
+    "label_policy.json",
+    "window_features_raw.parquet",
+    "window_features.parquet",
+    "feature_meta.json",
+    "manifest.json"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "manifest_version": "1.0",
+  "stage": "eval",
+  "project": "diting",
+  "project_version": "0.2.0-w2-realdata",
+  "code_version": "0.2.0",
+  "git_revision": "bb5d7f95e7662c4f8b7920362220c0313d98733f",
+  "config_path": "./configs/default.yaml",
+  "config_sha256": "a0ea9bad194744cd0091ace4220f8aa2a2a8df4fd470b72b46104edaa12f4cd3",
+  "random_seed": 20261108,
+  "created_at": "2026-11-08T12:21:17+08:00",
+  "inputs": [
+    {
+      "path": "data/interim/frames.parquet",
+      "exists": true,
+      "size_bytes": 87211411,
+      "sha256": "1355ad57f02ff01dfc5117e6e58eb6fd6f35025cf2d2723422de128926a8e13b"
+    },
+    {
+      "path": "data/processed/split/split-v2/split_manifest.json",
+      "exists": true,
+      "size_bytes": 8361,
+      "sha256": "b514e5d2a39bcca98ff984daf8f31eb22afd8ee01804ab739e514485f0e7ccdc"
+    },
+    {
+      "path": "artifacts/features/feature_params.json",
+      "exists": true,
+      "size_bytes": 4227,
+      "sha256": "afd99a8267473a44f380570a5a46263686de744d20c2a535fe28a9ddb60a0687"
+    },
+    {
+      "path": "artifacts/features/golden_vector.json",
+      "exists": true,
+      "size_bytes": 2504,
+      "sha256": "73045830f19c1a24069ec2818f845e1a7ab7a54bc4ed9986d91281049e6d1737"
+    },
+    {
+      "path": "artifacts/baseline/l0_metrics.json",
+      "exists": true,
+      "size_bytes": 1776,
+      "sha256": "c3cacd72c1c002c1be00f107d37367393aea0637ceaf3520ede4174f533cd133"
+    },
+    {
+      "path": "artifacts/baseline/confusion_matrix.json",
+      "exists": true,
+      "size_bytes": 136,
+      "sha256": "a7e976d865ff544072dd8ef0115adcc03df76b1f6af10702412728001ee85fa8"
+    },
+    {
+      "path": "artifacts/baseline/baseline_report.md",
+      "exists": true,
+      "size_bytes": 1561,
+      "sha256": "8a05aa6b987bb095a9318f3594d6d8248fc80b8f2c456e2235ba75eb9ded63af"
+    }
+  ],
+  "checks": [
+    "E1_artifacts_exist",
+    "E2_split_assertions_rerun",
+    "E3_leakage_assertions_rerun",
+    "E4_params_fit_on_train",
+    "E5_nonzero_recall",
+    "E6_manifests_present"
+  ]
+}

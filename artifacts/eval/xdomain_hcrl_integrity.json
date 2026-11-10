@@ -1,0 +1,17 @@
+{
+  "before_n_files": 77,
+  "after_n_files_in_scope": 78,
+  "verification": {
+    "verified": true,
+    "n_files_before": 77,
+    "n_files_after_in_scope": 78,
+    "changed_files": [],
+    "removed_files": [],
+    "new_files_excluded_from_scope": [
+      "artifacts/eval/xdomain_id_ablation/manifest.json"
+    ],
+    "conclusion": "HCRL 侧全部既有产物（含 test 封存、split-v2/v3、L1-v2/v3、特征参数）校验和前后完全一致；本次只新增 xdomain_/otids 前缀文件"
+  },
+  "before_snapshot_sha256_of_keys": null,
+  "note": "逐文件 SHA-256 快照运行前后比对；完整快照见 evaluate 进程内比对结论"
+}

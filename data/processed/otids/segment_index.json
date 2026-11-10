@@ -1,0 +1,2196 @@
+{
+  "generated_at": "2026-11-09T09:01:26+08:00",
+  "segment_strategy": "时间间隙 > gap_threshold 或单段帧数达 segment_max_frames（与 HCRL 一致）",
+  "gap_threshold_s": 0.02,
+  "segment_max_frames": 20000,
+  "n_segments": 243,
+  "segments": [
+    {
+      "segment_id": "OTIDS_AttackFree__seg0001",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 0,
+      "frame_end": 19999,
+      "n_frames": 20000,
+      "t_start": 0.0,
+      "t_end": 8.761419
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0002",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 20000,
+      "frame_end": 39999,
+      "n_frames": 20000,
+      "t_start": 8.761651,
+      "t_end": 17.5158
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0003",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 40000,
+      "frame_end": 59999,
+      "n_frames": 20000,
+      "t_start": 17.516036,
+      "t_end": 26.271467
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0004",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 60000,
+      "frame_end": 79999,
+      "n_frames": 20000,
+      "t_start": 26.271702,
+      "t_end": 35.030315
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0005",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 80000,
+      "frame_end": 99999,
+      "n_frames": 20000,
+      "t_start": 35.030661,
+      "t_end": 43.792227
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0006",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 100000,
+      "frame_end": 119999,
+      "n_frames": 20000,
+      "t_start": 43.792467,
+      "t_end": 52.552427
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0007",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 120000,
+      "frame_end": 139999,
+      "n_frames": 20000,
+      "t_start": 52.552667,
+      "t_end": 61.312248
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0008",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 140000,
+      "frame_end": 159999,
+      "n_frames": 20000,
+      "t_start": 61.312489,
+      "t_end": 70.071917
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0009",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 160000,
+      "frame_end": 179999,
+      "n_frames": 20000,
+      "t_start": 70.072368,
+      "t_end": 78.831758
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0010",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 180000,
+      "frame_end": 199999,
+      "n_frames": 20000,
+      "t_start": 78.831991,
+      "t_end": 87.59004
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0011",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 200000,
+      "frame_end": 219999,
+      "n_frames": 20000,
+      "t_start": 87.590254,
+      "t_end": 96.350041
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0012",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 220000,
+      "frame_end": 239999,
+      "n_frames": 20000,
+      "t_start": 96.350254,
+      "t_end": 105.101581
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0013",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 240000,
+      "frame_end": 259999,
+      "n_frames": 20000,
+      "t_start": 105.101815,
+      "t_end": 113.86018
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0014",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 260000,
+      "frame_end": 279999,
+      "n_frames": 20000,
+      "t_start": 113.860414,
+      "t_end": 122.610835
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0015",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 280000,
+      "frame_end": 299999,
+      "n_frames": 20000,
+      "t_start": 122.611069,
+      "t_end": 131.366764
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0016",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 300000,
+      "frame_end": 319999,
+      "n_frames": 20000,
+      "t_start": 131.367013,
+      "t_end": 140.122053
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0017",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 320000,
+      "frame_end": 339999,
+      "n_frames": 20000,
+      "t_start": 140.122514,
+      "t_end": 148.881759
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0018",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 340000,
+      "frame_end": 359999,
+      "n_frames": 20000,
+      "t_start": 148.882007,
+      "t_end": 157.639957
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0019",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 360000,
+      "frame_end": 379999,
+      "n_frames": 20000,
+      "t_start": 157.640197,
+      "t_end": 166.39982
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0020",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 380000,
+      "frame_end": 399999,
+      "n_frames": 20000,
+      "t_start": 166.400059,
+      "t_end": 175.160791
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0021",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 400000,
+      "frame_end": 419999,
+      "n_frames": 20000,
+      "t_start": 175.161028,
+      "t_end": 183.91833
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0022",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 420000,
+      "frame_end": 439999,
+      "n_frames": 20000,
+      "t_start": 183.919555,
+      "t_end": 192.678164
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0023",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 440000,
+      "frame_end": 459999,
+      "n_frames": 20000,
+      "t_start": 192.679752,
+      "t_end": 201.432516
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0024",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 460000,
+      "frame_end": 479999,
+      "n_frames": 20000,
+      "t_start": 201.432908,
+      "t_end": 210.189985
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0025",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 480000,
+      "frame_end": 499999,
+      "n_frames": 20000,
+      "t_start": 210.190221,
+      "t_end": 218.94946
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0026",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 500000,
+      "frame_end": 519999,
+      "n_frames": 20000,
+      "t_start": 218.949968,
+      "t_end": 227.709152
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0027",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 520000,
+      "frame_end": 539999,
+      "n_frames": 20000,
+      "t_start": 227.709374,
+      "t_end": 236.464091
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0028",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 540000,
+      "frame_end": 559999,
+      "n_frames": 20000,
+      "t_start": 236.464339,
+      "t_end": 245.22243
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0029",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 560000,
+      "frame_end": 579999,
+      "n_frames": 20000,
+      "t_start": 245.222682,
+      "t_end": 253.981709
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0030",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 580000,
+      "frame_end": 599999,
+      "n_frames": 20000,
+      "t_start": 253.981798,
+      "t_end": 262.742855
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0031",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 600000,
+      "frame_end": 619999,
+      "n_frames": 20000,
+      "t_start": 262.7431,
+      "t_end": 271.500686
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0032",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 620000,
+      "frame_end": 639999,
+      "n_frames": 20000,
+      "t_start": 271.500929,
+      "t_end": 280.255794
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0033",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 640000,
+      "frame_end": 659999,
+      "n_frames": 20000,
+      "t_start": 280.256048,
+      "t_end": 289.012228
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0034",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 660000,
+      "frame_end": 679999,
+      "n_frames": 20000,
+      "t_start": 289.012415,
+      "t_end": 297.771775
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0035",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 680000,
+      "frame_end": 699999,
+      "n_frames": 20000,
+      "t_start": 297.77208,
+      "t_end": 306.53128
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0036",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 700000,
+      "frame_end": 719999,
+      "n_frames": 20000,
+      "t_start": 306.531511,
+      "t_end": 315.282746
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0037",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 720000,
+      "frame_end": 739999,
+      "n_frames": 20000,
+      "t_start": 315.28299,
+      "t_end": 324.041054
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0038",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 740000,
+      "frame_end": 759999,
+      "n_frames": 20000,
+      "t_start": 324.041282,
+      "t_end": 332.794477
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0039",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 760000,
+      "frame_end": 779999,
+      "n_frames": 20000,
+      "t_start": 332.794735,
+      "t_end": 341.553466
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0040",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 780000,
+      "frame_end": 799999,
+      "n_frames": 20000,
+      "t_start": 341.553705,
+      "t_end": 350.311938
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0041",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 800000,
+      "frame_end": 819999,
+      "n_frames": 20000,
+      "t_start": 350.312372,
+      "t_end": 359.070536
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0042",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 820000,
+      "frame_end": 839999,
+      "n_frames": 20000,
+      "t_start": 359.07077,
+      "t_end": 367.825211
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0043",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 840000,
+      "frame_end": 859999,
+      "n_frames": 20000,
+      "t_start": 367.825473,
+      "t_end": 376.583662
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0044",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 860000,
+      "frame_end": 879999,
+      "n_frames": 20000,
+      "t_start": 376.583913,
+      "t_end": 385.344153
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0045",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 880000,
+      "frame_end": 899999,
+      "n_frames": 20000,
+      "t_start": 385.344372,
+      "t_end": 394.101032
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0046",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 900000,
+      "frame_end": 919999,
+      "n_frames": 20000,
+      "t_start": 394.101274,
+      "t_end": 402.860181
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0047",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 920000,
+      "frame_end": 939999,
+      "n_frames": 20000,
+      "t_start": 402.860406,
+      "t_end": 411.617717
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0048",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 940000,
+      "frame_end": 959999,
+      "n_frames": 20000,
+      "t_start": 411.617966,
+      "t_end": 420.37661
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0049",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 960000,
+      "frame_end": 979999,
+      "n_frames": 20000,
+      "t_start": 420.377412,
+      "t_end": 429.134476
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0050",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 980000,
+      "frame_end": 999999,
+      "n_frames": 20000,
+      "t_start": 429.134717,
+      "t_end": 437.890356
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0051",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1000000,
+      "frame_end": 1019999,
+      "n_frames": 20000,
+      "t_start": 437.890592,
+      "t_end": 446.649839
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0052",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1020000,
+      "frame_end": 1039999,
+      "n_frames": 20000,
+      "t_start": 446.650135,
+      "t_end": 455.406761
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0053",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1040000,
+      "frame_end": 1059999,
+      "n_frames": 20000,
+      "t_start": 455.406909,
+      "t_end": 464.163696
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0054",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1060000,
+      "frame_end": 1079999,
+      "n_frames": 20000,
+      "t_start": 464.163937,
+      "t_end": 472.920595
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0055",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1080000,
+      "frame_end": 1099999,
+      "n_frames": 20000,
+      "t_start": 472.92084,
+      "t_end": 481.676339
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0056",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1100000,
+      "frame_end": 1119999,
+      "n_frames": 20000,
+      "t_start": 481.676555,
+      "t_end": 490.433031
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0057",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1120000,
+      "frame_end": 1139999,
+      "n_frames": 20000,
+      "t_start": 490.433271,
+      "t_end": 499.191314
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0058",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1140000,
+      "frame_end": 1159999,
+      "n_frames": 20000,
+      "t_start": 499.191553,
+      "t_end": 507.948482
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0059",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1160000,
+      "frame_end": 1179999,
+      "n_frames": 20000,
+      "t_start": 507.950463,
+      "t_end": 516.709181
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0060",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1180000,
+      "frame_end": 1199999,
+      "n_frames": 20000,
+      "t_start": 516.709893,
+      "t_end": 525.470602
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0061",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1200000,
+      "frame_end": 1219999,
+      "n_frames": 20000,
+      "t_start": 525.470807,
+      "t_end": 534.226358
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0062",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1220000,
+      "frame_end": 1239999,
+      "n_frames": 20000,
+      "t_start": 534.227574,
+      "t_end": 542.983939
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0063",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1240000,
+      "frame_end": 1259999,
+      "n_frames": 20000,
+      "t_start": 542.984176,
+      "t_end": 551.744333
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0064",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1260000,
+      "frame_end": 1279999,
+      "n_frames": 20000,
+      "t_start": 551.745624,
+      "t_end": 560.503266
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0065",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1280000,
+      "frame_end": 1299999,
+      "n_frames": 20000,
+      "t_start": 560.503507,
+      "t_end": 569.263198
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0066",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1300000,
+      "frame_end": 1319999,
+      "n_frames": 20000,
+      "t_start": 569.26337,
+      "t_end": 578.021756
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0067",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1320000,
+      "frame_end": 1339999,
+      "n_frames": 20000,
+      "t_start": 578.021998,
+      "t_end": 586.783189
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0068",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1340000,
+      "frame_end": 1359999,
+      "n_frames": 20000,
+      "t_start": 586.783425,
+      "t_end": 595.549579
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0069",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1360000,
+      "frame_end": 1379999,
+      "n_frames": 20000,
+      "t_start": 595.549816,
+      "t_end": 604.309136
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0070",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1380000,
+      "frame_end": 1399999,
+      "n_frames": 20000,
+      "t_start": 604.309348,
+      "t_end": 613.066488
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0071",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1400000,
+      "frame_end": 1419999,
+      "n_frames": 20000,
+      "t_start": 613.067822,
+      "t_end": 621.826625
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0072",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1420000,
+      "frame_end": 1439999,
+      "n_frames": 20000,
+      "t_start": 621.826873,
+      "t_end": 630.58259
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0073",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1440000,
+      "frame_end": 1459999,
+      "n_frames": 20000,
+      "t_start": 630.58284,
+      "t_end": 639.343361
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0074",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1460000,
+      "frame_end": 1479999,
+      "n_frames": 20000,
+      "t_start": 639.343604,
+      "t_end": 648.10207
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0075",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1480000,
+      "frame_end": 1499999,
+      "n_frames": 20000,
+      "t_start": 648.102304,
+      "t_end": 656.861324
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0076",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1500000,
+      "frame_end": 1519999,
+      "n_frames": 20000,
+      "t_start": 656.861558,
+      "t_end": 665.620847
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0077",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1520000,
+      "frame_end": 1539999,
+      "n_frames": 20000,
+      "t_start": 665.62103,
+      "t_end": 674.379317
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0078",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1540000,
+      "frame_end": 1559999,
+      "n_frames": 20000,
+      "t_start": 674.380277,
+      "t_end": 683.137977
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0079",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1560000,
+      "frame_end": 1579999,
+      "n_frames": 20000,
+      "t_start": 683.138218,
+      "t_end": 691.893589
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0080",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1580000,
+      "frame_end": 1599999,
+      "n_frames": 20000,
+      "t_start": 691.89384,
+      "t_end": 700.651429
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0081",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1600000,
+      "frame_end": 1619999,
+      "n_frames": 20000,
+      "t_start": 700.651666,
+      "t_end": 709.406615
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0082",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1620000,
+      "frame_end": 1639999,
+      "n_frames": 20000,
+      "t_start": 709.40883,
+      "t_end": 718.165164
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0083",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1640000,
+      "frame_end": 1659999,
+      "n_frames": 20000,
+      "t_start": 718.165405,
+      "t_end": 726.924449
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0084",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1660000,
+      "frame_end": 1679999,
+      "n_frames": 20000,
+      "t_start": 726.924708,
+      "t_end": 735.684013
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0085",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1680000,
+      "frame_end": 1699999,
+      "n_frames": 20000,
+      "t_start": 735.684273,
+      "t_end": 744.447222
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0086",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1700000,
+      "frame_end": 1719999,
+      "n_frames": 20000,
+      "t_start": 744.449506,
+      "t_end": 753.207198
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0087",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1720000,
+      "frame_end": 1739999,
+      "n_frames": 20000,
+      "t_start": 753.207425,
+      "t_end": 761.964109
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0088",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1740000,
+      "frame_end": 1759999,
+      "n_frames": 20000,
+      "t_start": 761.964344,
+      "t_end": 770.724559
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0089",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1760000,
+      "frame_end": 1779999,
+      "n_frames": 20000,
+      "t_start": 770.724793,
+      "t_end": 779.484448
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0090",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1780000,
+      "frame_end": 1799999,
+      "n_frames": 20000,
+      "t_start": 779.484678,
+      "t_end": 788.244501
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0091",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1800000,
+      "frame_end": 1819999,
+      "n_frames": 20000,
+      "t_start": 788.244689,
+      "t_end": 797.000615
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0092",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1820000,
+      "frame_end": 1839999,
+      "n_frames": 20000,
+      "t_start": 797.000839,
+      "t_end": 805.754617
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0093",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1840000,
+      "frame_end": 1859999,
+      "n_frames": 20000,
+      "t_start": 805.754851,
+      "t_end": 814.515398
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0094",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1860000,
+      "frame_end": 1879999,
+      "n_frames": 20000,
+      "t_start": 814.515647,
+      "t_end": 823.274166
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0095",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1880000,
+      "frame_end": 1899999,
+      "n_frames": 20000,
+      "t_start": 823.274403,
+      "t_end": 832.032149
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0096",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1900000,
+      "frame_end": 1919999,
+      "n_frames": 20000,
+      "t_start": 832.032385,
+      "t_end": 840.787131
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0097",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1920000,
+      "frame_end": 1939999,
+      "n_frames": 20000,
+      "t_start": 840.787394,
+      "t_end": 849.547501
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0098",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1940000,
+      "frame_end": 1959999,
+      "n_frames": 20000,
+      "t_start": 849.547743,
+      "t_end": 858.305224
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0099",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1960000,
+      "frame_end": 1979999,
+      "n_frames": 20000,
+      "t_start": 858.305464,
+      "t_end": 867.064348
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0100",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 1980000,
+      "frame_end": 1999999,
+      "n_frames": 20000,
+      "t_start": 867.064783,
+      "t_end": 875.822371
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0101",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2000000,
+      "frame_end": 2019999,
+      "n_frames": 20000,
+      "t_start": 875.822615,
+      "t_end": 884.582278
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0102",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2020000,
+      "frame_end": 2039999,
+      "n_frames": 20000,
+      "t_start": 884.582522,
+      "t_end": 893.339943
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0103",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2040000,
+      "frame_end": 2059999,
+      "n_frames": 20000,
+      "t_start": 893.340115,
+      "t_end": 902.096276
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0104",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2060000,
+      "frame_end": 2079999,
+      "n_frames": 20000,
+      "t_start": 902.096497,
+      "t_end": 910.855074
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0105",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2080000,
+      "frame_end": 2099999,
+      "n_frames": 20000,
+      "t_start": 910.855132,
+      "t_end": 919.613686
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0106",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2100000,
+      "frame_end": 2119999,
+      "n_frames": 20000,
+      "t_start": 919.613942,
+      "t_end": 928.374091
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0107",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2120000,
+      "frame_end": 2139999,
+      "n_frames": 20000,
+      "t_start": 928.374334,
+      "t_end": 937.13254
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0108",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2140000,
+      "frame_end": 2159999,
+      "n_frames": 20000,
+      "t_start": 937.132784,
+      "t_end": 945.886794
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0109",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2160000,
+      "frame_end": 2179999,
+      "n_frames": 20000,
+      "t_start": 945.887324,
+      "t_end": 954.649215
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0110",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2180000,
+      "frame_end": 2199999,
+      "n_frames": 20000,
+      "t_start": 954.64944,
+      "t_end": 963.412131
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0111",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2200000,
+      "frame_end": 2219999,
+      "n_frames": 20000,
+      "t_start": 963.412515,
+      "t_end": 972.172514
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0112",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2220000,
+      "frame_end": 2239999,
+      "n_frames": 20000,
+      "t_start": 972.172738,
+      "t_end": 980.932959
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0113",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2240000,
+      "frame_end": 2259999,
+      "n_frames": 20000,
+      "t_start": 980.933192,
+      "t_end": 989.685765
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0114",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2260000,
+      "frame_end": 2279999,
+      "n_frames": 20000,
+      "t_start": 989.685991,
+      "t_end": 998.444284
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0115",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2280000,
+      "frame_end": 2299999,
+      "n_frames": 20000,
+      "t_start": 998.444529,
+      "t_end": 1007.203404
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0116",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2300000,
+      "frame_end": 2319999,
+      "n_frames": 20000,
+      "t_start": 1007.203639,
+      "t_end": 1015.958337
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0117",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2320000,
+      "frame_end": 2339999,
+      "n_frames": 20000,
+      "t_start": 1015.959006,
+      "t_end": 1024.716048
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0118",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2340000,
+      "frame_end": 2359999,
+      "n_frames": 20000,
+      "t_start": 1024.716303,
+      "t_end": 1033.474988
+    },
+    {
+      "segment_id": "OTIDS_AttackFree__seg0119",
+      "session_id": "OTIDS_AttackFree",
+      "frame_start": 2360000,
+      "frame_end": 2369397,
+      "n_frames": 9398,
+      "t_start": 1033.475224,
+      "t_end": 1037.590316
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0001",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2369398,
+      "frame_end": 2369739,
+      "n_frames": 342,
+      "t_start": 0.0,
+      "t_end": 0.082648
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0002",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2369740,
+      "frame_end": 2389739,
+      "n_frames": 20000,
+      "t_start": 0.119531,
+      "t_end": 7.282178
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0003",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2389740,
+      "frame_end": 2409739,
+      "n_frames": 20000,
+      "t_start": 7.282417,
+      "t_end": 12.675246
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0004",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2409740,
+      "frame_end": 2429739,
+      "n_frames": 20000,
+      "t_start": 12.675492,
+      "t_end": 21.891063
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0005",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2429740,
+      "frame_end": 2438751,
+      "n_frames": 9012,
+      "t_start": 21.89132,
+      "t_end": 27.232928
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0006",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2438752,
+      "frame_end": 2458751,
+      "n_frames": 20000,
+      "t_start": 27.284509,
+      "t_end": 44.371111
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0007",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2458752,
+      "frame_end": 2472341,
+      "n_frames": 13590,
+      "t_start": 44.372094,
+      "t_end": 53.604863
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0008",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2472342,
+      "frame_end": 2492341,
+      "n_frames": 20000,
+      "t_start": 53.625417,
+      "t_end": 65.138264
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0009",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2492342,
+      "frame_end": 2512341,
+      "n_frames": 20000,
+      "t_start": 65.138506,
+      "t_end": 76.465068
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0010",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2512342,
+      "frame_end": 2532341,
+      "n_frames": 20000,
+      "t_start": 76.465366,
+      "t_end": 89.090904
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0011",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2532342,
+      "frame_end": 2548943,
+      "n_frames": 16602,
+      "t_start": 89.092378,
+      "t_end": 101.072339
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0012",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2548944,
+      "frame_end": 2568943,
+      "n_frames": 20000,
+      "t_start": 101.098743,
+      "t_end": 111.680091
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0013",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2568944,
+      "frame_end": 2588943,
+      "n_frames": 20000,
+      "t_start": 111.680337,
+      "t_end": 118.520906
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0014",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2588944,
+      "frame_end": 2593053,
+      "n_frames": 4110,
+      "t_start": 118.521156,
+      "t_end": 119.918693
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0015",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2593054,
+      "frame_end": 2613053,
+      "n_frames": 20000,
+      "t_start": 119.997352,
+      "t_end": 126.61803
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0016",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2613054,
+      "frame_end": 2633053,
+      "n_frames": 20000,
+      "t_start": 126.618276,
+      "t_end": 133.267369
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0017",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2633054,
+      "frame_end": 2653053,
+      "n_frames": 20000,
+      "t_start": 133.267621,
+      "t_end": 139.52479
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0018",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2653054,
+      "frame_end": 2654396,
+      "n_frames": 1343,
+      "t_start": 139.524981,
+      "t_end": 139.850142
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0019",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2654397,
+      "frame_end": 2674396,
+      "n_frames": 20000,
+      "t_start": 139.899775,
+      "t_end": 144.789493
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0020",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2674397,
+      "frame_end": 2694396,
+      "n_frames": 20000,
+      "t_start": 144.789748,
+      "t_end": 157.557144
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0021",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2694397,
+      "frame_end": 2714396,
+      "n_frames": 20000,
+      "t_start": 157.557397,
+      "t_end": 168.551169
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0022",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2714397,
+      "frame_end": 2734396,
+      "n_frames": 20000,
+      "t_start": 168.551425,
+      "t_end": 182.279144
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0023",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2734397,
+      "frame_end": 2754396,
+      "n_frames": 20000,
+      "t_start": 182.280361,
+      "t_end": 194.831731
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0024",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2754397,
+      "frame_end": 2774270,
+      "n_frames": 19874,
+      "t_start": 194.832481,
+      "t_end": 206.09434
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0025",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2774271,
+      "frame_end": 2794270,
+      "n_frames": 20000,
+      "t_start": 206.234043,
+      "t_end": 213.166323
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0026",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2794271,
+      "frame_end": 2814270,
+      "n_frames": 20000,
+      "t_start": 213.166502,
+      "t_end": 218.482043
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0027",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2814271,
+      "frame_end": 2834270,
+      "n_frames": 20000,
+      "t_start": 218.482273,
+      "t_end": 230.742609
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0028",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2834271,
+      "frame_end": 2846635,
+      "n_frames": 12365,
+      "t_start": 230.742856,
+      "t_end": 233.926854
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0029",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2846636,
+      "frame_end": 2866635,
+      "n_frames": 20000,
+      "t_start": 234.13778,
+      "t_end": 239.430885
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0030",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2866636,
+      "frame_end": 2886635,
+      "n_frames": 20000,
+      "t_start": 239.431129,
+      "t_end": 244.274077
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0031",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2886636,
+      "frame_end": 2901047,
+      "n_frames": 14412,
+      "t_start": 244.274322,
+      "t_end": 247.761519
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0032",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2901048,
+      "frame_end": 2921047,
+      "n_frames": 20000,
+      "t_start": 247.898744,
+      "t_end": 253.858208
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0033",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2921048,
+      "frame_end": 2941047,
+      "n_frames": 20000,
+      "t_start": 253.85846,
+      "t_end": 266.311721
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0034",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2941048,
+      "frame_end": 2961047,
+      "n_frames": 20000,
+      "t_start": 266.311989,
+      "t_end": 277.595397
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0035",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2961048,
+      "frame_end": 2981047,
+      "n_frames": 20000,
+      "t_start": 277.596383,
+      "t_end": 287.924505
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0036",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2981048,
+      "frame_end": 2996064,
+      "n_frames": 15017,
+      "t_start": 287.924753,
+      "t_end": 293.060699
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0037",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 2996065,
+      "frame_end": 3016064,
+      "n_frames": 20000,
+      "t_start": 293.353837,
+      "t_end": 302.65296
+    },
+    {
+      "segment_id": "OTIDS_DoS__seg0038",
+      "session_id": "OTIDS_DoS",
+      "frame_start": 3016065,
+      "frame_end": 3025976,
+      "n_frames": 9912,
+      "t_start": 302.653707,
+      "t_end": 306.296857
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0001",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3025977,
+      "frame_end": 3026310,
+      "n_frames": 334,
+      "t_start": 0.0,
+      "t_end": 0.102267
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0002",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3026311,
+      "frame_end": 3046310,
+      "n_frames": 20000,
+      "t_start": 0.122706,
+      "t_end": 8.661994
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0003",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3046311,
+      "frame_end": 3066310,
+      "n_frames": 20000,
+      "t_start": 8.662737,
+      "t_end": 15.442926
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0004",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3066311,
+      "frame_end": 3083036,
+      "n_frames": 16726,
+      "t_start": 15.443787,
+      "t_end": 21.41344
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0005",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3083037,
+      "frame_end": 3103036,
+      "n_frames": 20000,
+      "t_start": 21.452455,
+      "t_end": 27.795137
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0006",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3103037,
+      "frame_end": 3123036,
+      "n_frames": 20000,
+      "t_start": 27.79537,
+      "t_end": 34.794805
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0007",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3123037,
+      "frame_end": 3143036,
+      "n_frames": 20000,
+      "t_start": 34.795042,
+      "t_end": 49.248977
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0008",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3143037,
+      "frame_end": 3163036,
+      "n_frames": 20000,
+      "t_start": 49.249944,
+      "t_end": 69.346035
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0009",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3163037,
+      "frame_end": 3183036,
+      "n_frames": 20000,
+      "t_start": 69.346359,
+      "t_end": 84.9837
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0010",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3183037,
+      "frame_end": 3203036,
+      "n_frames": 20000,
+      "t_start": 84.984761,
+      "t_end": 92.490545
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0011",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3203037,
+      "frame_end": 3223036,
+      "n_frames": 20000,
+      "t_start": 92.490793,
+      "t_end": 102.235287
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0012",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3223037,
+      "frame_end": 3236532,
+      "n_frames": 13496,
+      "t_start": 102.235759,
+      "t_end": 111.73597
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0013",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3236533,
+      "frame_end": 3256532,
+      "n_frames": 20000,
+      "t_start": 111.799783,
+      "t_end": 126.148255
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0014",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3256533,
+      "frame_end": 3276532,
+      "n_frames": 20000,
+      "t_start": 126.148989,
+      "t_end": 140.846649
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0015",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3276533,
+      "frame_end": 3296532,
+      "n_frames": 20000,
+      "t_start": 140.847004,
+      "t_end": 154.106908
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0016",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3296533,
+      "frame_end": 3316532,
+      "n_frames": 20000,
+      "t_start": 154.107122,
+      "t_end": 165.267191
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0017",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3316533,
+      "frame_end": 3336532,
+      "n_frames": 20000,
+      "t_start": 165.267993,
+      "t_end": 179.239057
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0018",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3336533,
+      "frame_end": 3356532,
+      "n_frames": 20000,
+      "t_start": 179.240556,
+      "t_end": 193.211177
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0019",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3356533,
+      "frame_end": 3357115,
+      "n_frames": 583,
+      "t_start": 193.211413,
+      "t_end": 193.661609
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0020",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3357116,
+      "frame_end": 3377115,
+      "n_frames": 20000,
+      "t_start": 193.78296,
+      "t_end": 208.195247
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0021",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3377116,
+      "frame_end": 3397115,
+      "n_frames": 20000,
+      "t_start": 208.195471,
+      "t_end": 217.621531
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0022",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3397116,
+      "frame_end": 3417115,
+      "n_frames": 20000,
+      "t_start": 217.621773,
+      "t_end": 226.24178
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0023",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3417116,
+      "frame_end": 3436122,
+      "n_frames": 19007,
+      "t_start": 226.242016,
+      "t_end": 233.551517
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0024",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3436123,
+      "frame_end": 3456122,
+      "n_frames": 20000,
+      "t_start": 233.677933,
+      "t_end": 241.438086
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0025",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3456123,
+      "frame_end": 3476122,
+      "n_frames": 20000,
+      "t_start": 241.43834,
+      "t_end": 250.61268
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0026",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3476123,
+      "frame_end": 3496122,
+      "n_frames": 20000,
+      "t_start": 250.612927,
+      "t_end": 260.290763
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0027",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3496123,
+      "frame_end": 3514971,
+      "n_frames": 18849,
+      "t_start": 260.291572,
+      "t_end": 271.350993
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0028",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3514972,
+      "frame_end": 3534971,
+      "n_frames": 20000,
+      "t_start": 271.542759,
+      "t_end": 284.984752
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0029",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3534972,
+      "frame_end": 3554971,
+      "n_frames": 20000,
+      "t_start": 284.984969,
+      "t_end": 298.635482
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0030",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3554972,
+      "frame_end": 3573897,
+      "n_frames": 18926,
+      "t_start": 298.636665,
+      "t_end": 313.689994
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0031",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3573898,
+      "frame_end": 3593897,
+      "n_frames": 20000,
+      "t_start": 313.716427,
+      "t_end": 329.613199
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0032",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3593898,
+      "frame_end": 3613897,
+      "n_frames": 20000,
+      "t_start": 329.613923,
+      "t_end": 344.811862
+    },
+    {
+      "segment_id": "OTIDS_Fuzzy__seg0033",
+      "session_id": "OTIDS_Fuzzy",
+      "frame_start": 3613898,
+      "frame_end": 3617966,
+      "n_frames": 4069,
+      "t_start": 344.812673,
+      "t_end": 347.331739
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0001",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3617967,
+      "frame_end": 3637966,
+      "n_frames": 20000,
+      "t_start": 1481192898.075465,
+      "t_end": 1481192907.557375
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0002",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3637967,
+      "frame_end": 3657966,
+      "n_frames": 20000,
+      "t_start": 1481192907.557612,
+      "t_end": 1481192917.039662
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0003",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3657967,
+      "frame_end": 3677966,
+      "n_frames": 20000,
+      "t_start": 1481192917.039913,
+      "t_end": 1481192926.752417
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0004",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3677967,
+      "frame_end": 3697966,
+      "n_frames": 20000,
+      "t_start": 1481192926.752664,
+      "t_end": 1481192936.273546
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0005",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3697967,
+      "frame_end": 3717966,
+      "n_frames": 20000,
+      "t_start": 1481192936.273964,
+      "t_end": 1481192945.806798
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0006",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3717967,
+      "frame_end": 3737966,
+      "n_frames": 20000,
+      "t_start": 1481192945.807033,
+      "t_end": 1481192955.460356
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0007",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3737967,
+      "frame_end": 3757966,
+      "n_frames": 20000,
+      "t_start": 1481192955.460595,
+      "t_end": 1481192966.341093
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0008",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3757967,
+      "frame_end": 3777966,
+      "n_frames": 20000,
+      "t_start": 1481192966.341337,
+      "t_end": 1481192975.881829
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0009",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3777967,
+      "frame_end": 3797966,
+      "n_frames": 20000,
+      "t_start": 1481192975.882073,
+      "t_end": 1481192985.48882
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0010",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3797967,
+      "frame_end": 3817966,
+      "n_frames": 20000,
+      "t_start": 1481192985.489053,
+      "t_end": 1481192995.2181
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0011",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3817967,
+      "frame_end": 3837966,
+      "n_frames": 20000,
+      "t_start": 1481192995.218515,
+      "t_end": 1481193005.247906
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0012",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3837967,
+      "frame_end": 3857966,
+      "n_frames": 20000,
+      "t_start": 1481193005.248846,
+      "t_end": 1481193014.996785
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0013",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3857967,
+      "frame_end": 3875588,
+      "n_frames": 17622,
+      "t_start": 1481193014.997027,
+      "t_end": 1481193023.356509
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0014",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3875589,
+      "frame_end": 3885919,
+      "n_frames": 10331,
+      "t_start": 1481193023.383324,
+      "t_end": 1481193028.296172
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0015",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3885920,
+      "frame_end": 3905919,
+      "n_frames": 20000,
+      "t_start": 1481193028.376198,
+      "t_end": 1481193038.006677
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0016",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3905920,
+      "frame_end": 3925919,
+      "n_frames": 20000,
+      "t_start": 1481193038.006913,
+      "t_end": 1481193047.777388
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0017",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3925920,
+      "frame_end": 3945919,
+      "n_frames": 20000,
+      "t_start": 1481193047.777631,
+      "t_end": 1481193057.414435
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0018",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3945920,
+      "frame_end": 3965919,
+      "n_frames": 20000,
+      "t_start": 1481193057.414669,
+      "t_end": 1481193066.979626
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0019",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3965920,
+      "frame_end": 3985919,
+      "n_frames": 20000,
+      "t_start": 1481193066.980359,
+      "t_end": 1481193076.988132
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0020",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 3985920,
+      "frame_end": 4005919,
+      "n_frames": 20000,
+      "t_start": 1481193076.988373,
+      "t_end": 1481193086.699358
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0021",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4005920,
+      "frame_end": 4025919,
+      "n_frames": 20000,
+      "t_start": 1481193086.700836,
+      "t_end": 1481193096.186718
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0022",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4025920,
+      "frame_end": 4045919,
+      "n_frames": 20000,
+      "t_start": 1481193096.186957,
+      "t_end": 1481193105.667077
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0023",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4045920,
+      "frame_end": 4065919,
+      "n_frames": 20000,
+      "t_start": 1481193105.667312,
+      "t_end": 1481193115.146167
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0024",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4065920,
+      "frame_end": 4085919,
+      "n_frames": 20000,
+      "t_start": 1481193115.146397,
+      "t_end": 1481193124.706095
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0025",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4085920,
+      "frame_end": 4105919,
+      "n_frames": 20000,
+      "t_start": 1481193124.706331,
+      "t_end": 1481193134.187781
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0026",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4105920,
+      "frame_end": 4115669,
+      "n_frames": 9750,
+      "t_start": 1481193134.188021,
+      "t_end": 1481193138.809034
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0027",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4115670,
+      "frame_end": 4135669,
+      "n_frames": 20000,
+      "t_start": 1481193139.417603,
+      "t_end": 1481193149.078636
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0028",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4135670,
+      "frame_end": 4155669,
+      "n_frames": 20000,
+      "t_start": 1481193149.079013,
+      "t_end": 1481193158.557581
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0029",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4155670,
+      "frame_end": 4175669,
+      "n_frames": 20000,
+      "t_start": 1481193158.557824,
+      "t_end": 1481193168.226964
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0030",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4175670,
+      "frame_end": 4177083,
+      "n_frames": 1414,
+      "t_start": 1481193168.227197,
+      "t_end": 1481193168.899177
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0031",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4177084,
+      "frame_end": 4197083,
+      "n_frames": 20000,
+      "t_start": 1481193168.996265,
+      "t_end": 1481193178.790431
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0032",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4197084,
+      "frame_end": 4217083,
+      "n_frames": 20000,
+      "t_start": 1481193178.791663,
+      "t_end": 1481193189.016467
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0033",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4217084,
+      "frame_end": 4237001,
+      "n_frames": 19918,
+      "t_start": 1481193189.016714,
+      "t_end": 1481193199.078302
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0034",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4237002,
+      "frame_end": 4257001,
+      "n_frames": 20000,
+      "t_start": 1481193199.276871,
+      "t_end": 1481193209.937793
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0035",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4257002,
+      "frame_end": 4277001,
+      "n_frames": 20000,
+      "t_start": 1481193209.93803,
+      "t_end": 1481193219.457797
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0036",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4277002,
+      "frame_end": 4296917,
+      "n_frames": 19916,
+      "t_start": 1481193219.458046,
+      "t_end": 1481193229.068108
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0037",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4296918,
+      "frame_end": 4316917,
+      "n_frames": 20000,
+      "t_start": 1481193229.216121,
+      "t_end": 1481193238.850964
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0038",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4316918,
+      "frame_end": 4336917,
+      "n_frames": 20000,
+      "t_start": 1481193238.851194,
+      "t_end": 1481193249.091245
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0039",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4336918,
+      "frame_end": 4356917,
+      "n_frames": 20000,
+      "t_start": 1481193249.091471,
+      "t_end": 1481193258.696696
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0040",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4356918,
+      "frame_end": 4358226,
+      "n_frames": 1309,
+      "t_start": 1481193258.696937,
+      "t_end": 1481193259.317296
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0041",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4358227,
+      "frame_end": 4378226,
+      "n_frames": 20000,
+      "t_start": 1481193259.338,
+      "t_end": 1481193268.963635
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0042",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4378227,
+      "frame_end": 4398226,
+      "n_frames": 20000,
+      "t_start": 1481193268.964437,
+      "t_end": 1481193278.447317
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0043",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4398227,
+      "frame_end": 4418226,
+      "n_frames": 20000,
+      "t_start": 1481193278.447562,
+      "t_end": 1481193287.93834
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0044",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4418227,
+      "frame_end": 4438226,
+      "n_frames": 20000,
+      "t_start": 1481193287.938575,
+      "t_end": 1481193297.633867
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0045",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4438227,
+      "frame_end": 4458226,
+      "n_frames": 20000,
+      "t_start": 1481193297.634112,
+      "t_end": 1481193307.118351
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0046",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4458227,
+      "frame_end": 4478226,
+      "n_frames": 20000,
+      "t_start": 1481193307.118594,
+      "t_end": 1481193316.606339
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0047",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4478227,
+      "frame_end": 4498226,
+      "n_frames": 20000,
+      "t_start": 1481193316.606571,
+      "t_end": 1481193326.08756
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0048",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4498227,
+      "frame_end": 4518226,
+      "n_frames": 20000,
+      "t_start": 1481193326.087793,
+      "t_end": 1481193335.57318
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0049",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4518227,
+      "frame_end": 4538226,
+      "n_frames": 20000,
+      "t_start": 1481193335.57342,
+      "t_end": 1481193345.056962
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0050",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4538227,
+      "frame_end": 4558226,
+      "n_frames": 20000,
+      "t_start": 1481193345.0572,
+      "t_end": 1481193354.537675
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0051",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4558227,
+      "frame_end": 4578226,
+      "n_frames": 20000,
+      "t_start": 1481193354.537915,
+      "t_end": 1481193364.018686
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0052",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4578227,
+      "frame_end": 4598226,
+      "n_frames": 20000,
+      "t_start": 1481193364.018928,
+      "t_end": 1481193373.508149
+    },
+    {
+      "segment_id": "OTIDS_Impersonation__seg0053",
+      "session_id": "OTIDS_Impersonation",
+      "frame_start": 4598227,
+      "frame_end": 4613438,
+      "n_frames": 15212,
+      "t_start": 1481193373.508389,
+      "t_end": 1481193380.725113
+    }
+  ]
+}
