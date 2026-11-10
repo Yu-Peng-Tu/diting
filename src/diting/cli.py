@@ -458,7 +458,7 @@ def stage_eval(cfg: dict[str, Any]) -> dict[str, Any]:
             "recall": 1.0,
             "fpr": 0.083333,
             "confusion_matrix": {"labels": ["Normal", "Attack"], "matrix": [[11, 1], [0, 15]]},
-            "source": "TASK-20261108-0955 W1 产物，仅用于说明管线可运行",
+            "source": "早期 simulated 管线验证产物，仅用于说明管线可运行",
         },
     }
     write_json(art / "eval_summary.json", summary)

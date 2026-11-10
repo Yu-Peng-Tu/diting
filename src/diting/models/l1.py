@@ -1,6 +1,6 @@
-"""L1 · 手工窗口特征 + GBDT 检测/识别模型（W2）。
+"""L1 · 手工窗口特征 + GBDT 检测/识别模型。
 
-职责与边界（对应 TASK-20261108-1319 硬性纪律）：
+职责与边界（硬性纪律）：
 - 只加载 train/val 行：用 pyarrow 的 filters 下推，**test 行根本不进入内存**；
 - 标签一律来自既有 ``window_labels.parquet``（不重算、不从特征表夹带 label/attack_ratio）；
 - 特征矩阵复用既有 ``window_features.parquet`` 的 33 维 G1–G6（不重新实现特征计算，

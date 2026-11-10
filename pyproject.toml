@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Diting: interpretable CAN bus intrusion detection and evaluation workbench"
 readme = "README.md"
 requires-python = ">=3.11"
-# core：W1 数据管线与 L0 baseline 所需依赖。本任务不安装 torch（W2 才引入）。
+# Core runtime dependencies: data pipeline, feature extraction, models and the local API.
 dependencies = [
     "pandas>=2.2",
     "numpy>=2.0",

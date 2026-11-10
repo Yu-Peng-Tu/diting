@@ -1,7 +1,7 @@
-"""D1 · 本地真实数据接入（HCRL Car-Hacking / Kaggle 镜像），流式分批实现。
+"""本地真实数据接入（HCRL Car-Hacking / Kaggle 镜像），流式分批实现。
 
-本模块是 TASK-20261108-1126 新增的「本地原始文件接入」路径，与 W1 的
-`download.py` + `simulate.py`（simulated 替代路径，仍保留用于测试）并存。
+本模块是「本地原始文件接入」路径，与 `download.py` + `simulate.py`
+（simulated 替代路径，仍保留用于测试）并存。
 
 真实文件为规划方本地化的 zip 解压产物，放在 `data/raw/car-hacking/`，共 5 个：
 

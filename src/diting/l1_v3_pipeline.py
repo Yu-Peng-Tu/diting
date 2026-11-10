@@ -52,7 +52,7 @@ from .models.l1 import fit_one, positive_column, predict_proba, validate_ablatio
 from .models.l1_v3 import load_l1_v3_config, load_l1_v3_dataset
 from .split.make_split_v3 import build_split_v3
 
-TASK_NAME = "TASK-20261108-1415-谛听W3划分重做与评估治理"
+STAGE_NAME = "split-v3-rebuild"
 REPORT_DIR = PROJECT_ROOT / "artifacts" / "reports" / "l1_v3"
 
 

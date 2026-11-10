@@ -1,6 +1,6 @@
-"""谛听 W3 · split-v3 划分生成（按攻击类型分层 + segment 分组防泄漏）。
+"""谛听 · split-v3 划分生成（按攻击类型分层 + segment 分组防泄漏）。
 
-修复目标（TASK-20261108-1415）：split-v2 按 segment 起始时间顺序切分，叠加
+设计目标：split-v2 按 segment 起始时间顺序切分，叠加
 HCRL「按攻击类型分文件」的结构，导致 train 无 DoS、val 无 Fuzzy/Gear/RPM。
 split-v3 只重新切分 split-v2 的 train∪val 池（59,831 + 19,702 = 79,533 窗口），
 test 折（19,952 窗口）原样封存、不读取特征值/标签、不评估。

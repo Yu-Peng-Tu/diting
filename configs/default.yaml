@@ -31,8 +31,8 @@ dataset:
     RPM: 4621702
     Attack-free: 988987
 
-# W2（TASK-20261108-1126）：真实数据本地化接入。
-# 本机 8GB 内存，全量约 1755 万帧不可一次性载入，按任务单第 6 条用配置化子集 + 流式分批。
+# Local real-data ingestion: the full dataset (~17.55M frames) does not fit in
+# memory, so processing uses a configured subset with streaming batches.
 local_data:
   enabled: true
   dir: data/raw/car-hacking
