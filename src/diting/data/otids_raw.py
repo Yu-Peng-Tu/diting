@@ -523,7 +523,7 @@ def write_otids_manifest(
         "excluded_members": list(EXCLUDED_MEMBERS),
         "excluded_reason": (
             "B / UB 为第三方二次加工（SMOTE 平衡/合并、十进制化、列结构不同），"
-            "来源口径不明，仅作规模参考，禁止作为评估口径；本任务未读取其数据行"
+            "来源口径不明，仅作规模参考，禁止作为评估口径；本阶段未读取其数据行"
         ),
         "field_level_rules": {
             "TS": "-> timestamp (float)",

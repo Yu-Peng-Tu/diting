@@ -30,7 +30,7 @@
           ]
         ]
       },
-      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标",
       "threshold": 0.5,
       "average_precision": 0.999999,
       "roc_auc": 1.0,
@@ -67,7 +67,7 @@
           ]
         ]
       },
-      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标",
       "threshold": 0.54,
       "average_precision": 0.999999,
       "roc_auc": 1.0,
@@ -204,7 +204,7 @@
     },
     "gear_f1": 0.99962,
     "rpm_f1": 1.0,
-    "verdict": "val 上双向互混 0 次：与规格书『Gear↔RPM 易互混』的预期相反，在该窗口口径与子集中两类几乎完全可分。反预期结果照实保留，不调数据凑预期。",
+    "verdict": "val 上双向互混 0 次：与『Gear↔RPM 易互混』的预期相反，在该窗口口径与子集中两类几乎完全可分。反预期结果照实保留，不调数据凑预期。",
     "note": "这是 split-v3 val 上的真实观测数字，不是 train 折内诊断，可作为验收结论"
   },
   "l0_recomputed_on_split_v3": {
@@ -215,7 +215,7 @@
     "level": "window",
     "n_val_windows": 19277,
     "primary_policy": "同口径主行：用 split-v3 train 正常窗口重新 fit 规则阈值（分位数统计，非模型训练），在 split-v3 val 上评估；与 L1-v3 的训练/评估划分完全一致。L0 不是可训练模型，故仍称『重算』",
-    "primary_threshold_source": "split-v3 train 正常窗口（本任务重新 fit，见 reference_rule 之外的 primary_rule）",
+    "primary_threshold_source": "split-v3 train 正常窗口（本阶段重新 fit，见 reference_rule 之外的 primary_rule）",
     "primary_rule": {
       "version": "l0-thresholds-v1",
       "fit_on": "train_normal_windows",
@@ -268,7 +268,7 @@
           ]
         ]
       },
-      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）"
+      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标"
     },
     "reference_policy": "敏感性分析：沿用 W2 在 split-v2 train 正常窗口 fit 的固定阈值，仅把评估集换成 split-v3 val。该阈值来自旧划分，与 L1-v3 训练口径不一致，故不作为对照表主行；两者差距用于说明固定规则阈值对划分/分布漂移的敏感性",
     "reference_threshold_source": "artifacts/baseline/l0_rule_thresholds.json（只读，W2 产物）",
@@ -301,7 +301,7 @@
           ]
         ]
       },
-      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）"
+      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标"
     },
     "threshold_source_delta_fpr": 0.830616,
     "threshold_source_delta_note": "参考口径 FPR - 主口径 FPR；正值表示沿用旧划分阈值会显著恶化误报，说明 L0 固定阈值对划分敏感，也说明主口径必须重新 fit 才公平",
@@ -312,14 +312,14 @@
       "RPM": 159,
       "Gear": 144
     },
-    "test_set_status": "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2"
+    "test_set_status": "sealed — test 折全程封存，未读取、未评估、未引用；test 窗口集合原样沿用 split-v2"
   },
   "l1_v3_vs_l0_comparison": {
     "evaluated_on": "val",
     "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
     "split_version": "split-v3",
     "level": "window",
-    "l0_source": "split-v3 train 正常窗口（本任务重新 fit，见 reference_rule 之外的 primary_rule）",
+    "l0_source": "split-v3 train 正常窗口（本阶段重新 fit，见 reference_rule 之外的 primary_rule）",
     "l0_threshold_policy": "同口径主行：用 split-v3 train 正常窗口重新 fit 规则阈值（分位数统计，非模型训练），在 split-v3 val 上评估；与 L1-v3 的训练/评估划分完全一致。L0 不是可训练模型，故仍称『重算』",
     "l0_n_samples": 19277,
     "l1_n_samples": 19277,
@@ -373,7 +373,7 @@
     ],
     "fpr_conclusion": "FPR 明显下降：标定阈值下相对 L0 下降 99.73%（0.112413 → 0.000306），每万正常窗口误报数 1124.13 → 3.06。结论明确：是。",
     "fpr_dropped_significantly": true,
-    "test_set_status": "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2"
+    "test_set_status": "sealed — test 折全程封存，未读取、未评估、未引用；test 窗口集合原样沿用 split-v2"
   },
   "per_attack_type_binary_metrics": {
     "evaluated_on": "val",
@@ -478,7 +478,7 @@
     "artifact": "artifacts/eval/l1_v3_error_attribution.json"
   },
   "ablation": {
-    "collapse_rule": "AP 相对下降 ≥ 10% 判为崩塌（对应规格说明书 §5.4「去掉 ID 特征后 PR-AUC 下降 ≤ 0.10」）",
+    "collapse_rule": "AP 相对下降 ≥ 10% 判为崩塌（「去掉 ID 特征后 PR-AUC 下降 ≤ 0.10」）",
     "id_group_conclusion": {
       "collapsed": false,
       "ap_full": 0.999999,
@@ -662,7 +662,7 @@
   },
   "split_v3_manifest": {
     "version": "split-v3",
-    "content_sha256": "2e8b6e6739475d6b5554d362145a255e7d1c5fa7f2e3939f7eebfed45378453f",
+    "content_sha256": "f146b072de0f3e755cac468df44a0ebe25c4c38602bb9042ad50cfd9812710ef",
     "split_windows": {
       "train": 60256,
       "val": 19277,
@@ -707,7 +707,7 @@
   "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
   "data_scope_short": "subset-1e6-per-file / split-v3 val / window-level",
   "dataset": "HCRL Car-Hacking Dataset（Kaggle 镜像，MIT）",
-  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2",
+  "test_set_status": "sealed — test 折全程封存，未读取、未评估、未引用；test 窗口集合原样沿用 split-v2",
   "split_version": "split-v3",
   "level": "window"
 }

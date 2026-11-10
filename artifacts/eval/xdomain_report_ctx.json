@@ -9,7 +9,7 @@
     "evaluated_on": "otids_full_zeroshot",
     "level": "window",
     "source_tag": "public:otids:kia-soul",
-    "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+    "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
     "input_zip": {
       "path": "data/raw/otids-dataset.zip",
       "sha256": "4605238308e1090b5d4e5fdd53fc1ba85e55a1caca2fb932d1e037ee7ca02d17",
@@ -446,7 +446,7 @@
       "CAN_HCRL_OTIDS_B.csv",
       "CAN_HCRL_OTIDS_UB.csv"
     ],
-    "excluded_reason": "B / UB 为第三方二次加工（SMOTE 平衡/合并、十进制化、列结构不同），来源口径不明，仅作规模参考，禁止作为评估口径；本任务未读取其数据行",
+    "excluded_reason": "B / UB 为第三方二次加工（SMOTE 平衡/合并、十进制化、列结构不同），来源口径不明，仅作规模参考，禁止作为评估口径；本阶段未读取其数据行",
     "field_level_rules": {
       "TS": "-> timestamp (float)",
       "ID1": "-> can_id = int(ID1, 16)，4 位十六进制；B 文件十进制 ID1 取值上界 1680=0x690 交叉印证",
@@ -857,7 +857,7 @@
         ]
       ]
     },
-    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标",
     "average_precision": 0.99983824,
     "roc_auc": 0.99980539,
     "evaluated_on": "otids_zeroshot",
@@ -867,7 +867,7 @@
     "source_tag": "public:otids:kia-soul",
     "label_policy": "primary_file_level_theta_0_20",
     "threshold": 0.5,
-    "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+    "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
     "model_version": "l1-gbdt-v3",
     "threshold_version": "l1-v3-thr-v1",
     "confusion_matrix_note": "行=真实，列=预测；labels=[Normal, Attack]"
@@ -901,7 +901,7 @@
         ]
       ]
     },
-    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标",
     "average_precision": 0.99983824,
     "roc_auc": 0.99980539,
     "evaluated_on": "otids_zeroshot",
@@ -911,7 +911,7 @@
     "source_tag": "public:otids:kia-soul",
     "label_policy": "primary_file_level_theta_0_20",
     "threshold": 0.54,
-    "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+    "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
     "model_version": "l1-gbdt-v3",
     "threshold_version": "l1-v3-thr-v1",
     "confusion_matrix_note": "行=真实，列=预测；labels=[Normal, Attack]"
@@ -924,7 +924,7 @@
     "source_tag": "public:otids:kia-soul",
     "label_policy": "primary_file_level_theta_0_20",
     "threshold": 0.54,
-    "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+    "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
     "model_version": "l1-gbdt-v3",
     "threshold_version": "l1-v3-thr-v1",
     "thresholds": {
@@ -980,7 +980,7 @@
     "source_tag": "public:otids:kia-soul",
     "label_policy": "secondary_multiclass_mapping",
     "threshold": 0.54,
-    "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+    "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
     "model_version": "l1-gbdt-v3",
     "threshold_version": "l1-v3-thr-v1",
     "model_classes": [
@@ -1077,7 +1077,7 @@
       "judged_as_Normal": 17065,
       "judged_as_DoS": 0,
       "judged_as_Fuzzy": 2210,
-      "note": "Impersonation 为伪装注入，HCRL 五分类标签空间无对应类别；按任务单要求单独报告其被判为 Gear/RPM/Normal 的分布，不强行并入 macro-F1。被判为 Normal 的比例即伪装类漏检的定性参考。"
+      "note": "Impersonation 为伪装注入，HCRL 五分类标签空间无对应类别；按设计约束单独报告其被判为 Gear/RPM/Normal 的分布，不强行并入 macro-F1。被判为 Normal 的比例即伪装类漏检的定性参考。"
     },
     "macro_f1_reported": false,
     "macro_f1_reason": "OTIDS 无 Gear/RPM 真值类、Impersonation 无对应类别，五分类 macro-F1 在该跨域集上不可定义；强行计算会造成口径误导"
@@ -1132,7 +1132,7 @@
     "source_tag": "public:otids:kia-soul",
     "label_policy": "primary_file_level_theta_0_20",
     "threshold": 0.05,
-    "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+    "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
     "model_version": "l1-gbdt-v3",
     "threshold_version": "l1-v3-thr-v1",
     "policy": "并列报出，严禁混报：适配上限明确标注为非零样本",
@@ -2146,7 +2146,7 @@
               ]
             ]
           },
-          "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+          "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标",
           "average_precision": 0.99983824,
           "roc_auc": 0.99980539,
           "evaluated_on": "otids_zeroshot",
@@ -2156,7 +2156,7 @@
           "source_tag": "public:otids:kia-soul",
           "label_policy": "primary_file_level_theta_0_20",
           "threshold": 0.54,
-          "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+          "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
           "model_version": "l1-gbdt-v3",
           "threshold_version": "l1-v3-thr-v1",
           "confusion_matrix_note": "行=真实，列=预测；labels=[Normal, Attack]"
@@ -2198,7 +2198,7 @@
               ]
             ]
           },
-          "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+          "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标",
           "average_precision": 0.99986133,
           "roc_auc": 0.9998333,
           "evaluated_on": "otids_adapted",
@@ -2208,7 +2208,7 @@
           "source_tag": "public:otids:kia-soul",
           "label_policy": "primary_file_level_theta_0_20",
           "threshold": 0.05,
-          "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+          "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
           "model_version": "l1-gbdt-v3",
           "threshold_version": "otids-adapted-thr-v1",
           "confusion_matrix_note": "行=真实，列=预测；labels=[Normal, Attack]"
@@ -2250,7 +2250,7 @@
               ]
             ]
           },
-          "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+          "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标",
           "average_precision": 0.99986133,
           "roc_auc": 0.9998333,
           "evaluated_on": "otids_zeroshot",
@@ -2260,7 +2260,7 @@
           "source_tag": "public:otids:kia-soul",
           "label_policy": "primary_file_level_theta_0_20",
           "threshold": 0.54,
-          "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+          "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
           "model_version": "l1-gbdt-v3",
           "threshold_version": "l1-v3-thr-v1",
           "confusion_matrix_note": "行=真实，列=预测；labels=[Normal, Attack]"
@@ -2281,10 +2281,10 @@
     "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
     "level": "window",
     "label_policy": "primary_file_level_theta_0_20",
-    "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+    "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
     "version": "xdomain-id-abl-v1",
     "trained_on": "HCRL split-v3 train（同配置同种子重训，仅用于本次跨域评估）",
-    "model_source_note": "W3 消融变体未保存模型 joblib（仅指标 JSON），按任务单允许的路径重训；重训完全不使用 OTIDS 数据，冻结的 L1-v3 全特征模型未被修改",
+    "model_source_note": "W3 消融变体未保存模型 joblib（仅指标 JSON），按允许的路径重训；重训完全不使用 OTIDS 数据，冻结的 L1-v3 全特征模型未被修改",
     "hcrl_train_windows": 60256,
     "hcrl_val_windows": 19277,
     "config_sha256": "5b7ecc0e02d32929987d6bf98e4f741e38fe800d1b9756fa940e35b586eaa70f",
@@ -2303,7 +2303,7 @@
     "n_features_ablated": 26,
     "model_artifact": "./artifacts/eval/xdomain_drop_id_frequency_model.joblib",
     "model_artifact_sha256": "4040b5410fc79d7736c39a0a93030cb7037a59ec98ddcc489599515ff05e8bb5",
-    "collapse_rule": "AP 相对下降 ≥ 10.0% 判为崩塌（沿用 W3 §5.4 判据）",
+    "collapse_rule": "AP 相对下降 ≥ 10.0% 判为崩塌（沿用同一判据）",
     "ap_full_33": 0.99983824,
     "ap_drop_id": 0.92267172,
     "ap_absolute_delta": -0.07716652,
@@ -2404,7 +2404,7 @@
     "source_tag": "public:otids:kia-soul",
     "label_policy": "n/a (无标签参与)",
     "threshold": 0.54,
-    "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+    "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
     "model_version": "l1-gbdt-v3",
     "threshold_version": "l1-v3-thr-v1",
     "unit": "归一化空间（HCRL train 均值/标准差），|Δmean| 单位≈1 个 train std",
@@ -2757,7 +2757,7 @@
     "roc_auc": 1.0,
     "false_alarms_per_10k_normal": 3.0575,
     "macro_f1": 0.999693,
-    "note": "同分布上限，任务单明确不可外推；仅作对照，非同一测试集 A/B"
+    "note": "同分布上限，已明确不可外推；仅作对照，非同一测试集 A/B"
   },
   "integrity": {
     "verified": true,

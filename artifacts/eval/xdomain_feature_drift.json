@@ -6,7 +6,7 @@
   "source_tag": "public:otids:kia-soul",
   "label_policy": "n/a (无标签参与)",
   "threshold": 0.54,
-  "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+  "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
   "model_version": "l1-gbdt-v3",
   "threshold_version": "l1-v3-thr-v1",
   "unit": "归一化空间（HCRL train 均值/标准差），|Δmean| 单位≈1 个 train std",

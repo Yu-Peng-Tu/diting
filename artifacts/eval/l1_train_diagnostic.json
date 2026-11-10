@@ -2,7 +2,7 @@
   "enabled": true,
   "role": "diagnostic_only",
   "is_acceptance_metric": false,
-  "warning": "本诊断仅在 train 折内部做分层留出，因 split-v2 的 val 只含 Normal/DoS、不含 Gear/RPM，任务单点名的「Gear↔RPM 互混」在 val 上无法观察。此结果仅作定性补充证据，严禁写入对外评估指标。",
+  "warning": "本诊断仅在 train 折内部做分层留出，因 split-v2 的 val 只含 Normal/DoS、不含 Gear/RPM，「Gear↔RPM 互混」在 val 上无法观察。此结果仅作定性补充证据，严禁写入对外评估指标。",
   "classes_in_train": [
     "Fuzzy",
     "Gear",
@@ -55,6 +55,6 @@
     "bidirectional_total": 0,
     "note": "train 内留出诊断：Gear 与 RPM 双向互混计数；这不是 val 评估指标，不作为验收结论，不参与阈值/超参选择。"
   },
-  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test",
+  "test_set_status": "sealed — test 折全程封存，未读取、未评估、未引用",
   "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果"
 }

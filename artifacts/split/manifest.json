@@ -60,7 +60,7 @@
       "n_segments": 273
     }
   },
-  "test_set_status": "sealed — 本任务不评估 test，仅在 val 上做 L0 基线评估",
+  "test_set_status": "sealed — test 折全程封存，未评估；仅在 val 上做 L0 基线评估",
   "preserved_v1_files": [
     "data/processed/split/split_manifest.json",
     "data/processed/split/windows.parquet"

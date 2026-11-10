@@ -1,4 +1,4 @@
-# 谛听 W1/W2 · 任务链：data → split → features → baseline → eval
+# 谛听 W1/W2 · 管线：data → split → features → baseline → eval
 # 每个目标可独立运行；依赖链由前置目标的文件产物保证，不隐式重跑。
 # 用法：make install && make reproduce   （或分别 make data / split / features / baseline / eval）
 

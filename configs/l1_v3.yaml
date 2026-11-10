@@ -12,7 +12,7 @@ l1:
   data_scope_short: "subset-1e6-per-file / split-v3 val / window-level"
   dataset: "HCRL Car-Hacking Dataset（Kaggle 镜像，MIT）"
   evaluated_on: "val"
-  test_set_status: "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2"
+  test_set_status: "sealed — test 折全程封存，未读取、未评估、未引用；test 窗口集合原样沿用 split-v2"
 
   # 输入（只读）
   inputs:
@@ -125,5 +125,5 @@ l1:
   governance:
     pr_curve_points_min: 50
     error_attribution_top_features: 6
-    collapse_rule: "AP 相对下降 ≥ 10% 判为崩塌（沿用上一轮 §5.4 判据）"
+    collapse_rule: "AP 相对下降 ≥ 10% 判为崩塌（沿用同一判据）"
     collapse_threshold_pct: 10.0

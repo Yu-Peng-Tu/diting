@@ -422,19 +422,19 @@ def _render_ablation_md(abl: dict[str, Any], cfg: dict[str, Any]) -> str:
         "### AP 饱和的局限（如实说明证据强度）",
         "",
         ("- 本 val 子集上全特征与三组消融的 AP 全部 ≥ 0.9999，处于**饱和区**："
-        "规格书 §5.4 的「PR-AUC 下降 ≤ 0.10」崩塌判据在此几乎不可能被触发，"
+        "「PR-AUC 下降 ≤ 0.10」崩塌判据在此几乎不可能被触发，"
         "单看 AP 无法区分各组贡献，因此「未崩塌」的结论证据强度有限，需并用阈值相关指标交叉判断。"),
         ("- 交叉看 F1@0.5：剔除 payload 字节组后 F1 从 0.9876 掉到 0.8839、Recall 从 0.9754 掉到 0.7920，"
         "是三组中唯一明显掉点的；剔除 ID 频率组后 F1 反而升到 0.9927。"
         "**这说明模型主要依赖 payload/周期等行为特征，而非记忆具体 ID**——"
         "与「去 ID 组未崩塌」的结论方向一致，且证据比饱和的 AP 更硬。"),
         "",
-        "## 「去 ID 组」明确结论（任务单点名）",
+        "## 「去 ID 组」明确结论",
         "",
         f"- 是否崩塌：**{'是' if abl['id_group_conclusion']['collapsed'] else '否'}**",
         f"- {abl['id_group_conclusion']['conclusion']}",
         ("- 补充证据：特征重要性 Top1 为 `g4_top1_id_ratio`（窗口内最高频 ID 的**占比**，"
-        "属 §5.2 预期的 G4 频率统计特征，不是某个具体 ID 的编码）；与 0x000 注入最相关的 "
+        "属 G4 频率统计特征，不是某个具体 ID 的编码）；与 0x000 注入最相关的 "
         "`g4_min_id_share` 仅排第 13、重要性约 5e-5。结合剔除 ID 组后指标不降反升，"
         "可判定模型未退化为「背 ID」。"),
         "",
@@ -458,7 +458,7 @@ def _render_report(
         f"- 划分：`{comp['l0_split_manifest_version']}`；train {cov['train']['n_windows']} 窗口 / val {cov['val']['n_windows']} 窗口。",
         f"- **评估口径：{cfg['data_scope']}；窗口级；evaluated_on=val；test 全程封存（载入行数 0）。**",
         "",
-        ("> **边界声明**：本任务为纯软件建模，不含硬件/BOM、纯软件独立实现、不含 RAG/工单/审批，"
+        ("> **边界声明**：本项目为纯软件建模，不含硬件/BOM、纯软件独立实现、不含 RAG/工单/审批，"
         "不安装 torch、不写服务与前端。所有数字均为离线子集 val 结果，不是全量或实车指标。"),
         "",
         "## 1. 二分类检测（Normal vs Attack）",
@@ -510,10 +510,10 @@ def _render_report(
         ("- **DoS 只出现在 val，train 完全没有 DoS 样本**：五分类模型不可能把 val 的攻击识别为 DoS，"
         "其 Recall 必然为 0。这不是模型调参问题，而是 split-v2 按时间顺序切分与数据集"
         "「按攻击类型分文件」结构叠加造成的类别错位。"),
-        ("- **Gear / RPM / Fuzzy 在 val 无样本**：任务单点名的「Gear↔RPM 互混」在 val 上"
+        ("- **Gear / RPM / Fuzzy 在 val 无样本**：「Gear↔RPM 互混」在 val 上"
         f"（Gear support={m_multi['per_class']['Gear']['support']}, RPM support={m_multi['per_class']['RPM']['support']}）"
         "物理不可观察，macro 指标因此不代表模型真实识别能力。"),
-        "- 该缺口属于划分层面问题，是 W3 误报治理/重新分层划分的输入；本任务**不修改划分、不改阈值刷分、不伪造指标**。",
+        "- 该缺口属于划分层面问题，是 W3 误报治理/重新分层划分的输入；本阶段**不修改划分、不改阈值刷分、不伪造指标**。",
         "",
         "### Gear↔RPM 互混的补充证据（train 折内诊断，非验收指标）",
         "",
@@ -544,7 +544,7 @@ def _render_report(
         "",
         "## 6. 防泄漏核查（R6：指标接近满分时必须解释）",
         "",
-        ("L1 二分类在 val 上 FPR≈0.0001、AP≈0.99999，按策划方案 §7.2 R6 必须逐条排查"
+        ("L1 二分类在 val 上 FPR≈0.0001、AP≈0.99999，必须逐条排查"
         "「用时间戳或 0x000 直接拿到近乎满分」的可能，结论如下："),
         "",
         ("1. **特征侧无标签等价字段**：33 维全部来自既有 `window_features.parquet`，"
@@ -575,7 +575,7 @@ def _render_report(
         "（0/1/5/25/50/75/95/99/100 分位），即概率几乎只取 ~1e-6 与 ~0.9999 两端；"
         "在 0.005–0.995 的更宽网格上 J 单调递减、无内部峰值。因此**任何网格起点都会得到边界解**，"
         "这是该 val 子集的性质，不是刻意选下界刷分；且 0.05 比 0.005 更保守"
-        "（FPR 0.000086 vs 更高），本任务未向下扩网格去抬高 Recall。"),
+        "（FPR 0.000086 vs 更高），本阶段未向下扩网格去抬高 Recall。"),
         (f"- 选中阈值 {calib['selected_threshold']} 下 Recall {m_cal['recall']:.4f} / FPR {m_cal['fpr']:.6f}；"
         f"默认 0.5 下 Recall {m_def['recall']:.4f} / FPR {m_def['fpr']:.6f}。两套结果并列报出，"
         "均由 val 标定，未用 test。"),
@@ -585,7 +585,7 @@ def _render_report(
     ]
     if gr:
         lines.append(
-            f"- 规格书预期「Gear↔RPM 互混」，但 train 内分层留出（holdout {diagnostic['n_train_holdout']} 窗口）"
+            f"- 预期「Gear↔RPM 互混」，但 train 内分层留出（holdout {diagnostic['n_train_holdout']} 窗口）"
             f"实测双向互混 **{gr['bidirectional_total']} 次**（Gear 样本 {gr['Gear_support']} / "
             f"RPM 样本 {gr['RPM_support']}），即在该子集上两者几乎完全可分，与预期相反。"
         )
@@ -611,7 +611,7 @@ def _render_report(
         "需要在不触碰 test 的前提下，于 W3 重新设计按攻击类型分层的划分（或明确采用跨攻击类型泛化口径并只报二分类）。"),
         ("2. **跨攻击类型泛化**：train 学 spoofing、val 检 DoS，二分类指标应解读为「跨攻击类型泛化能力」，"
         "不是同分布检出率；若 Recall 偏低，需在 W3 做误报归因与特征补强。"),
-        "3. test 集仍封存，L2+ 深度模型与跨域（→OTIDS）验证不在本任务范围。",
+        "3. test 集仍封存，L2+ 深度模型与跨域（→OTIDS）验证不在本项目范围。",
         "",
     ]
     return "\n".join(lines)

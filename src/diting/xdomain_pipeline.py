@@ -1,7 +1,7 @@
 """谛听 W4 · OTIDS 跨域零样本验证主流水线（独立入口，不改动任何既有代码）。
 
 运行：
-    python -m diting.xdomain_pipeline run        # 数据接入 + 评估 + 全部产物（除 RESULT.md）
+    python -m diting.xdomain_pipeline run        # 数据接入 + 评估 + 全部产物
     python -m diting.xdomain_pipeline finalize --pytest-passed N --pytest-total M
 
 纪律：
@@ -12,7 +12,7 @@
 
 from __future__ import annotations
 
-# HistGradientBoosting（消融重训）在本机 8GB 内存上多线程会被 SIGTERM(137)，
+# HistGradientBoosting（消融重训）在目标环境 8 GB 内存上多线程会被 SIGTERM(137)，
 # 必须在 numpy / sklearn 导入前设为单线程。
 import os
 
@@ -88,7 +88,7 @@ def _w3_same_dist() -> dict[str, Any]:
         "roc_auc": m["roc_auc"],
         "false_alarms_per_10k_normal": m["false_alarms_per_10k_normal"],
         "macro_f1": d["task_multiclass"]["macro_f1"],
-        "note": "同分布上限，任务单明确不可外推；仅作对照，非同一测试集 A/B",
+        "note": "同分布上限，已明确不可外推；仅作对照，非同一测试集 A/B",
     }
 
 

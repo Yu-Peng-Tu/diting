@@ -2,7 +2,7 @@
 
 - 帧级标签：Flag(T→1, R→0)，由 D1 归一化时映射，此处单独导出到 labels/。
 - 窗口级标签：窗口内注入帧占比 >= theta 标为攻击，否则 Normal。
-- 窗口按固定帧数 N、步长 N/2 重叠划分，且**窗口不跨 segment 边界**（§4.6 L6）。
+- 窗口按固定帧数 N、步长 N/2 重叠划分，且**窗口不跨 segment 边界**。
 - 标签目录 data/processed/labels/ 与特征目录 data/processed/features/ 物理隔离。
 """
 
@@ -99,7 +99,7 @@ def write_labels(
         "window_positive": int(window_labels["label"].sum()),
         "window_negative": int((1 - window_labels["label"]).sum()),
         "files": ["frame_labels.parquet", "window_labels.parquet"],
-        "storage_note": "标签存于 data/processed/labels/，特征存于 data/processed/features/，物理隔离（§4.6 L2）",
+        "storage_note": "标签存于 data/processed/labels/，特征存于 data/processed/features/，物理隔离",
     }
 
 

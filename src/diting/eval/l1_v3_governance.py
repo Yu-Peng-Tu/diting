@@ -78,7 +78,7 @@ def recompute_l0_on_v3(
             "在 split-v3 val 上评估；与 L1-v3 的训练/评估划分完全一致。"
             "L0 不是可训练模型，故仍称『重算』"
         ),
-        "primary_threshold_source": "split-v3 train 正常窗口（本任务重新 fit，见 reference_rule 之外的 primary_rule）",
+        "primary_threshold_source": "split-v3 train 正常窗口（本阶段重新 fit，见 reference_rule 之外的 primary_rule）",
         "primary_rule": refit_rule,
         "primary_metrics": m_refit,
         "reference_policy": (
@@ -273,7 +273,7 @@ def analyze_gear_rpm_confusion(multi: dict[str, Any], cfg: dict[str, Any]) -> di
         verdict = "不可观察（某类 support=0），本轮分层失败"
     elif total == 0:
         verdict = (
-            "val 上双向互混 0 次：与规格书『Gear↔RPM 易互混』的预期相反，"
+            "val 上双向互混 0 次：与『Gear↔RPM 易互混』的预期相反，"
             "在该窗口口径与子集中两类几乎完全可分。反预期结果照实保留，不调数据凑预期。"
         )
     else:
@@ -424,7 +424,7 @@ def attribute_errors(
             "segment 级投票平滑：同一注入片段内连续窗口联合判定，抑制孤立的正常窗口误报。",
             "按攻击类型分层阈值：Fuzzy / Gear / RPM 的分数分布与 DoS 差异大，可对难检类型单独标定阈值。",
             "特征补强：针对误报归因中反复出现的偏离维度，补充跨 ID 周期一致性与 payload 变化率的长窗口统计。",
-            "以上均为建议，本任务不实现、不调阈值刷分、不重新训练。",
+            "以上均为建议，本阶段不实现、不调阈值刷分、不重新训练。",
         ],
         "records": records,
         "note": "逐窗口全量归因（每个 FP/FN 一条）；特征值画像为相对同类 val 中位数的偏离 top-k",

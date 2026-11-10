@@ -5,8 +5,8 @@ HCRL「按攻击类型分文件」的结构，导致 train 无 DoS、val 无 Fuz
 split-v3 只重新切分 split-v2 的 train∪val 池（59,831 + 19,702 = 79,533 窗口），
 test 折（19,952 窗口）原样封存、不读取特征值/标签、不评估。
 
-分层与防泄漏策略（任务单第 1 节）：
-- split-v2/windows.parquet 含 segment_id 归属信息，故按任务单要求采用
+分层与防泄漏策略：
+- split-v2/windows.parquet 含 segment_id 归属信息，故按设计约束采用
   **segment 分组分层切分**：抽样单元是 segment 而非单个窗口，同一注入片段
   的窗口绝不跨 train/val（硬约束 A1）。
 - 每个 segment 内同时含 Normal 窗口与一种攻击窗口，segment 以前缀标注攻击
@@ -282,7 +282,7 @@ def build_split_v3() -> dict[str, Any]:
             "window_level_key_role": (
                 "窗口级 (attack_type,label) 的 support 是分层结果的统计明细，"
                 "不是逐窗口独立抽样目标：split-v2/windows.parquet 含 segment_id 归属信息，"
-                "按任务单要求改用 segment 分组分层切分以杜绝片段泄漏；"
+                "按设计约束改用 segment 分组分层切分以杜绝片段泄漏；"
                 "每个 segment 内同时含 Normal 与一种攻击窗口，故按前缀分层即可让两折覆盖全 5 类"
             ),
             "target_train_val_ratio": [0.75, 0.25],

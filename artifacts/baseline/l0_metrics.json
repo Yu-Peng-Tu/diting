@@ -3,7 +3,7 @@
   "model": "L0 统计规则 baseline",
   "model_version": "l0-v2",
   "evaluated_on": "val（留出验证集）",
-  "test_set_status": "sealed — 本任务不评估 test",
+  "test_set_status": "sealed — test 折全程封存，未评估",
   "level": "window",
   "split_manifest_version": "split-v2",
   "evaluated_at": "2026-11-08T12:17:28+08:00",
@@ -38,7 +38,7 @@
         ]
       ]
     },
-    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）"
+    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标"
   },
   "metrics_by_source_tag": {
     "public:car-hacking": {
@@ -70,7 +70,7 @@
           ]
         ]
       },
-      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）"
+      "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标"
     }
   },
   "rule_vote_distribution": {

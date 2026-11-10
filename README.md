@@ -51,6 +51,16 @@ flowchart LR
 
 Training and serving share the same `compute_window_features` and `apply_normalization` implementations.
 
+Source comments and evaluation artifacts tag pipeline stages with `W1`–`W5`:
+
+| Marker | Stage |
+| --- | --- |
+| `W1` | Data pipeline → unified schema → splits → features → L0 rule baseline |
+| `W2` | L1 model (hand-crafted features + GBDT): training, evaluation, ablation |
+| `W3` | split-v3 re-stratification and evaluation governance |
+| `W4` | OTIDS zero-shot cross-domain validation |
+| `W5` | Read-only inspection workbench (FastAPI + React) |
+
 ## Verified results
 
 All figures are **window-level** results from the included evaluation artifacts.

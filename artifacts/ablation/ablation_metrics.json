@@ -4,7 +4,7 @@
   "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
   "threshold_policy": "统一报 0.5 与全特征模型标定阈值两套，并以阈值无关 AP 作为崩塌主判据",
   "baseline_calibrated_threshold": 0.05,
-  "collapse_rule": "AP 相对下降 ≥ 10% 判为崩塌（对应规格说明书 §5.4「去掉 ID 特征后 PR-AUC 下降 ≤ 0.10」）",
+  "collapse_rule": "AP 相对下降 ≥ 10% 判为崩塌（「去掉 ID 特征后 PR-AUC 下降 ≤ 0.10」）",
   "variants": [
     {
       "variant": "full_33_features",

@@ -143,7 +143,7 @@ def render_report(
         "原样封存，集合与 split-v2 完全一致。"),
         f"- **分层方法**：{v3_man['method']}。",
         ("- **抽样单元**：segment（因 split-v2/windows.parquet 含 segment_id 归属信息，"
-        "按任务单要求采用分组分层切分，同一注入片段绝不跨 train/val）。"),
+        "按设计约束采用分组分层切分，同一注入片段绝不跨 train/val）。"),
         f"- **窗口级 (attack_type,label) 口径**：{v3_man['stratification']['window_level_key_role']}",
         (f"- **种子**：`{v3_man['random_seed']}`（`numpy.random.default_rng`）；"
         f"生成时间 `{v3_man['created_at']}`；代码版本 `{v3_man['code_version'][:12]}`。"),
@@ -274,9 +274,9 @@ def render_report(
         ("- 分类错误的其余去向见上方混淆矩阵；两类若有错判更多是判成 Normal 或其它攻击类，"
         "而非彼此互混，需结合第 6 节误报归因理解。"),
         "",
-        "### 3.2 为什么本轮互混仍为 0（与规格书预期相反的原因分析）",
+        "### 3.2 为什么本轮互混仍为 0（与预期相反的原因分析）",
         "",
-        ("规格书预期「Gear↔RPM 易互混」，本轮在两类 support 均 >0 的真实 val 上仍观测到 0 次，"
+        ("预期「Gear↔RPM 易互混」，本轮在两类 support 均 >0 的真实 val 上仍观测到 0 次，"
         "与上一轮 train 内诊断结论一致。这不是缺陷掩盖，而是该数据/特征口径下的真实性质，原因有三："),
         "",
         ("1. **两类注入的 CAN ID 与 payload 模式不同**：Gear（drive gear）与 RPM（gauge）"
@@ -326,12 +326,12 @@ def render_report(
     ap_vals = [v["average_precision"] for v in ablation["variants"]]
     lines += [
         "",
-        "### 5.1 「去 ID 组」明确结论（任务单点名）",
+        "### 5.1 「去 ID 组」明确结论",
         "",
         (f"- **是否崩塌：{'是' if idc['collapsed'] else '否'}**"
         f"（AP {_f(idc['ap_full'], 6)} → {_f(idc['ap_without_id'], 6)}，"
         f"相对变化 {idc['ap_relative_drop_pct']:+.4f}%，判据线 10%）。"
-        "**按任务单指定的 AP 10% 判据，结论明确为未崩塌。**"),
+        "**按 AP 10% 判据，结论明确为未崩塌。**"),
         "",
         "### 5.2 反预期发现与证据强度限定（不得套用 v2 结论）",
         "",
@@ -384,14 +384,14 @@ def render_report(
     if abs(calib["selected_threshold"] - lo) < 1e-9 or abs(calib["selected_threshold"] - hi) < 1e-9:
         lines.append(
             f"- 另外：选中阈值落在网格边界 {calib['selected_threshold']}，"
-            "通常与概率两极分化、J 在网格内单调变化有关；本任务未向下扩网格去抬高 Recall。"
+            "通常与概率两极分化、J 在网格内单调变化有关；本阶段未向下扩网格去抬高 Recall。"
         )
     lines += [
         (f"- PR 曲线逐点导出 **{pr['n_points']} 个点**（sklearn precision_recall_curve 原始点，"
         f"未降采样），AP={_f(pr['average_precision'], 6)}；"
         "数据 `artifacts/eval/l1_v3_pr_curve.json`，供 W4 画图。"),
         "",
-        "## 7. 误报治理：逐窗口归因与建议（本轮核心交付）",
+        "## 7. 误报治理：逐窗口归因与建议（本轮核心产出）",
         "",
         (f"- 口径：split-v3 val、阈值 {errors['threshold_used']}；"
         f"误报(FP) **{errors['n_false_positives']}** 个 / 漏报(FN) **{errors['n_false_negatives']}** 个"
@@ -439,7 +439,7 @@ def render_report(
         "该发现也说明本轮「误报」很大程度上是评估口径产物，"
         "不宜把 3 个 FP 解读为模型缺陷。"),
         "",
-        "### 7.2 治理建议（本任务只给建议，不实现）",
+        "### 7.2 治理建议（本阶段只给建议，不实现）",
         "",
     ]
     for rec in errors["governance_recommendations"]:
@@ -498,8 +498,8 @@ def render_report(
         "",
         "## 10. 遗留问题",
         "",
-        "1. test 集仍封存，L2+ 深度模型与跨域（→OTIDS）验证不在本任务范围。",
-        "2. 误报治理建议（双阈值、类型白名单、segment 级投票）本任务未实现，属 W4 候选。",
+        "1. test 集仍封存，L2+ 深度模型与跨域（→OTIDS）验证不在本项目范围。",
+        "2. 误报治理建议（双阈值、类型白名单、segment 级投票）本阶段未实现，属 W4 候选。",
         ("3. 阈值若为边界解，说明概率分布两极分化；如需更细的阈值折中，可在 W4 加密网格，"
         "但不得用 test 选择。"),
         ("4. split-v3 的 train:val 比例受 segment 不可拆分限制有小幅偏差；"

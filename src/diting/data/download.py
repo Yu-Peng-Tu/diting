@@ -1,6 +1,6 @@
 """D1 · 数据集接入与校验（只读白名单，记录出处/引用/校验和）。
 
-严格口径（见任务单「允许访问的外部资源」）：
+严格口径（只访问允许的外部资源）：
 - 只访问官方页面 https://ocslab.hksecurity.net/Datasets/car-hacking-dataset
   与关联论文页面；不访问其它外部服务，不重新分发原始数据。
 - 官方页面本身不含可直接下载的数据文件；其下载入口指向第三方托管地址，
@@ -138,7 +138,7 @@ def build_provenance(cfg: dict[str, Any], allow_network: bool = True) -> dict[st
         "status": "available" if real_available else "unavailable",
         "conclusion": (
             "真实公开数据集文件未落盘，D1 真实数据相关验收项标记未完成；"
-            "按任务单允许的替代路径，用 source_tag=simulated 的自生成小样本验证管线代码正确性，"
+            "按允许的替代路径，用 source_tag=simulated 的自生成小样本验证管线代码正确性，"
             "全过程明确标注非真实数据、不伪造任何真实指标。"
             if not real_available
             else "已发现真实原始文件，进入真实数据归一化流程。"

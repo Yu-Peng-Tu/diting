@@ -9,14 +9,14 @@
   "source_manifest_sha256": "b514e5d2a39bcca98ff984daf8f31eb22afd8ee01804ab739e514485f0e7ccdc",
   "source_windows_sha256": "1e4271b9cfc46855c738c2ab5ba3ec1dfa15d1a5c2f45abc765f3b38e831c971",
   "source_manifest_version": "split-v2",
-  "source_manifest_content_sha256": "29f004771d6b7d003ea0bc40a355cbb4c8d1e1f718ffe76e1a42ab77bc7d76da",
+  "source_manifest_content_sha256": "f3309cebc29076b608e828273980258464887fd563501d587cbf14a0b60b7268",
   "code_version": "a26ef554a6f96916b0502aef237abc3732c37766",
   "grouping_key": "segment_id",
   "stratification": {
     "sampling_unit": "segment_id",
     "stratification_key": "segment 攻击类型前缀（DoS/Fuzzy/Gear/RPM）",
     "window_level_key": "(attack_type, label)",
-    "window_level_key_role": "窗口级 (attack_type,label) 的 support 是分层结果的统计明细，不是逐窗口独立抽样目标：split-v2/windows.parquet 含 segment_id 归属信息，按任务单要求改用 segment 分组分层切分以杜绝片段泄漏；每个 segment 内同时含 Normal 与一种攻击窗口，故按前缀分层即可让两折覆盖全 5 类",
+    "window_level_key_role": "窗口级 (attack_type,label) 的 support 是分层结果的统计明细，不是逐窗口独立抽样目标：split-v2/windows.parquet 含 segment_id 归属信息，按设计约束改用 segment 分组分层切分以杜绝片段泄漏；每个 segment 内同时含 Normal 与一种攻击窗口，故按前缀分层即可让两折覆盖全 5 类",
     "target_train_val_ratio": [
       0.75,
       0.25
@@ -491,5 +491,5 @@
   "data_scope": "真实数据子集（每文件前 100 万行）",
   "level": "window",
   "v2_artifacts_policy": "split-v2 全部产物保留不动，作为跨攻击类型泛化口径的存档对照",
-  "content_sha256": "2e8b6e6739475d6b5554d362145a255e7d1c5fa7f2e3939f7eebfed45378453f"
+  "content_sha256": "f146b072de0f3e755cac468df44a0ebe25c4c38602bb9042ad50cfd9812710ef"
 }

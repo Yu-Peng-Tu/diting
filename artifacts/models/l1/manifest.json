@@ -42,7 +42,7 @@
   },
   "evaluated_on": "val",
   "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
-  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test",
+  "test_set_status": "sealed — test 折全程封存，未读取、未评估、未引用",
   "test_rows_loaded": 0,
   "split_filter": "pyarrow filters [('split','in',['train','val'])] — test 行未载入内存",
   "class_coverage": {

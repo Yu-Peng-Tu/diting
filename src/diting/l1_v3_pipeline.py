@@ -12,7 +12,7 @@
 
 from __future__ import annotations
 
-# HistGradientBoosting / OpenMP 在本机 8GB 内存上多线程会触发内存暴涨被系统终止；
+# HistGradientBoosting / OpenMP 在目标环境 8 GB 内存上多线程会触发内存暴涨被系统终止；
 # 单线程实测训练仅需约 3 秒且指标完全确定。必须在 numpy/sklearn 导入前设置。
 import os
 
@@ -128,7 +128,7 @@ def run(cfg: dict[str, Any] | None = None, generate_split: bool = True) -> dict[
     m_cal = binary_metrics_at_threshold(y_true, y_score, calib["selected_threshold"], cfg)
     m_multi = multiclass_metrics(y_multi_true, y_multi_pred, cfg, model_classes)
 
-    # 4) 评估治理（本任务核心）
+    # 4) 评估治理（本阶段核心）
     aux_val = aux[aux["split"] == "val"].reset_index(drop=True).copy()
     if len(aux_val) != len(y_true):
         raise AssertionError("归因元数据表与 val 指标样本数不一致")

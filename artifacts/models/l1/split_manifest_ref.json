@@ -2,12 +2,12 @@
   "split_manifest_path": "data/processed/split/split-v2/split_manifest.json",
   "split_manifest_sha256": "b514e5d2a39bcca98ff984daf8f31eb22afd8ee01804ab739e514485f0e7ccdc",
   "split_manifest_version": "split-v2",
-  "content_sha256": "29f004771d6b7d003ea0bc40a355cbb4c8d1e1f718ffe76e1a42ab77bc7d76da",
+  "content_sha256": "f3309cebc29076b608e828273980258464887fd563501d587cbf14a0b60b7268",
   "split_windows": {
     "train": 59831,
     "val": 19702,
     "test": 19952
   },
-  "test_set_status": "sealed — 本任务不评估 test，仅在 val 上做 L0 基线评估",
+  "test_set_status": "sealed — test 折全程封存，未评估；仅在 val 上做 L0 基线评估",
   "note": "L1 只读该清单用于版本绑定；test 集合全程封存，未读取任何 test 窗口"
 }

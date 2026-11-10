@@ -116,7 +116,7 @@ def multiclass_metrics(
         }
         for i, c in enumerate(labels)
     }
-    # 定位互混：Gear 与 RPM 的双向错判（任务单点名观察项）
+    # 定位互混：Gear 与 RPM 的双向错判（重点观察项）
     gear_idx, rpm_idx = labels.index("Gear"), labels.index("RPM")
     gear_as_rpm = int(cm[gear_idx, rpm_idx])
     rpm_as_gear = int(cm[rpm_idx, gear_idx])

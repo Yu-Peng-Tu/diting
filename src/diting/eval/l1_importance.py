@@ -1,7 +1,7 @@
 """L1 · permutation importance（val 上、固定种子）与零依赖 SVG 出图。
 
-出图不引入 matplotlib（本机未安装，且任务单禁止新增重型依赖/联网），
-直接用标准库拼 SVG 文本；SVG 是任务单允许的产物格式之一。
+出图不引入 matplotlib（运行环境未安装，且设计约束禁止新增重型依赖/联网），
+直接用标准库拼 SVG 文本；SVG 是允许的产物格式之一。
 """
 
 from __future__ import annotations
@@ -48,7 +48,7 @@ def compute_permutation_importance(
     for i, r in enumerate(rows, 1):
         r["rank"] = i
 
-    # 按 G1–G6 聚合，便于回答「排前列的是不是周期/频率特征」（§5.2）
+    # 按 G1–G6 聚合，便于回答「排前列的是不是周期/频率特征」
     by_group: dict[str, dict[str, Any]] = {}
     for r in rows:
         g = r["group"]

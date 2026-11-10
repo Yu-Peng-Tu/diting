@@ -49,7 +49,7 @@
     "CAN_HCRL_OTIDS_B.csv",
     "CAN_HCRL_OTIDS_UB.csv"
   ],
-  "excluded_reason": "B / UB 为第三方二次加工（SMOTE 平衡/合并、十进制化、列结构不同），来源口径不明，仅作规模参考，禁止作为评估口径；本任务未读取其数据行",
+  "excluded_reason": "B / UB 为第三方二次加工（SMOTE 平衡/合并、十进制化、列结构不同），来源口径不明，仅作规模参考，禁止作为评估口径；本阶段未读取其数据行",
   "field_level_rules": {
     "TS": "-> timestamp (float)",
     "ID1": "-> can_id = int(ID1, 16)，4 位十六进制；B 文件十进制 ID1 取值上界 1680=0x690 交叉印证",

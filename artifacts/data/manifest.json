@@ -50,7 +50,7 @@
       "window_labels.parquet",
       "windows_full.parquet"
     ],
-    "storage_note": "标签存于 data/processed/labels/，特征存于 data/processed/features/，物理隔离（§4.6 L2）"
+    "storage_note": "标签存于 data/processed/labels/，特征存于 data/processed/features/，物理隔离"
   },
   "subset_scope": {
     "max_rows_per_file": 1000000,

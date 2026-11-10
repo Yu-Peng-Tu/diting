@@ -1,7 +1,7 @@
 """D4 · 流式特征计算（真实数据量级下的分批实现）。
 
 W1 的 `compute_window_features(frames, windows, id_freq)` 要求一次性把全量帧表
-读入内存；真实数据集约 500 万帧，本机 8GB 内存不适合。本模块按 segment 分批：
+读入内存；真实数据集约 500 万帧，目标环境 8 GB 内存不适合。本模块按 segment 分批：
 
 1. 顺序扫描 frames.parquet，每次只在内存里保留一个 segment 的帧；
 2. 把该 segment 的 frame_index 重映射为 0..n-1，同时把该段窗口的

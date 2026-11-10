@@ -14,7 +14,7 @@
   "evaluated_on": "val",
   "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
   "split_version": "split-v3",
-  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2",
+  "test_set_status": "sealed — test 折全程封存，未读取、未评估、未引用；test 窗口集合原样沿用 split-v2",
   "test_rows_loaded": 0,
   "outputs": [
     "l1_v3_binary_metrics.json",

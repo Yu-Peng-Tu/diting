@@ -2,7 +2,7 @@
   "split_manifest_path": "data/processed/split/split-v3/split_manifest.json",
   "split_manifest_sha256": "a1dfd8aae179d81ed626f1ff9cd70510b6630f0b46d3881f76db57c520477dc9",
   "split_manifest_version": "split-v3",
-  "content_sha256": "2e8b6e6739475d6b5554d362145a255e7d1c5fa7f2e3939f7eebfed45378453f",
+  "content_sha256": "f146b072de0f3e755cac468df44a0ebe25c4c38602bb9042ad50cfd9812710ef",
   "split_windows": {
     "train": 60256,
     "val": 19277,

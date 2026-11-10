@@ -4,7 +4,7 @@
   "criterion_note": "Youden's J = Recall - FPR，在 val 上取最大；平局取更高阈值",
   "calibrated_on": "val",
   "train_used_for": "model fitting only — 阈值未使用 train 标签",
-  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2",
+  "test_set_status": "sealed — test 折全程封存，未读取、未评估、未引用；test 窗口集合原样沿用 split-v2",
   "default_threshold": 0.5,
   "selected_threshold": 0.54,
   "selected_youden_j": 0.999483,

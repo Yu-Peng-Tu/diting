@@ -151,7 +151,7 @@
   "data_scope": "真实数据子集（每文件前 100 万行）上的 split-v3 val 结果",
   "data_scope_short": "subset-1e6-per-file / split-v3 val / window-level",
   "dataset": "HCRL Car-Hacking Dataset（Kaggle 镜像，MIT）",
-  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2",
+  "test_set_status": "sealed — test 折全程封存，未读取、未评估、未引用；test 窗口集合原样沿用 split-v2",
   "split_version": "split-v3",
   "level": "window"
 }

@@ -1,6 +1,6 @@
 """D1 · 统一 schema 归一（官方 §1.1 数据属性 → Parquet）。
 
-统一 schema（任务单口径）：
+统一 schema 口径：
     timestamp, can_id, dlc, data_0..data_7, flag, source_tag
 另附工程列（不进入特征矩阵）：frame_index, label, session_id, segment_id, attack_kind。
 

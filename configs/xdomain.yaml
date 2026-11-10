@@ -15,7 +15,7 @@ xdomain:
   evaluated_on: "otids_full_zeroshot"
   level: "window"
   source_tag: "public:otids:kia-soul"
-  test_set_status: "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口"
+  test_set_status: "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口"
 
   input_zip:
     path: "data/raw/otids-dataset.zip"

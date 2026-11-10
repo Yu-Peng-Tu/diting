@@ -103,7 +103,7 @@ def stage_data(cfg: dict[str, Any]) -> dict[str, Any]:
         zip_check = verify_zip(cfg)
         if not zip_check.get("verified"):
             raise AssertionError(
-                f"输入 zip 校验失败，按任务单要求立即停工：{zip_check}"
+                f"输入 zip 校验失败，按设计约束立即停工：{zip_check}"
             )
         real_dir = subdir(cfg, "raw", "car-hacking")
         inventory = inventory_raw_files(cfg, real_dir)
@@ -494,9 +494,9 @@ def stage_eval(cfg: dict[str, Any]) -> dict[str, Any]:
         "## 边界声明",
         "",
         "- 纯软件、零硬件依赖；纯软件独立实现；不含 RAG / 工单 / 审批等无关业务功能。",
-        "- 本任务不实现 FastAPI 服务、前端、L1 GBDT 及以后模型、torch。",
+        "- 本阶段不实现 FastAPI 服务、前端、L1 GBDT 及以后模型、torch。",
         "- 本次实际文件来源为 Kaggle 公开镜像（MIT），**非官方直发**；官方下载入口不可达，全程未访问外部网络。",
-        "- 本机内存 8GB，按任务单第 6 条使用配置化子集（每文件前 N 行）+ 流式分批处理，",
+        "- 目标环境内存上限 8 GB，按设计约束使用配置化子集（每文件前 N 行）+ 流式分批处理，",
         "  子集范围与逐文件校验和见 `artifacts/data/dataset_provenance.json`。",
         "",
     ]

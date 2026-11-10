@@ -39,10 +39,9 @@ def render_report(ctx: dict[str, Any]) -> str:
 
     a("# 谛听 W4 · OTIDS 跨域泛化验证报告")
     a("")
-    a(f"> 任务单：`{cfg['task']}`　|　版本：`{cfg['version']}`　|　种子：`{cfg['seed']}`")
+    a(f"> 评估口径：`{cfg['task']}`　|　版本：`{cfg['version']}`　|　种子：`{cfg['seed']}`")
     a(f"> 完成时间：{ctx['finished_at']}　|　代码基线（本报告渲染时的 git HEAD）："
-      f"`{ctx['git_revision'][:12]}`　|　"
-      "W4 代码提交号见 `RESULT.md`（该文件在提交完成后创建，报告不预写尚未产生的提交号）")
+      f"`{ctx['git_revision'][:12]}`")
     a("")
     a("> **一句话结论**：把在 HCRL Car-Hacking（Hyundai）上训练完毕的 L1-v3 模型与阈值 0.54 "
       "**完全冻结**，零样本搬到独立车型 OTIDS（Kia Soul）上，固定阈值下的 F1 出现明显下降，"
@@ -71,7 +70,7 @@ def render_report(ctx: dict[str, Any]) -> str:
     a("")
     a(f"- **同分布 → 跨域 F1 下降 {_num(drop_f1)}**（{_num(w3['f1'])} → {_num(m054['f1'])}），"
       f"Recall 变化 {_num(m054['recall'] - w3['recall'])}，FPR 变化 {_num(m054['fpr'] - w3['fpr'])}。"
-      "下降是本任务的**预期结果**，未做任何口径美化。")
+      "下降是本阶段的**预期结果**，未做任何口径美化。")
     a(f"- **下降机制的关键观察**：阈值无关的 AP 仅从 {_num(w3['average_precision'])} "
       f"降到 {_num(m054['average_precision'])}（{_num(m054['average_precision'] - w3['average_precision'])}），"
       f"ROC-AUC 仍有 {_num(m054['roc_auc'])}，说明**排序/判别能力几乎没有丢失**；"
@@ -104,14 +103,14 @@ def render_report(ctx: dict[str, Any]) -> str:
     a("### 1.1 输入与校验和留痕")
     a("")
     a(f"- 输入：`{zip_check['path']}`（只读，未解压改写、未重新分发）")
-    a(f"- SHA-256：`{zip_check['actual_sha256']}`，与任务单声明"
+    a(f"- SHA-256：`{zip_check['actual_sha256']}`，与 manifest 声明"
       f" `{zip_check['expected_sha256']}` **{'一致' if zip_check['sha256_match'] else '不一致'}**；"
       f"字节数 {zip_check['actual_size_bytes']}（{'一致' if zip_check['size_match'] else '不一致'}）")
     a(f"- zip 内 {len(zip_check['members'])} 个成员，**主口径只用 4 个逐帧带标签文件**："
       f"`{'`, `'.join(parse['primary_zip_members'])}`")
     a(f"- `{parse['excluded_zip_members'][0]}` / `{parse['excluded_zip_members'][1]}` "
       "是第三方二次加工（SMOTE 平衡/合并、十进制化、列结构不同），来源口径不明，"
-      "**仅作规模参考，禁止作为评估口径**；本任务未读取其任何数据行。")
+      "**仅作规模参考，禁止作为评估口径**；本阶段未读取其任何数据行。")
     a(f"- 解析总帧数 **{parse['parquet_rows_total']:,}**，跳过 {parse['skipped_rows_total']} 行，"
       f"逐文件行数对账 {'全部通过' if parse['all_row_counts_match'] else '存在不一致'}；"
       f"切分为 {parse['n_segments']} 个 segment。")
@@ -142,9 +141,9 @@ def render_report(ctx: dict[str, Any]) -> str:
       "里 `ID0=100` 的帧全部 `LEN=0`（分别为 12,774 / 4,694 / 6,432 行），"
       "而 `dataset3.csv` 里 1,422 个 `ID0=100` 帧全部 `LEN=8`。"
       "因此 `ID0` 既不能当作 ID 低位，也不能当作稳定的「远程帧」标记，其语义在本镜像内不自洽；"
-      "本任务取 `can_id = int(ID1,16)`，把 `ID0` 原样保留为 `id0_token` 元数据，"
+      "本阶段取 `can_id = int(ID1,16)`，把 `ID0` 原样保留为 `id0_token` 元数据，"
       "**不进特征、不拼入 ID、不对其语义作推测**。B/UB 文件列结构不同且来源口径不明，"
-      "本任务未将其任何行用于窗口、特征或评估。")
+      "本阶段未将其任何行用于窗口、特征或评估。")
     a("")
     a("**OTIDS 无逐帧 T/R Flag**：统一 schema 的 `flag` 字段填 `NA` 占位，"
       "不参与任何标签或特征计算；帧级标签完全由下表两套口径给出。")
@@ -196,7 +195,7 @@ def render_report(ctx: dict[str, Any]) -> str:
     a("")
 
     # ---------------- 2 零样本评估 ----------------
-    a("## 2. 零样本跨域评估（本任务核心）")
+    a("## 2. 零样本跨域评估（本阶段核心）")
     a("")
     a("### 2.1 二分类：@0.5 与 @冻结阈值 0.54 两套")
     a("")
@@ -248,12 +247,12 @@ def render_report(ctx: dict[str, Any]) -> str:
     a("")
     imp = per_type["by_type"]["Impersonation"]
     a(f"**Impersonation 单独分析**：官方描述中 Impersonation 是针对 `ID 0x164` 的伪装注入，"
-      f"注入帧模仿合法节点，行为统计与正常流量最接近，是本任务预期最难检出的类型。"
+      f"注入帧模仿合法节点，行为统计与正常流量最接近，是本阶段预期最难检出的类型。"
       f"实测 AP={_num(imp.get('average_precision_vs_normal'))}、Recall@0.54="
       f"{_num(imp.get('recall_at_frozen'))}（漏检 {imp.get('missed_at_frozen', 0):,} 个窗口），"
       f"与 DoS（AP={_num(per_type['by_type']['DoS'].get('average_precision_vs_normal'))}）"
       f"的差距见上表。DoS 因注入 `ID=0x000`（正常轨迹中不存在）而最易检出，"
-      f"这与任务单给出的文献参考结论一致。")
+      f"这与文献参考结论一致。")
     a("")
 
     a("### 2.3 映射五分类（次级口径）")
@@ -370,7 +369,7 @@ def render_report(ctx: dict[str, Any]) -> str:
     a("")
     a("跨车型 ID 空间完全不同（Hyundai 与 Kia Soul 的 ID 集合、频次、周期均不同），"
       "而 `id_frequency_train.json` 是 HCRL train 拟合的频次表、在 OTIDS 上被原样套用："
-      "这是本任务对「模型是否背 ID」最硬的检验口径。")
+      "这是本阶段对「模型是否背 ID」最硬的检验口径。")
     a("")
     _ar = {r["tag"]: r for r in abl["rows"]}
     a(f"**实测解释**：事前判读规则为「去 ID 后不降反升 → ID 组已退化为误导信号；"
@@ -399,7 +398,7 @@ def render_report(ctx: dict[str, Any]) -> str:
         a(f"| {label} | {_num(w3[key])} | {_num(m054[key])} | {_num(m054[key] - w3[key])} |")
     a("")
     a(f"W3 的 macro-F1={_num(w3['macro_f1'])} 属**同分布上限**，"
-      "任务单已明确「不可外推」；本节对照表正是把这个死结用独立车型数据打开。"
+      "已明确「不可外推」；本节对照表正是把这个死结用独立车型数据打开。"
       "两轮评估集不同（HCRL split-v3 val vs OTIDS 全量窗口），"
       "数字只用于说明泛化边界，不是同一测试集上的模型 A/B。")
     a("")
@@ -431,10 +430,10 @@ def render_report(ctx: dict[str, Any]) -> str:
     a("")
     a("> **归因强度声明（按攻击类型）**：上表左侧三列是本次实测数据，"
       "右侧是基于文献机制与漂移量化的**假设性解释**，不是因果分解。"
-      "任务单要求「ID 空间 / 周期 / payload 漂移分别贡献多少」，但在零样本、不重训、"
+      "需回答「ID 空间 / 周期 / payload 漂移分别贡献多少」，但在零样本、不重训、"
       "且 OTIDS 镜像没有逐帧真值的前提下，这三组漂移彼此耦合、无法单独隔离，"
       "**贡献百分比不可识别**。本报告只给出可复现的分类型指标（第 2.2 节）"
-      "与分组漂移量化（第 5.3 节），不编造占比；该限制已列入 `RESULT.md` 遗留问题。")
+      "与分组漂移量化（第 5.3 节），不编造占比；该限制在本报告第 6 节列明。")
     a("")
 
     a("### 5.3 按特征组（分布漂移量化）")
@@ -463,7 +462,7 @@ def render_report(ctx: dict[str, Any]) -> str:
     a(f"**归因结论（关联证据，非因果分解）**：漂移最大的组是 "
       f"`{drift['dominant_drift_group']}`"
       f"（平均 |Δmean|={_num(drift['by_group'][drift['dominant_drift_group']]['mean_abs_delta'])}），"
-      "而该组在本任务中原本只被设为**对照量**（G1 DLC 统计与窗口帧统计），"
+      "而该组在本阶段中原本只被设为**对照量**（G1 DLC 统计与窗口帧统计），"
       "并非预设的三类漂移假设之一。这说明两数据集在 DLC / 窗口帧密度上的分布差异，"
       "比 ID 空间、周期、payload 三类都更显著，提示采集与切段层面的差异不可忽略。"
       "但**漂移幅度大 ≠ 对性能下降的贡献大**：第 4 节去 ID 消融显示去掉 ID 组后 AP "
@@ -488,10 +487,9 @@ def render_report(ctx: dict[str, Any]) -> str:
       f"verified={integrity['verified']}。")
     a(f"- 结论：{integrity['conclusion']}")
     a(f"- HCRL test 折：{cfg['test_set_status']}（split-v3 windows 只含 train/val，"
-      "本任务按 window_id in-list 下推，test 特征零载入）。")
+      "本阶段按 window_id in-list 下推，test 特征零载入）。")
     a("- 本次新增产物一律为 `otids` / `xdomain` 前缀的新文件、新目录；"
-      "W4 代码已做英文提交（未 push），**提交号与完整变更清单见 `RESULT.md`**"
-      "——`RESULT.md` 按 worker 约定在提交完成后最后创建，故本报告不预写尚未产生的提交号。")
+      "完整变更清单见 `git log`。")
     a(f"- 全量 pytest {ctx['pytest_passed']}/{ctx['pytest_total']} 通过；ruff 通过。")
     a("- 未安装 torch / matplotlib 等重型依赖，未访问任何外部服务。")
     a("")
@@ -508,16 +506,15 @@ def render_report(ctx: dict[str, Any]) -> str:
       "一起变化，无法把下降单独归因于某一个因素。")
     a("3. **冻结特征参数的错配**：`id_frequency_train.json` 与归一化参数是 HCRL train 拟合的，"
       "零样本要求必须原样套用；若允许在 OTIDS 上重新 fit 会提升数字，但那就不是零样本，"
-      "本任务明确禁止。")
+      "本阶段明确禁止。")
     a("4. **官方描述口径为近似**：Fuzzy / Impersonation 的「250 秒后为攻击段」是"
-      "按任务单给出的官方描述实现的近似判据，OTIDS 官方并无逐帧 Fuzzy 标签；"
+      "按文献给出的官方描述实现的近似判据，OTIDS 官方并无逐帧 Fuzzy 标签；"
       "该口径只作敏感性对照。")
     a("5. **五分类不可定义**：OTIDS 无 Gear/RPM 真值、无 Impersonation 对应类别，"
       "跨域 macro-F1 不报；映射分布仅为定性参考。")
-    a("6. **反向验证（train OTIDS → test HCRL val）未执行**：任务单禁止项明确"
+    a("6. **反向验证（train OTIDS → test HCRL val）未执行**：设计约束禁止项明确"
       "「不用 OTIDS 数据重训/微调模型权重」，而反向验证必须用 OTIDS 训练模型，与禁止项冲突；"
-      "该项虽标为可选，本轮按禁止项优先不做，已在 RESULT.md 遗留问题列明，"
-      "需规划方明确放行口径后另派单。")
+      "该项虽标为可选，本轮按禁止项优先不做；如后续需要，须先明确放行口径再实施。")
     a("7. **适配上限不是零样本**：第 3 节数字使用了一半 OTIDS 数据（仅调阈值），"
       "不得与第 2 节零样本数字混报或取更优者对外引用。")
     a("")
@@ -547,6 +544,6 @@ def render_report(ctx: dict[str, Any]) -> str:
     a("---")
     a("")
     a("全量指标与逐条口径标注见 `xdomain_metrics.json`；"
-      "产物清单、验收逐条核对与遗留问题见 `RESULT.md`。")
+      "产物清单与逐条核对见 `artifacts/eval/xdomain_eval/manifest.json`。")
     a("")
     return "\n".join(lines)

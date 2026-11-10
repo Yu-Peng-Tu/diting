@@ -1,10 +1,10 @@
 """D3 · 划分清单（按注入片段/会话分组 + 时间顺序 6:2:2）。
 
-防泄漏要点（策划方案 §4.6 L1/L3/L6）：
+防泄漏要点：
 - 不逐帧随机打散；以 segment_id 为最小划分单位。
 - 按片段起始时间排序后顺序切分，测试集位于时间后段。
 - 代码断言：「同一注入片段不跨集合」，窗口归属由片段决定，窗口不跨片段边界。
-- 归一化参数只在训练折 fit；阈值只在验证集标定；测试集封存（本任务不评估 test）。
+- 归一化参数只在训练折 fit；阈值只在验证集标定；测试集封存（本阶段不评估 test）。
 """
 
 from __future__ import annotations
@@ -94,7 +94,7 @@ def build_split_manifest(
             for s in SPLITS
         },
         "assertions": {},
-        "test_set_status": "sealed — 本任务不评估 test，仅在 val 上做 L0 基线评估",
+        "test_set_status": "sealed — test 折全程封存，未评估；仅在 val 上做 L0 基线评估",
     }
     manifest["assertions"] = run_split_assertions(windows, manifest)
     manifest["content_sha256"] = sha256_obj({k: v for k, v in manifest.items() if k != "content_sha256"})
@@ -177,7 +177,7 @@ def write_split_artifacts(
             {
                 "version": version,
                 "updated_at": utc_now(),
-                "note": "当前生效的划分清单版本；split-v1 平铺文件按任务单要求保留不动",
+                "note": "当前生效的划分清单版本；split-v1 平铺文件按设计约束保留不动",
                 "windows_path": str(target / "windows.parquet"),
                 "manifest_path": str(target / "split_manifest.json"),
             },

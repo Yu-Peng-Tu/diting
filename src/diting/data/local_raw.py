@@ -3,15 +3,15 @@
 本模块是「本地原始文件接入」路径，与 `download.py` + `simulate.py`
 （simulated 替代路径，仍保留用于测试）并存。
 
-真实文件为规划方本地化的 zip 解压产物，放在 `data/raw/car-hacking/`，共 5 个：
+真实文件为公开数据集 zip 的解压产物，放在 `data/raw/car-hacking/`，共 5 个：
 
 - 攻击集 CSV（4 个）：`Timestamp,CAN ID(HEX),DLC,DATA[0..DLC-1](HEX),Flag(T/R)`，
   **无表头**，行尾 CRLF，DLC<8 时 DATA 列数随 DLC 变化，Flag 恒为最后一个字段。
 - `normal_run_data.txt`：candump 文本，
   `Timestamp: <秒> ID: <hex> 000 DLC: <n> <hex bytes...>`，**无 Flag 列**，
-  按策划方案 §4.2，Attack-free 全部视为正常帧（label=0），仅作正常流量来源。
+  按设计约定，Attack-free 全部视为正常帧（label=0），仅作正常流量来源。
 
-流式策略（任务单第 6 条：不得一次性读入内存）：
+流式策略（内存约束：不得一次性读入内存）：
 
 - 逐文件、逐 chunk 解析，用 `pyarrow.parquet.ParquetWriter` 追加写 frames.parquet；
 - 以「时间间隙 > gap_threshold」或「单段帧数达 segment_max_frames」切 segment，
@@ -36,7 +36,7 @@ import pyarrow.parquet as pq
 from ..common import PROJECT_ROOT, sha256_file, utc_now, write_json
 from .schema import FRAME_COLUMNS, _parse_hex
 
-# 真实数据统一来源标记（任务单要求）
+# 真实数据统一来源标记（设计约束）
 SOURCE_TAG = "public:car-hacking"
 
 # 5 个真实文件的字段级规格；official_count 取自官方页面 §1.2（configs/default.yaml）
@@ -494,7 +494,7 @@ def build_windows_and_labels_streaming(
         "window_negative": int((1 - window_labels["label"]).sum()),
         "n_segments_with_windows": len(window_chunks),
         "files": ["frame_labels.parquet", "window_labels.parquet", "windows_full.parquet"],
-        "storage_note": "标签存于 data/processed/labels/，特征存于 data/processed/features/，物理隔离（§4.6 L2）",
+        "storage_note": "标签存于 data/processed/labels/，特征存于 data/processed/features/，物理隔离",
     }
     return windows, stats
 
@@ -540,12 +540,12 @@ def write_real_provenance(
             "attack_csv": "Timestamp,CAN ID(HEX),DLC,DATA[0..7](HEX),Flag(T/R)；无表头；DLC<8 时 DATA 列数随 DLC 变化",
             "normal_candump": "Timestamp: <秒> ID: <hex> 000 DLC: <n> <hex bytes...>；无 Flag 列，全部正常帧",
             "flag_mapping": "T -> label=1（注入帧），R -> label=0（正常帧）",
-            "attack_free_policy": "Attack-free 数据集不参与攻击类标签，仅作正常流量来源（策划方案 §4.2）",
+            "attack_free_policy": "Attack-free 数据集不参与攻击类标签，仅作正常流量来源（设计约定）",
             "evidence": "逐文件 SHA-256、字节数、行数（physical_newlines）与官方 §1.2 计数逐一比对，见 file_inventory.files",
         },
         "subset_scope": {
             "max_rows_per_file": int(cfg["local_data"]["max_rows_per_file"]),
-            "note": "本机内存 8GB，全量约 1755 万帧不可一次性处理；按任务单第 6 条使用配置化子集",
+            "note": "目标环境内存上限 8 GB，全量约 1755 万帧不可一次性处理；按设计约束使用配置化子集",
             "files": [
                 {"file": f["file"], "rows_used": f["rows_used"], "is_subset": f["is_subset"]}
                 for f in inventory["files"]
@@ -560,7 +560,7 @@ def write_real_provenance(
             "已被本次真实数据评估结果取代。"
         ),
         "whitelist": list(cfg["local_data"].get("whitelist", [])),
-        "network_scope_note": "本任务数据已本地化，未访问外部网络；原始数据不提交 git、不重新分发。",
+        "network_scope_note": "本阶段数据已本地化，未访问外部网络；原始数据不提交 git、不重新分发。",
     }
     write_json(artifacts_dir / "dataset_provenance.json", prov)
     return prov

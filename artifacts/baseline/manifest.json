@@ -38,7 +38,7 @@
     ]
   },
   "is_real_data": true,
-  "test_set_status": "sealed — 本任务不评估 test",
+  "test_set_status": "sealed — test 折全程封存，未评估",
   "outputs": [
     "./artifacts/baseline/l0_predictions.parquet",
     "./artifacts/baseline/l0_metrics.json",

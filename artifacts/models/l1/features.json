@@ -151,6 +151,6 @@
   "data_scope": "真实数据子集（每文件前 100 万行）上的 val 结果",
   "data_scope_short": "subset-1e6-per-file / val / window-level",
   "dataset": "HCRL Car-Hacking Dataset（Kaggle 镜像，MIT）",
-  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test",
+  "test_set_status": "sealed — test 折全程封存，未读取、未评估、未引用",
   "level": "window"
 }

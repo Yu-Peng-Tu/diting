@@ -1,8 +1,8 @@
-"""谛听 W4 · 跨域「去 ID 消融」重做（任务单工作内容 2 第 3 条）。
+"""谛听 W4 · 跨域「去 ID 消融」重做（跨域去 ID 消融）。
 
 W3 的三组消融变体只有指标 JSON，**没有保存模型 joblib**
 （见 ``artifacts/ablation/l1_v3/`` 与 ``artifacts/eval/l1_v3_ablation_metrics.json``）。
-按任务单允许的替代路径：用同配置、同种子、同 HCRL split-v3 train 折，
+按允许的替代路径：用同配置、同种子、同 HCRL split-v3 train 折，
 重训一版「去 ID 频率组」二分类模型，**仅用于本次跨域评估**。
 
 纪律：
@@ -175,7 +175,7 @@ def cross_domain_id_ablation(
         "version": "xdomain-id-abl-v1",
         "trained_on": "HCRL split-v3 train（同配置同种子重训，仅用于本次跨域评估）",
         "model_source_note": (
-            "W3 消融变体未保存模型 joblib（仅指标 JSON），按任务单允许的路径重训；"
+            "W3 消融变体未保存模型 joblib（仅指标 JSON），按允许的路径重训；"
             "重训完全不使用 OTIDS 数据，冻结的 L1-v3 全特征模型未被修改"
         ),
         "hcrl_train_windows": int((dataset.split == "train").sum()),
@@ -188,7 +188,7 @@ def cross_domain_id_ablation(
         "n_features_ablated": len(used_cols),
         "model_artifact": str(model_path),
         "model_artifact_sha256": sha256_file(model_path),
-        "collapse_rule": f"AP 相对下降 ≥ {COLLAPSE_REL_PCT:.1f}% 判为崩塌（沿用 W3 §5.4 判据）",
+        "collapse_rule": f"AP 相对下降 ≥ {COLLAPSE_REL_PCT:.1f}% 判为崩塌（沿用同一判据）",
         "ap_full_33": frozen_ap_r,
         "ap_drop_id": ablated_ap_r,
         "ap_absolute_delta": round(ablated_ap_r - frozen_ap_r, 8),

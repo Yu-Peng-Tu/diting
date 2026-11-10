@@ -26,7 +26,7 @@ def predicted(sample_frames, sample_windows, sample_split):
 
 
 def test_l0_nonzero_recall_on_validation(predicted, sample_split):
-    """L0 在留出验证集上给出非零 Recall（W1 验收口径）。"""
+    """L0 在留出验证集上给出非零 Recall（W1 验收标准）。"""
     from diting.eval.metrics import evaluate_l0
 
     _, _, preds, _ = predicted
@@ -36,7 +36,7 @@ def test_l0_nonzero_recall_on_validation(predicted, sample_split):
     }
     report = evaluate_l0(preds, sample_split, cfg)
     assert report["evaluated_on"].startswith("val")
-    assert report["metrics"]["recall"] > 0, "L0 连 DoS 都检不出，应先查数据管线（§5.1）"
+    assert report["metrics"]["recall"] > 0, "L0 连 DoS 都检不出，应先查数据管线"
     assert 0.0 <= report["metrics"]["fpr"] <= 1.0
     assert report["test_set_status"].startswith("sealed")
 

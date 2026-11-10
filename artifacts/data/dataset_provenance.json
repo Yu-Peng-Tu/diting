@@ -35,7 +35,7 @@
     "is_official_direct_download": false,
     "kaggle_mirror": "https://www.kaggle.com/datasets/pranavjha24/car-hacking-dataset",
     "kaggle_license": "MIT",
-    "acquired_by": "规划方（Kimi）本地化后以 zip 形式交付，路径见 input_zip.path",
+    "acquired_by": "从公开镜像下载后以 zip 形式提供，路径见 input_zip.path",
     "official_download_hosts": [
       "https://drive.google.com",
       "https://www.dropbox.com"
@@ -152,12 +152,12 @@
     "attack_csv": "Timestamp,CAN ID(HEX),DLC,DATA[0..7](HEX),Flag(T/R)；无表头；DLC<8 时 DATA 列数随 DLC 变化",
     "normal_candump": "Timestamp: <秒> ID: <hex> 000 DLC: <n> <hex bytes...>；无 Flag 列，全部正常帧",
     "flag_mapping": "T -> label=1（注入帧），R -> label=0（正常帧）",
-    "attack_free_policy": "Attack-free 数据集不参与攻击类标签，仅作正常流量来源（策划方案 §4.2）",
+    "attack_free_policy": "Attack-free 数据集不参与攻击类标签，仅作正常流量来源（设计约定）",
     "evidence": "逐文件 SHA-256、字节数、行数（physical_newlines）与官方 §1.2 计数逐一比对，见 file_inventory.files"
   },
   "subset_scope": {
     "max_rows_per_file": 1000000,
-    "note": "本机内存 8GB，全量约 1755 万帧不可一次性处理；按任务单第 6 条使用配置化子集",
+    "note": "目标环境内存上限 8 GB，全量约 1755 万帧不可一次性处理；按设计约束使用配置化子集",
     "files": [
       {
         "file": "DoS_dataset.csv",
@@ -195,5 +195,5 @@
     "https://arxiv.org/abs/1907.07377",
     "https://www.kaggle.com/datasets/pranavjha24/car-hacking-dataset"
   ],
-  "network_scope_note": "本任务数据已本地化，未访问外部网络；原始数据不提交 git、不重新分发。"
+  "network_scope_note": "本阶段数据已本地化，未访问外部网络；原始数据不提交 git、不重新分发。"
 }

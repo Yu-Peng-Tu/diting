@@ -121,6 +121,6 @@
       "n_segments": 42
     }
   },
-  "test_set_status": "sealed — 本任务不评估 test，仅在 val 上做 L0 基线评估",
-  "content_sha256": "8058214a99ec7db17e12201562a9b6730b92d2b7c0462d6f5ec2a307b01b864b"
+  "test_set_status": "sealed — test 折全程封存，未评估，仅在 val 上做 L0 基线评估",
+  "content_sha256": "5868ae6ce31ffc55d240e99e93578042bca7cd804ecf43f08d12dd7b6564de65"
 }

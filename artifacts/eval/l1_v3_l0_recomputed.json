@@ -6,7 +6,7 @@
   "level": "window",
   "n_val_windows": 19277,
   "primary_policy": "同口径主行：用 split-v3 train 正常窗口重新 fit 规则阈值（分位数统计，非模型训练），在 split-v3 val 上评估；与 L1-v3 的训练/评估划分完全一致。L0 不是可训练模型，故仍称『重算』",
-  "primary_threshold_source": "split-v3 train 正常窗口（本任务重新 fit，见 reference_rule 之外的 primary_rule）",
+  "primary_threshold_source": "split-v3 train 正常窗口（本阶段重新 fit，见 reference_rule 之外的 primary_rule）",
   "primary_rule": {
     "version": "l0-thresholds-v1",
     "fit_on": "train_normal_windows",
@@ -59,7 +59,7 @@
         ]
       ]
     },
-    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）"
+    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标"
   },
   "reference_policy": "敏感性分析：沿用 W2 在 split-v2 train 正常窗口 fit 的固定阈值，仅把评估集换成 split-v3 val。该阈值来自旧划分，与 L1-v3 训练口径不一致，故不作为对照表主行；两者差距用于说明固定规则阈值对划分/分布漂移的敏感性",
   "reference_threshold_source": "artifacts/baseline/l0_rule_thresholds.json（只读，W2 产物）",
@@ -92,7 +92,7 @@
         ]
       ]
     },
-    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）"
+    "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标"
   },
   "threshold_source_delta_fpr": 0.830616,
   "threshold_source_delta_note": "参考口径 FPR - 主口径 FPR；正值表示沿用旧划分阈值会显著恶化误报，说明 L0 固定阈值对划分敏感，也说明主口径必须重新 fit 才公平",
@@ -103,5 +103,5 @@
     "RPM": 159,
     "Gear": 144
   },
-  "test_set_status": "sealed — 本任务不读取、不评估、不引用 test；test 窗口集合原样沿用 split-v2"
+  "test_set_status": "sealed — test 折全程封存，未读取、未评估、未引用；test 窗口集合原样沿用 split-v2"
 }

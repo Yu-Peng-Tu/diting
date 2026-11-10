@@ -1,7 +1,7 @@
 """L1 · 三组特征消融 + train 折内类别可分性诊断。
 
 三组消融（对应防泄漏叙事）：
-  ① 剔除 ID 频率组 → 检验「模型学行为还是背 ID」（任务单点名结论项）；
+  ① 剔除 ID 频率组 → 检验「模型学行为还是背 ID」（重点结论项）；
   ② 剔除周期间隔组；
   ③ 剔除 payload 字节组。
 每组都用同样的超参、同样的 train/val 口径重训重评，阈值固定为 0.5 与主模型
@@ -99,7 +99,7 @@ def run_ablations(
         conclusion = (
             f"去掉 ID 频率组后 AP 从 {full['average_precision']:.6f} 降到 "
             f"{id_row['average_precision']:.6f}（相对下降 {100*rel:.2f}%，≥10%），"
-            "指标明显崩塌：模型较依赖 ID 频率类特征，存在「背 ID」倾向，需按 §4.6 复核泄漏与特征设计。"
+            "指标明显崩塌：模型较依赖 ID 频率类特征，存在「背 ID」倾向，需按 复核泄漏与特征设计。"
         )
     else:
         conclusion = (
@@ -113,7 +113,7 @@ def run_ablations(
         "data_scope": cfg["data_scope"],
         "threshold_policy": "统一报 0.5 与全特征模型标定阈值两套，并以阈值无关 AP 作为崩塌主判据",
         "baseline_calibrated_threshold": baseline_threshold,
-        "collapse_rule": "AP 相对下降 ≥ 10% 判为崩塌（对应规格说明书 §5.4「去掉 ID 特征后 PR-AUC 下降 ≤ 0.10」）",
+        "collapse_rule": "AP 相对下降 ≥ 10% 判为崩塌（「去掉 ID 特征后 PR-AUC 下降 ≤ 0.10」）",
         "variants": results,
         "id_group_conclusion": {
             "collapsed": collapsed,
@@ -172,7 +172,7 @@ def run_train_diagnostic(cfg: dict[str, Any], dataset: L1Dataset) -> dict[str, A
         "is_acceptance_metric": d["is_acceptance_metric"],
         "warning": (
             "本诊断仅在 train 折内部做分层留出，因 split-v2 的 val 只含 Normal/DoS、"
-            "不含 Gear/RPM，任务单点名的「Gear↔RPM 互混」在 val 上无法观察。"
+            "不含 Gear/RPM，「Gear↔RPM 互混」在 val 上无法观察。"
             "此结果仅作定性补充证据，严禁写入对外指标或公开报告。"
         ),
         "classes_in_train": present,

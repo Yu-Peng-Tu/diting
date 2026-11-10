@@ -250,7 +250,7 @@ def five_class_mapping(
             "judged_as_Fuzzy": imp_dist.get("Fuzzy", None),
             "note": (
                 "Impersonation 为伪装注入，HCRL 五分类标签空间无对应类别；"
-                "按任务单要求单独报告其被判为 Gear/RPM/Normal 的分布，不强行并入 macro-F1。"
+                "按设计约束单独报告其被判为 Gear/RPM/Normal 的分布，不强行并入 macro-F1。"
                 "被判为 Normal 的比例即伪装类漏检的定性参考。"
             ),
         },

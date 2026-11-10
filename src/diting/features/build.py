@@ -1,12 +1,12 @@
 """D4 · 特征工程（G1–G6），训练侧与服务侧共用的唯一实现。
 
-对应策划方案 §4.5 与 §4.6 泄漏防线：
+泄漏防线：
 - 特征只从统一 schema 的 timestamp / can_id / dlc / data_0..7 计算。
 - flag、label、can_id==0x000 布尔等标签等价信息一律不进特征矩阵（代码断言）。
 - 归一化参数与 ID 频次表只在 **train 折** fit，导出带版本号的 feature_params.json。
 - golden vector：固定样本输入 → 特征值快照，供训练/推理一致性逐值比对。
 - G4 的 min_id_share 是「窗口内数值最小 ID 的占比」这一相对统计量，
-  不是帧级 can_id==0x000 布尔；已列入 W2 消融清单（§4.6 L2 / §5.2）。
+  不是帧级 can_id==0x000 布尔；已列入 W2 消融清单。
 """
 
 from __future__ import annotations

@@ -51,7 +51,7 @@
   },
   "evaluated_on": "otids_zeroshot",
   "data_scope": "OTIDS（Kia Soul）全量 4 个逐帧标签文件 / 窗口级 / 冻结模型零样本跨域评估",
-  "test_set_status": "HCRL test 折全程封存；本任务不读取、不评估、不引用任何 HCRL test 窗口",
+  "test_set_status": "HCRL test 折全程封存；未读取、未评估、未引用任何 test 窗口",
   "otids_rows_loaded": 4613439,
   "otids_windows": 92013,
   "hcrl_test_rows_loaded": 0,

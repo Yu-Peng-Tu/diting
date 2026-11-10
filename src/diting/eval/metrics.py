@@ -1,6 +1,6 @@
 """评估指标与报告（L0 留出验证集评估）。
 
-口径遵循策划方案 §5.3：类别不平衡下不以 accuracy 为主指标，
+指标口径：类别不平衡下不以 accuracy 为主指标，
 报 Recall / FPR / Precision / F1 / 混淆矩阵，并同时给「每万正常窗口误报数」。
 帧级 / 窗口级 / 事件级三套口径需分开报，W1 只在**窗口级**评估 L0。
 """
@@ -45,7 +45,7 @@ def compute_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict[str, Any]:
             "labels": ["Normal", "Attack"],
             "matrix": [[tn, fp], [fn, tp]],
         },
-        "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标（§5.3）",
+        "note": "窗口级口径；类别不平衡，不使用 accuracy 作为主指标",
     }
 
 
@@ -69,7 +69,7 @@ def evaluate_l0(
         "model": "L0 统计规则 baseline",
         "model_version": cfg["baseline"]["version"],
         "evaluated_on": "val（留出验证集）",
-        "test_set_status": "sealed — 本任务不评估 test",
+        "test_set_status": "sealed — test 折全程封存，未评估",
         "level": "window",
         "split_manifest_version": split_manifest["version"],
         "evaluated_at": utc_now(),
@@ -118,7 +118,7 @@ def write_eval_artifacts(
         "> W1 在 source_tag=simulated 小样本上的 Recall=1.0 / FPR=0.0833 属**仅管线验证，非项目指标**，",
         "> 已被本次真实数据结果取代，不得写入公开报告或对外报告。",
         "",
-        "## 指标（§5.3 口径）",
+        "## 指标",
         "",
         "| 指标 | 值 |",
         "|---|---:|",
@@ -143,8 +143,8 @@ def write_eval_artifacts(
         f"- 规则特征：`{'`, `'.join(rule['rule_features'])}`",
         f"- 排除特征：`{'`, `'.join(rule['excluded_from_rules'])}` — {rule['exclusion_reason']}",
         "",
-        "L0 的价值是给后续所有模型一条共同下限并验证评估管线本身没写错（§5.2）；",
-        "它不追求高指标，本任务也不实现 L1 GBDT 及以后模型。",
+        "L0 的价值是给后续所有模型一条共同下限并验证评估管线本身没写错；",
+        "它不追求高指标，本阶段也不实现 L1 GBDT 及以后模型。",
         "",
     ]
     report_path.write_text("\n".join(lines), encoding="utf-8")
