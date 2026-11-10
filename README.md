@@ -152,6 +152,7 @@ Dataset rights and citation requirements remain with their original providers.
 
 ## Limitations
 
+- The MIT license covers the source code in this repository only; rights to the HCRL and OTIDS datasets remain with their original providers.
 - Offline research software, not an automotive safety-certified or production vehicle security system.
 - Cross-dataset results combine changes in vehicle, collection environment, and timestamp conventions; they do not isolate a single causal factor.
 - Local feature contributions use single-feature zero perturbation in normalized space; they are not SHAP values or global feature importance.
